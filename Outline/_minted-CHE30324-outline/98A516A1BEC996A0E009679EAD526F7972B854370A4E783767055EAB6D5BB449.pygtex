@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGdefault{k+kn}{import} \PYGdefault{n+nn}{numpy} \PYGdefault{k+kn}{as} \PYGdefault{n+nn}{np}
+\PYGdefault{k+kn}{import} \PYGdefault{n+nn}{matplotlib.pyplot} \PYGdefault{k+kn}{as} \PYGdefault{n+nn}{plt}
+
+\PYGdefault{n}{k} \PYGdefault{o}{=}
+
+\PYGdefault{k}{def} \PYGdefault{n+nf}{Boltzmann}\PYGdefault{p}{(}\PYGdefault{n}{E}\PYGdefault{p}{,}\PYGdefault{n}{T}\PYGdefault{p}{):}
+    \PYGdefault{k}{return} \PYGdefault{n}{np}\PYGdefault{o}{.}\PYGdefault{n}{exp}\PYGdefault{p}{(}\PYGdefault{o}{\PYGdefaultZhy{}}\PYGdefault{n}{E}\PYGdefault{o}{/}\PYGdefault{n}{T}\PYGdefault{p}{)}
+
+\PYGdefault{n}{energy} \PYGdefault{o}{=} \PYGdefault{n}{np}\PYGdefault{o}{.}\PYGdefault{n}{linspace}\PYGdefault{p}{(}\PYGdefault{l+m+mi}{0}\PYGdefault{p}{,}\PYGdefault{l+m+mi}{10}\PYGdefault{p}{,}\PYGdefault{l+m+mi}{50}\PYGdefault{p}{)}
+\PYGdefault{n}{Temperature} \PYGdefault{o}{=} \PYGdefault{n}{np}\PYGdefault{o}{.}\PYGdefault{n}{array}\PYGdefault{p}{([}\PYGdefault{o}{.}\PYGdefault{l+m+mo}{01}\PYGdefault{p}{,}\PYGdefault{o}{.}\PYGdefault{l+m+mi}{1}\PYGdefault{p}{,}\PYGdefault{l+m+mi}{1}\PYGdefault{p}{])}
+
+\PYGdefault{n}{Probability} \PYGdefault{o}{=} \PYGdefault{n}{Boltzmann}\PYGdefault{p}{(}\PYGdefault{n}{energy}\PYGdefault{p}{,}\PYGdefault{l+m+mi}{1}\PYGdefault{p}{)}
+
+
+\PYGdefault{k}{print}\PYGdefault{p}{(}\PYGdefault{n}{Temperature}\PYGdefault{p}{)}
+\PYGdefault{k}{print}\PYGdefault{p}{(}\PYGdefault{n}{energy}\PYGdefault{p}{)}
+\PYGdefault{k}{print}\PYGdefault{p}{(}\PYGdefault{n}{Probability}\PYGdefault{p}{)}
+\end{Verbatim}

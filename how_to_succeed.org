@@ -1,0 +1,95 @@
+#+BEGIN_OPTIONS
+#+AUTHOR: William F. Schneider
+#+TITLE: CHE 30324 Syllabus
+#+EMAIL: wschneider@nd.edu
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+LATEX_HEADER:\usepackage[left=1in, right=1in, top=1in, bottom=1in, nohead]{geometry}
+#+LATEX_HEADER:\geometry{margin=1.0in}
+#+LATEX_HEADER:\usepackage{amsmath}
+#+LATEX_HEADER:\usepackage{graphicx}
+#+LATEX_HEADER:\usepackage{epstopdf}
+#+LATEX_HEADER:\usepackage{fancyhdr}
+#+LATEX_HEADER:\usepackage{hyperref}
+#+LATEX_HEADER:\usepackage[labelfont=bf]{caption}
+#+LATEX_HEADER:\usepackage{setspace}
+# #+LATEX_HEADER:\setlength{\headheight}{10.2pt}
+# #+LATEX_HEADER:\setlength{\headsep}{20pt}
+#+LATEX_HEADER:\def\dbar{{\mathchar'26\mkern-12mu d}}
+#+LATEX_HEADER:\pagestyle{fancy}
+#+LATEX_HEADER:\fancyhf{}
+#+LATEX_HEADER:\renewcommand{\headrulewidth}{0.5pt}
+#+LATEX_HEADER:\renewcommand{\footrulewidth}{0.5pt}
+#+LATEX_HEADER:\lfoot{\today}
+#+LATEX_HEADER:\cfoot{\copyright\ 2020 W.\ F.\ Schneider}
+#+LATEX_HEADER:\rfoot{\thepage}
+#+LATEX_HEADER:\title{University of Notre Dame\\Physical Chemistry for Chemical Engineers\\(CHE 30324)}
+#+LATEX_HEADER:\author{Prof. William F.\ Schneider}
+#+LATEX_HEADER:\def\dbar{{\mathchar'26\mkern-12mu d}}
+#+LATEX_HEADER:\usepackage[small]{titlesec}
+#+LATEX_HEADER:\titlespacing*{\section}
+#+LATEX_HEADER:{0pt}{0.4\baselineskip}{0.0\baselineskip}
+#+LATEX_HEADER:\titlespacing*{\subsection}
+#+LATEX_HEADER:{0pt}{0.4\baselineskip}{0.0\baselineskip}
+#+LATEX_HEADER:\titlespacing*{\subsubsection}
+#+LATEX_HEADER:{0pt}{0.1\baselineskip}{0.0\baselineskip}
+
+#+OPTIONS: toc:nil
+#+OPTIONS: H:3 num:3
+#+OPTIONS: ':t
+#+END_OPTIONS
+
+#+BEGIN_EXPORT latex
+\begin{center}
+\textsc{\Large Physical Chemistry for Chemical Engineers (CHE 30324)}\\University of Notre Dame, Spring 2020
+\end{center}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l r}
+\hline
+Prof.\ Bill Schneider & Classroom: 129 DBRT\\
+Office: 370 Nieuwland & Lecture MWF 9:25-10:15\\
+\email{wschneider@nd.edu}, phone 574-631-8754 & \http{https://github.com/wmfschneider/CHE30324} \\
+\hline
+\end{tabular*}
+#+END_EXPORT
+
+\vspace{1cm}
+
+Most students agree that studying for any chemistry course is no walk in the park, and I'm sure if you ask around most will say that the most conceptually demanding chemistry course is physical chemistry. Physical chemistry involves recalling things you've learned from your physics, calculus, and thermodynamics courses. If math is your weak spot, then you may find this class very daunting. However, physical chemistry is essential as it help you understand the relationship between energy and matter from the microscopic and macroscopic scale. As such, I've written a short document that will hopefully help you all succeed in class, and give you a quick guide on how to complete and study for the homeworks and exams in this class.
+
+** How to succeed in Physical Chemistry
+1. Attend lectures and pay attention                                                                     
+2. Take notes, paying special attentions to the *concepts*. Equations are provided in the outline and on exams. Strive to understand what an equation means (what quantities it connects, under what circumstances). 
+3. If you don't understand a concept, ask a question.
+4. After class *rewrite* your notes. This helps reinforce what learned in class and will reveal the things 
+ you don't understand. Figure those things out, either by reading, thinking, or discussing with friends, TAs, or me. 
+5. Read and refine notes  everyday!!!
+6. Go to office hours, especially TA office hours. There are usually groups of students there. Someone   
+may ask a question that you may have never considered.                                                   
+
+
+** How to do the homework
+1. Always read the question in full before attempting to answer it. You'll kick yourself if you lost     
+ points because you didn't read the question completely.                                                  
+2. Draw a picture. If you are answering a question about effusion, draw a picture of a particle effusing    
+ through a hole in a box. This helps your mind wrap around the problem, and helps you see what variables  
+ in the problem your missing and need to figure out.                                                      
+3. Keep your notes open while doing the homework and relate what your doing to your notes                
+4. Ask yourself what concepts are at play                                                                
+5. *DON'T* jump straight to python and code your answer. *SOLVE* it on paper first, then (if a program is necessary), write pseudocode. This
+ will save you time in the long run and help you when you have a similar problem on an exam.              
+6. After you sketch out solution on paper, transcribe your results into a python notebook.                              
+
+
+** How to study for an exam
+Exams are intended for you to demonstrate your command of physical chemistry concepts. Questions will *not* be identical to the homework. They are not meant to be.
+
+1. Read the two sections above.
+2. As you review, ask yourself these questions: 
+   1. What concepts were covered on the homework?
+   2. How might those concepts be applied/asked about in different ways?
+   3. What concepts were *not* covered on the homework but could be on an exam?
+   4. If you were writing an exam, what questions would you ask?
+3. My *favorite* type of exam question: you've solved "given A, figure out B" on the homework, which has required some math, and I ask "given B, figure out A," which can be done with little or no math!
+
+
+
+

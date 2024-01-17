@@ -1,0 +1,10 @@
+jobName=C2H4O
+jobEngine=gaussian
+jobDescription=Vibrational Frequencies
+jobDate=5/1/2019 0:21
+jobHistory=515723,515726,515727,515728
+outputLog=output.log
+inputGeometry=input.xyz
+outputGeometry=output.xyz
+checkpoint=output.chk
+jobStatus=complete

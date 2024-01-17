@@ -1,0 +1,97 @@
+
+basis.cxx
+basis.cxx:11:3: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  "basis_c::%s [%d] : error allocating memory\n";
+  ^
+basis.cxx:13:3: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  "basis_c::%s (%d) : subscript %c out of range\n";
+  ^
+basis.cxx:35:21: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  static char *id = "basis_c (int, double, double)";
+                    ^
+3 warnings generated.
+
+del2.cxx
+
+densityx.cxx
+
+fda.cxx
+
+hamilx.cxx
+
+jandx.cxx
+
+nl.cxx
+
+oper1.cxx
+oper1.cxx:10:3: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  "oper1_c::%s : error allocating memory [%d]\n";
+  ^
+oper1.cxx:12:3: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  "oper1_c::%s (%d, %d) : subscript out of range\n";
+  ^
+oper1.cxx:14:3: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  "oper1_c::%s : operator basis mis-match\n";
+  ^
+oper1.cxx:16:3: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  "oper1_c::%s : vector basis mis-match\n";
+  ^
+oper1.cxx:18:3: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  "oper1_c::%s : erorr allocating work-space vector\n";
+  ^
+oper1.cxx:20:3: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  "oper1_c::%s : didn't converge in eigenvector refinement\n";
+  ^
+oper1.cxx:52:21: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  static char *id = "oper1 (basis_c *)";
+                    ^
+oper1.cxx:137:21: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  static char *id = "operator ^= (oper1_c &)";
+                    ^
+oper1.cxx:176:21: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  static char *id = "void operator += (oper1_c &)";
+                    ^
+oper1.cxx:200:21: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  static char *id = "void operator *= (vector_c &)";
+                    ^
+oper1.cxx:235:21: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  static char *id = "double gdot (vector_c &, vector_c &)";
+                    ^
+oper1.cxx:264:21: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  static char *id = "double geigen (double, double, oper1_c &, vector_c &)";
+                    ^
+12 warnings generated.
+
+orbital.cxx
+
+overlap.cxx
+
+rm1.cxx
+
+rm2.cxx
+
+rp1.cxx
+
+vector.cxx
+vector.cxx:6:3: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  "vector_c::%s [%d] : error allocating memory\n";
+  ^
+vector.cxx:8:3: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  "vector_c::%s (%d) : subscript %c out of range\n";
+  ^
+vector.cxx:10:3: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  "vector_c::%s : vector basis mis-match\n";
+  ^
+vector.cxx:41:21: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  static char *id = "vector (basis_c *)";
+                    ^
+vector.cxx:95:21: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  static char *id = "void operator ^= (vector_c &)";
+                    ^
+vector.cxx:134:21: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  static char *id = "operator += (vector_c &)";
+                    ^
+vector.cxx:158:21: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  static char *id = "operator * (vector_c &)";
+                    ^
+7 warnings generated.

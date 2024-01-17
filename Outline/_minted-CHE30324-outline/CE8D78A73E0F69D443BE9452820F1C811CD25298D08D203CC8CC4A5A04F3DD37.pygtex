@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{sympy} \PYG{k+kn}{import} \PYG{o}{*}
+\PYG{n}{init\PYGZus{}printing}\PYG{p}{(}\PYG{n}{use\PYGZus{}unicode}\PYG{o}{=}\PYG{n+nb+bp}{True}\PYG{p}{)}
+
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Huckel model for pi orbitals of cyclobutadiene}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{alpha}\PYG{p}{,}\PYG{n}{beta} \PYG{o}{=} \PYG{n}{symbols}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}alpha beta\PYGZsq{}}\PYG{p}{)}
+
+\PYG{n}{M} \PYG{o}{=} \PYG{n}{Matrix}\PYG{p}{([[}\PYG{n}{alpha}\PYG{p}{,} \PYG{n}{beta}\PYG{p}{,} \PYG{l+m+mi}{0} \PYG{p}{,} \PYG{n}{beta}\PYG{p}{],[}\PYG{n}{beta}\PYG{p}{,} \PYG{n}{alpha}\PYG{p}{,} \PYG{n}{beta}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{],[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{beta}\PYG{p}{,}\PYG{n}{alpha}\PYG{p}{,}\PYG{n}{beta}\PYG{p}{],[}\PYG{n}{beta}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{beta}\PYG{p}{,}\PYG{n}{alpha}\PYG{p}{]])}
+
+\PYG{n}{pprint}\PYG{p}{(}\PYG{n}{M}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} M = Matrix([[alpha,beta],[beta,alpha]])}
+
+\PYG{n}{eigs}  \PYG{o}{=} \PYG{n}{M}\PYG{o}{.}\PYG{n}{eigenvects}\PYG{p}{()}
+
+\PYG{n}{pprint}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{Energy state, degeneracy}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{for} \PYG{n}{state} \PYG{o+ow}{in} \PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{]:}
+    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZob{}0\PYGZcb{}    \PYGZob{}1\PYGZcb{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{eigs}\PYG{p}{[}\PYG{n}{state}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{n}{eigs}\PYG{p}{[}\PYG{n}{state}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{]))}
+
+\PYG{n}{pprint}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{Eigenvectors\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{for} \PYG{n}{state} \PYG{o+ow}{in} \PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]:}
+    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Eigenvector(s) of state\PYGZdq{}}\PYG{p}{,}\PYG{n}{state}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}:\PYGZdq{}}\PYG{p}{,}\PYG{n}{eigs}\PYG{p}{[}\PYG{n}{state}\PYG{p}{][}\PYG{l+m+mi}{2}\PYG{p}{])}
+    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{} \PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

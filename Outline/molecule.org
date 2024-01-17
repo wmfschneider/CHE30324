@@ -1,0 +1,373 @@
+#+BEGIN_SRC python :exports results 
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import fsolve
+
+k = 8.61733e-5      # eV /K
+h = 4.13566766e-15  # eV s
+eVtokJ = 96.485332
+autoeV= 27.212      # eV
+Nav = 6.022e23      # Avogadro's number 
+amutoeVc2 = 931494095.17 # convert amu to eV/c^2
+R0 = k * eVtokJ * 1000.       # gas constant in J/mol K
+c = 299792458 # m / s
+
+class Molecule(object):
+    def __init__(self, name, mass, energy, rot, vib, helmholtz):
+        self.name = name
+        self.mass = mass
+        self.energy = energy
+        self.rot = rot
+        self.vib = vib
+        self.helmholtz = helmholtz
+
+    def Hello(self):
+        return "Hello {}".format(self.name)
+
+    def Lambda(self, T):
+        m = self.mass * amutoeVc2
+        return h/np.sqrt(2*np.pi*m*k*T)*c
+
+    def qtrans(self,T):  #  mole/m^3
+        m = self.mass * amutoeVc2
+        l = h/np.sqrt(2*np.pi*m*k*T)*c
+        return (1./Nav)*(1./l)**3
+
+    def qrot(self,T):
+        if self.rot[1] > 0:
+            return np.sqrt((np.pi*(T/self.rot[0])*(T/self.rot[1])*(T/self.rot[2])))
+        else:
+            return T/self.rot[0]
+
+    def qvib(self,T):
+        qvib = 1
+        for mode in self.vib:
+            qvib = qvib*(1.-np.exp(-mode/T))**-1
+        return qvib
+
+    def ZPE(self):
+        ZPE=0.
+        for mode in self.vib:
+            ZPE = ZPE + mode
+        return ZPE * (0.5)*k
+
+    def Utrans(self,T):
+        return 1.5*k*T
+
+    def Urot(self,T):
+        return 1.5*k*T
+
+    def Uvib(self,T):
+        Uvib=0.
+        for mode in self.vib:
+            Uvib=Uvib+k*(mode/(np.exp(mode/T)-1.0))
+        return Uvib
+
+# Fundamental relationships
+def A(q):
+   return -k*T*np.log(q)
+
+def S(A,U,T):
+   return (U - A)/T
+
+def Delta(nu,A):
+    return np.dot(nu,A)
+
+Ethane = Molecule("Ethane", 30.04695, -79.8304174812, [3.84821, 0.95472, 0.95472], [450.15,  1196.99,  1196.99,  1453.24,  1777.11, 1777.12,  2060.75,  2091.81,  2204.14,  2204.14, 2212.26,  2212.26,  4385.10,  4386.31,  4459.07, 4459.07,  4494.15,  4494.15],[])
+
+Ethylene = Molecule("Ethylene", 28.0313, -78.5874582996, [7.05282, 1.44180, 1.19708], [1201.68,  1375.63,  1403.93,  1539.30,  1795.67, 2008.40,  2150.27,  2475.38,  4535.29,  4557.52, 4636.49,  4673.24], [])
+
+Hydrogen = Molecule("Hydrogen", 2.01565, -1.17548235778, [87.18829, 0., 0.], [6402.62], [])
+
+VA = Molecule("Vinyl alcohol", 44., -153.802227784, [3.06869, 0.49808, 0.42852],[342.12,   692.39,  1032.15,  1198.36,  1386.62, 1411.99,  1670.11,  1880.98,  1967.27,  2101.01, 2532.91,  4541.20,  4591.62,  4716.63,  5454.14],[])
+
+Ac = Molecule("Acetaldehyde", 44., -153.830119460, [2.72923, 0.48351, 0.43371], [222.94,  729.92,  1121.87,  1285.63,  1636.17, 1646.79,  2018.97,  2080.76, 2143.85,  2157.44,  2651.18,  4169.12,  4379.22,  4459.71,  4553.14],[])
+
+TS = Molecule("TS", 44., -153.714172988, [2.33148, 0.58652, 0.48832], [857.94,   939.84,  1148.55,  1395.88,  1536.40, 1678.69,  1744.34,  1877.98,  2155.56,  2261.86, 2665.34,  4471.92,  4522.04,  4596.48], [])
+
+T = np.linspace(500,1500,500)
+
+#
+# Ethane thermochemistry
+# 
+
+plt.figure()
+plt.plot(T,np.log(Ethane.qtrans(T)),label="trans")
+plt.plot(T,np.log(Ethane.qrot(T)),label="rot")
+plt.plot(T,np.log(Ethane.qvib(T)),label="vib")
+plt.xlabel('Temperature (K)')
+plt.ylabel('ln q')
+plt.title('Partition functions vs temperature')
+plt.legend()
+plt.savefig('./Images/ethane-partition.png')
+
+AtransEthane = A(Ethane.qtrans(T))
+ArotEthane = A(Ethane.qrot(T))
+AvibEthane = A(Ethane.qvib(T))
+
+plt.figure()
+plt.plot(T,AtransEthane*eVtokJ,label="trans")
+plt.plot(T,ArotEthane*eVtokJ,label="rot")
+plt.plot(T,AvibEthane*eVtokJ,label="vib")
+plt.xlabel('Temperature (K)')
+plt.ylabel('Helmholtz (kJ/mol)')
+plt.title('Helmholtz contributions vs temperature')
+plt.legend()
+plt.savefig('./Images/ethane-helmholtz.png')
+
+UtransEthane = Ethane.Utrans(T)
+UrotEthane = Ethane.Urot(T)
+UvibEthane = Ethane.Uvib(T)
+
+plt.figure()
+plt.plot(T,UtransEthane*eVtokJ,label="trans")
+plt.plot(T,UrotEthane*eVtokJ,label="rot")
+plt.plot(T,UvibEthane*eVtokJ,label="vib")
+plt.xlabel('Temperature (K)')
+plt.ylabel('Internal Energy (kJ/mol)')
+plt.title('Internal energy contributions vs temperature')
+plt.legend()
+plt.savefig('./Images/ethane-energy.png')
+
+StransEthane=S(AtransEthane,UtransEthane,T)
+SrotEthane=S(ArotEthane,UrotEthane,T)
+SvibEthane=S(AvibEthane,UvibEthane,T)
+
+plt.figure()
+plt.plot(T,StransEthane*eVtokJ*1000.,label="trans")
+plt.plot(T,SrotEthane*eVtokJ*1000.,label="rot")
+plt.plot(T,SvibEthane*eVtokJ*1000.,label="vib")
+plt.xlabel('Temperature (K)')
+plt.ylabel('Entropy (J/mol K)')
+plt.title('Entropy contributions vs temperature')
+plt.legend()
+plt.savefig('./Images/ethane-entropy.png')
+
+
+#
+# Ethane dehydrogenation at 1 bar
+#
+stdconc = (1e5/(R0*T)) # (1 bar/ R T) = mol/m3
+
+nu = np.array([-1,1,1])
+
+dUtrans = Delta(nu,np.array([Ethane.Utrans(T),Ethylene.Utrans(T),Hydrogen.Utrans(T)]))
+dUrot =   Delta(nu,np.array([Ethane.Urot(T),Ethylene.Urot(T),Hydrogen.Urot(T)]))
+dUvib =   Delta(nu,np.array([Ethane.Uvib(T),Ethylene.Uvib(T),Hydrogen.Uvib(T)]))
+
+deltaE0 = Delta(nu,np.array([Ethane.energy,Ethylene.energy,Hydrogen.energy]))*autoeV
+deltaZPE = Delta(nu,np.array([Ethane.ZPE(),Ethylene.ZPE(),Hydrogen.ZPE()]))
+
+deltaU = dUtrans + dUrot + dUvib + deltaE0 + deltaZPE
+
+plt.figure()
+plt.plot(T,dUtrans*eVtokJ,label="Utrans")
+plt.plot(T,dUrot*eVtokJ,label="Urot")
+plt.plot(T,dUvib*eVtokJ,label="Uvib")
+plt.plot([500,1500],[deltaZPE*eVtokJ,deltaZPE*eVtokJ],label="ZPE")
+plt.plot([500,1500],[deltaE0*eVtokJ,deltaE0*eVtokJ],label="E0")
+plt.plot(T,deltaU*eVtokJ,label="Utotal")
+# plt.plot(T,deltaA*eVtokJ,label="Atotal")
+plt.xlabel('Temperature (K)')
+plt.ylabel('Energy (kJ/mol)')
+plt.title('Ethane Dehydrogenation Reaction Energy Contributions')
+plt.legend()
+
+plt.savefig('./Images/dehydro-energy.png')
+
+Atransethane = A(Ethane.qtrans(T)) + k * T * np.log(stdconc/1.)   # 1 bar standard state
+Arotethane = A(Ethane.qrot(T))
+Avibethane = A(Ethane.qvib(T))
+
+Atransethylene = A(Ethylene.qtrans(T)) + k * T * np.log(stdconc/1.)   # 1 bar standard state
+Arotethylene = A(Ethylene.qrot(T))
+Avibethylene = A(Ethylene.qvib(T))
+
+Atranshydrogen = A(Hydrogen.qtrans(T)) + k * T * np.log(stdconc/1.)   # 1 bar standard state
+Arothydrogen = A(Hydrogen.qrot(T))
+Avibhydrogen = A(Hydrogen.qvib(T))
+
+Stransethane = S(Atransethane,Ethane.Utrans(T),T)
+Srotethane =   S(Arotethane,Ethane.Urot(T),T)
+Svibethane =   S(Avibethane,Ethane.Uvib(T),T)
+
+Stransethylene = S(Atransethylene,Ethylene.Utrans(T),T)
+Srotethylene =   S(Arotethylene,Ethylene.Urot(T),T)
+Svibethylene =   S(Avibethylene,Ethylene.Uvib(T),T)
+
+Stranshydrogen = S(Atransethylene,Hydrogen.Utrans(T),T)
+Srothydrogen =   S(Arothydrogen,Hydrogen.Urot(T),T)
+Svibhydrogen =   S(Avibhydrogen,Hydrogen.Uvib(T),T)
+
+dStrans = Delta(nu,np.array([Stransethane,Stransethylene,Stranshydrogen]))
+dSrot   = Delta(nu,np.array([Srotethane,Srotethylene,Srothydrogen]))
+dSvib = Delta(nu,np.array([Svibethane,Svibethylene,Svibhydrogen]))
+
+deltaS = dStrans + dSrot + dSvib
+
+plt.figure()
+plt.plot(T,dStrans*eVtokJ*1000.,label="trans")
+plt.plot(T,dSrot*eVtokJ*1000.,label="rot")
+plt.plot(T,dSvib*eVtokJ*1000.,label="vib")
+plt.plot(T,deltaS*eVtokJ*1000.,label="total")
+
+plt.xlabel('Temperature (K)')
+plt.ylabel('Entropy (J/K)')
+plt.title('Ethane Dehydrogenation Reaction Entropy Contributions')
+plt.legend()
+
+plt.savefig('./Images/dehydro-entropy.png')
+
+plt.figure()
+
+Aethane = A(Ethane.qtrans(T)) + A(Ethane.qrot(T)) + A(Ethane.qvib(T)) # 1 mol/m3 standard state
+Aethane = Aethane + k * T * np.log(stdconc/1.) 
+Uethane = Ethane.Utrans(T) + Ethane.Urot(T) + Ethane.Uvib(T)
+Sethane = S(Aethane,Uethane,T)
+Gethane = Aethane + k * T 
+
+Aethylene = A(Ethylene.qtrans(T)) + A(Ethylene.qrot(T)) + A(Ethylene.qvib(T))
+Aethylene = Aethylene + k * T * np.log(stdconc/1.)
+Uethylene = Ethylene.Utrans(T) + Ethylene.Urot(T) + Ethylene.Uvib(T)
+Sethylene = S(Aethylene,Uethylene,T)
+Gethylene = Aethylene + k * T 
+
+Ahydrogen = A(Hydrogen.qtrans(T)) + A(Hydrogen.qrot(T)/2.) + A(Hydrogen.qvib(T))
+Ahydrogen = Ahydrogen + k * T * np.log(stdconc/1.)
+Uhydrogen = Hydrogen.Utrans(T) + Hydrogen.Urot(T) + Hydrogen.Uvib(T)
+Shydrogen = S(Ahydrogen,Uhydrogen,T)
+Ghydrogen = Ahydrogen + k * T 
+
+deltaE0 = (Ethylene.energy + Hydrogen.energy - Ethane.energy)*autoeV + (Ethylene.ZPE() + Hydrogen.ZPE() - Ethane.ZPE())
+deltaU = (Uethylene + Uhydrogen - Uethane) + deltaE0
+deltaS = (Sethylene + Shydrogen - Sethane)
+deltaA = (Aethylene + Ahydrogen - Aethane) + deltaE0
+deltaG = (Gethylene + Ghydrogen - Gethane) + deltaE0
+
+
+plt.figure()
+plt.plot(T,deltaU*eVtokJ,label="delta U")
+plt.plot(T,T*deltaS*eVtokJ,label="T delta S")
+plt.plot(T,k*T*eVtokJ,label="delta PV")
+plt.plot(T,deltaG*eVtokJ,label="delta G")
+plt.xlabel('Temperature (K)')
+plt.ylabel('Energy (kJ/mol)')
+plt.title('Ethane to Ethylene Plus Hydrogen Free Energy Contributions')
+plt.legend()
+
+plt.savefig('./Images/deyhdro.png')
+
+Kp = np.exp(-deltaG/(k*T))
+
+def equil(y):
+    return y * y - K*(1-y)
+
+old = 0.5
+x = []
+for K in Kp: 
+    xi = fsolve(equil,old)
+    old = xi
+    x.append(xi)
+
+plt.figure()
+
+plt.plot(T,x,label="Ethylene, Hydrogen")
+plt.plot(T,1.-np.array(x),label="Ethane")
+plt.title("Equilibrium partial pressures at 1 bar")
+plt.xlabel('Temperature (K)')
+plt.ylabel('Partial Pressure')
+plt.legend()
+
+plt.savefig('./Images/equilibrium.png')
+
+#
+# Vinyl alcohol to acetaldehyde
+#
+
+AtransVA = A(VA.qtrans(T))
+ArotVA = A(VA.qrot(T))
+AvibVA = A(VA.qvib(T))
+VA.helmholtz = AtransVA + ArotVA + AvibVA
+UtransVA=VA.Utrans(T)
+UrotVA = VA.Urot(T)
+UvibVA = VA.Uvib(T)
+
+AtransAc = A(Ac.qtrans(T))
+ArotAc = A(Ac.qrot(T))
+AvibAc = A(Ac.qvib(T))
+Ac.helmholtz = AtransAc + ArotAc + AvibAc
+UtransAc = Ac.Utrans(T)
+UrotAc = Ac.Urot(T)
+UvibAc = Ac.Uvib(T)
+
+deltaStrans = S(AtransAc,UtransAc,T) - S(AtransVA,UtransVA,T)
+deltaSrot = S(ArotAc,UrotAc,T) - S(ArotVA,UrotVA,T)
+deltaSvib = S(AvibAc,UvibAc,T) - S(AvibVA,UvibVA,T)
+
+deltaS = deltaStrans + deltaSrot + deltaSvib
+
+plt.figure()
+plt.plot(T,deltaStrans*eVtokJ*1000.,label="trans")
+plt.plot(T,deltaSrot*eVtokJ*1000.,label="rot")
+plt.plot(T,deltaSvib*eVtokJ*1000.,label="vib")
+plt.plot(T,deltaS*eVtokJ*1000.,label="total")
+
+plt.xlabel('Temperature (K)')
+plt.ylabel('Entropy (J/K)')
+plt.title('Vinyl Acetate to Acetaldehyde Reaction Entropy Contributions')
+plt.legend()
+
+plt.savefig('./Images/rxn-entropy.png')
+
+plt.figure()
+
+deltaUtrans = UtransAc - UtransVA
+deltaUrot = UrotAc - UrotVA
+deltaUvib = UvibAc - UvibVA
+deltaZPE = Ac.ZPE() - VA.ZPE()
+deltaE =   (Ac.energy - VA.energy)*autoeV
+
+deltaU = deltaE + deltaZPE + deltaUvib + deltaUrot
+deltaA = (Ac.helmholtz -VA.helmholtz) + deltaE + deltaZPE
+
+plt.plot(T,deltaUtrans*eVtokJ,label="Utrans")
+plt.plot(T,deltaUrot*eVtokJ,label="Urot")
+plt.plot(T,deltaUvib*eVtokJ,label="Uvib")
+plt.plot([200,1200],[deltaZPE*eVtokJ,deltaZPE*eVtokJ],label="ZPE")
+plt.plot([200,1200],[deltaE*eVtokJ,deltaE*eVtokJ],label="E0")
+plt.plot(T,deltaU*eVtokJ,label="Utotal")
+# plt.plot(T,deltaA*eVtokJ,label="Atotal")
+plt.xlabel('Temperature (K)')
+plt.ylabel('Energy (kJ/mol)')
+plt.title('Vinyl acetate to Acetaldehyde Reaction Energy Contributions')
+plt.legend()
+
+plt.savefig('./Images/rxn-energy.png')
+
+plt.figure()
+plt.plot(T,deltaU*eVtokJ,label="delta U")
+plt.plot(T,T*deltaS*eVtokJ,label="T delta S")
+plt.plot(T,deltaA*eVtokJ,label="delta A")
+plt.xlabel('Temperature (K)')
+plt.ylabel('Energy (kJ/mol)')
+plt.title('Vinyl acetate to Acetaldehyde Free Energy Contributions')
+plt.legend()
+
+plt.savefig('./Images/rxn-helmholtz.png')
+
+#+END_SRC
+
+#+RESULTS:
+
+[[./Images/ethane-partition.png]]
+[[./Images/ethane-helmholtz.png]]
+[[./Images/ethane-energy.png]]
+[[./Images/ethane-entropy.png]]
+[[./Images/rxn-entropy.png]]
+[[./Images/rxn-energy.png]]
+[[./Images/rxn-helmholtz.png]]
+[[./Images/deyhdro.png]]
+[[./Images/dehydro-energy.png]]
+
+[[./Images/dehydro-entropy.png]]
+ [[./Images/equilibrium.png]]

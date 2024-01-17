@@ -1,0 +1,47 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGdefault{k+kn}{import} \PYGdefault{n+nn}{numpy} \PYGdefault{k+kn}{as} \PYGdefault{n+nn}{np}
+\PYGdefault{k+kn}{import} \PYGdefault{n+nn}{matplotlib.pyplot} \PYGdefault{k+kn}{as} \PYGdefault{n+nn}{plt}
+
+\PYGdefault{n}{R0} \PYGdefault{o}{=} \PYGdefault{l+m+mf}{8.31441}  \PYGdefault{c+c1}{\PYGdefaultZsh{} J/mol K}
+\PYGdefault{n}{mass} \PYGdefault{o}{=} \PYGdefault{l+m+mf}{28.} \PYGdefault{o}{/}\PYGdefault{l+m+mi}{1000} \PYGdefault{c+c1}{\PYGdefaultZsh{} kg/mol N2}
+
+\PYGdefault{k}{def} \PYGdefault{n+nf}{Boltzmann}\PYGdefault{p}{(}\PYGdefault{n}{E}\PYGdefault{p}{,}\PYGdefault{n}{T}\PYGdefault{p}{):}
+    \PYGdefault{k}{return} \PYGdefault{n}{np}\PYGdefault{o}{.}\PYGdefault{n}{exp}\PYGdefault{p}{(}\PYGdefault{o}{\PYGdefaultZhy{}}\PYGdefault{n}{E}\PYGdefault{o}{/}\PYGdefault{p}{(}\PYGdefault{n}{R0}\PYGdefault{o}{*}\PYGdefault{n}{T}\PYGdefault{p}{))}\PYGdefault{o}{/}\PYGdefault{p}{(}\PYGdefault{n}{R0}\PYGdefault{o}{*}\PYGdefault{n}{T}\PYGdefault{p}{)}
+
+\PYGdefault{k}{def} \PYGdefault{n+nf}{MB}\PYGdefault{p}{(}\PYGdefault{n}{c}\PYGdefault{p}{,}\PYGdefault{n}{T}\PYGdefault{p}{):}
+    \PYGdefault{n}{K} \PYGdefault{o}{=} \PYGdefault{l+m+mf}{0.5} \PYGdefault{o}{*} \PYGdefault{n}{mass} \PYGdefault{o}{*} \PYGdefault{n}{c} \PYGdefault{o}{*}\PYGdefault{n}{c}
+    \PYGdefault{n}{degeneracy} \PYGdefault{o}{=} \PYGdefault{l+m+mi}{4} \PYGdefault{o}{*} \PYGdefault{n}{np}\PYGdefault{o}{.}\PYGdefault{n}{pi} \PYGdefault{o}{*} \PYGdefault{n}{c} \PYGdefault{o}{*} \PYGdefault{n}{c}
+    \PYGdefault{n}{normalization} \PYGdefault{o}{=} \PYGdefault{p}{(}\PYGdefault{n}{mass}\PYGdefault{o}{/}\PYGdefault{p}{(}\PYGdefault{l+m+mi}{2}\PYGdefault{o}{*}\PYGdefault{n}{np}\PYGdefault{o}{.}\PYGdefault{n}{pi}\PYGdefault{o}{*}\PYGdefault{n}{R0}\PYGdefault{o}{*}\PYGdefault{n}{T}\PYGdefault{p}{))}\PYGdefault{o}{**}\PYGdefault{l+m+mf}{1.5}
+    \PYGdefault{k}{return} \PYGdefault{n}{normalization}\PYGdefault{o}{*}\PYGdefault{n}{degeneracy}\PYGdefault{o}{*}\PYGdefault{n}{Boltzmann}\PYGdefault{p}{(}\PYGdefault{n}{K}\PYGdefault{p}{,}\PYGdefault{n}{T}\PYGdefault{p}{)}
+
+\PYGdefault{n}{energy} \PYGdefault{o}{=} \PYGdefault{n}{np}\PYGdefault{o}{.}\PYGdefault{n}{linspace}\PYGdefault{p}{(}\PYGdefault{l+m+mi}{0}\PYGdefault{p}{,}\PYGdefault{l+m+mi}{1500}\PYGdefault{p}{,}\PYGdefault{l+m+mi}{1500}\PYGdefault{p}{)}
+
+\PYGdefault{n}{plt}\PYGdefault{o}{.}\PYGdefault{n}{figure}\PYGdefault{p}{()}
+\PYGdefault{k}{for} \PYGdefault{n}{Temperature} \PYGdefault{o+ow}{in} \PYGdefault{p}{[}\PYGdefault{l+m+mi}{100}\PYGdefault{p}{,}\PYGdefault{l+m+mi}{300}\PYGdefault{p}{,}\PYGdefault{l+m+mi}{1000}\PYGdefault{p}{]:}
+   \PYGdefault{n}{Probability} \PYGdefault{o}{=} \PYGdefault{n}{Boltzmann}\PYGdefault{p}{(}\PYGdefault{n}{energy}\PYGdefault{p}{,}\PYGdefault{n}{Temperature}\PYGdefault{p}{)}
+   \PYGdefault{n}{plt}\PYGdefault{o}{.}\PYGdefault{n}{plot}\PYGdefault{p}{(}\PYGdefault{n}{Probability}\PYGdefault{p}{,}\PYGdefault{n}{energy}\PYGdefault{p}{,}\PYGdefault{n}{label}\PYGdefault{o}{=}\PYGdefault{l+s+s1}{\PYGdefaultZsq{}\PYGdefaultZob{}0\PYGdefaultZcb{} K\PYGdefaultZsq{}}\PYGdefault{o}{.}\PYGdefault{n}{format}\PYGdefault{p}{(}\PYGdefault{n}{Temperature}\PYGdefault{p}{))}
+
+\PYGdefault{n}{legend} \PYGdefault{o}{=} \PYGdefault{n}{plt}\PYGdefault{o}{.}\PYGdefault{n}{legend}\PYGdefault{p}{()}
+
+\PYGdefault{n}{plt}\PYGdefault{o}{.}\PYGdefault{n}{xlabel}\PYGdefault{p}{(}\PYGdefault{l+s+s1}{\PYGdefaultZsq{}Energy (kJ/mol)\PYGdefaultZsq{}}\PYGdefault{p}{)}
+\PYGdefault{n}{plt}\PYGdefault{o}{.}\PYGdefault{n}{ylabel}\PYGdefault{p}{(}\PYGdefault{l+s+s1}{\PYGdefaultZsq{}Probability (mol/kJ)\PYGdefaultZsq{}}\PYGdefault{p}{)}
+\PYGdefault{c+c1}{\PYGdefaultZsh{} plt.title(\PYGdefaultZsq{}Boltzmann distribution at various temperatures\PYGdefaultZsq{})}
+\PYGdefault{n}{plt}\PYGdefault{o}{.}\PYGdefault{n}{savefig}\PYGdefault{p}{(}\PYGdefault{l+s+s1}{\PYGdefaultZsq{}./Images/Boltzmann.png\PYGdefaultZsq{}}\PYGdefault{p}{)}
+
+\PYGdefault{n}{R0} \PYGdefault{o}{=} \PYGdefault{l+m+mf}{8.31441}  \PYGdefault{c+c1}{\PYGdefaultZsh{} J/mol K}
+\PYGdefault{n}{mass} \PYGdefault{o}{=} \PYGdefault{l+m+mf}{28.}\PYGdefault{o}{/}\PYGdefault{l+m+mf}{1000.}  \PYGdefault{c+c1}{\PYGdefaultZsh{} kg/mol}
+\PYGdefault{k}{def} \PYGdefault{n+nf}{MB1D}\PYGdefault{p}{(}\PYGdefault{n}{v}\PYGdefault{p}{,}\PYGdefault{n}{T}\PYGdefault{p}{):}
+    \PYGdefault{k}{return} \PYGdefault{n}{np}\PYGdefault{o}{.}\PYGdefault{n}{sqrt}\PYGdefault{p}{(}\PYGdefault{n}{mass}\PYGdefault{o}{/}\PYGdefault{p}{(}\PYGdefault{l+m+mi}{2}\PYGdefault{o}{*}\PYGdefault{n}{np}\PYGdefault{o}{.}\PYGdefault{n}{pi}\PYGdefault{o}{*}\PYGdefault{n}{R0}\PYGdefault{o}{*}\PYGdefault{n}{T}\PYGdefault{p}{))}\PYGdefault{o}{*}\PYGdefault{n}{np}\PYGdefault{o}{.}\PYGdefault{n}{exp}\PYGdefault{p}{(}\PYGdefault{o}{\PYGdefaultZhy{}}\PYGdefault{p}{(}\PYGdefault{n}{mass}\PYGdefault{o}{*}\PYGdefault{n}{v}\PYGdefault{o}{*}\PYGdefault{n}{v}\PYGdefault{p}{)}\PYGdefault{o}{/}\PYGdefault{p}{(}\PYGdefault{l+m+mi}{2}\PYGdefault{o}{*}\PYGdefault{n}{R0}\PYGdefault{o}{*}\PYGdefault{n}{T}\PYGdefault{p}{))}
+
+\PYGdefault{n}{velocity} \PYGdefault{o}{=} \PYGdefault{n}{np}\PYGdefault{o}{.}\PYGdefault{n}{linspace}\PYGdefault{p}{(}\PYGdefault{o}{\PYGdefaultZhy{}}\PYGdefault{l+m+mi}{1000}\PYGdefault{p}{,}\PYGdefault{l+m+mi}{1000}\PYGdefault{p}{,}\PYGdefault{l+m+mi}{1000}\PYGdefault{p}{)}
+\PYGdefault{n}{plt}\PYGdefault{o}{.}\PYGdefault{n}{figure}\PYGdefault{p}{()}
+\PYGdefault{k}{for} \PYGdefault{n}{Temperature} \PYGdefault{o+ow}{in} \PYGdefault{p}{[}\PYGdefault{l+m+mi}{100}\PYGdefault{p}{,}\PYGdefault{l+m+mi}{200}\PYGdefault{p}{,}\PYGdefault{l+m+mi}{300}\PYGdefault{p}{,}\PYGdefault{l+m+mi}{400}\PYGdefault{p}{,}\PYGdefault{l+m+mi}{500}\PYGdefault{p}{]:}
+    \PYGdefault{n}{Probability} \PYGdefault{o}{=} \PYGdefault{n}{MB1D}\PYGdefault{p}{(}\PYGdefault{n}{velocity}\PYGdefault{p}{,}\PYGdefault{n}{Temperature}\PYGdefault{p}{)}
+    \PYGdefault{n}{plt}\PYGdefault{o}{.}\PYGdefault{n}{plot}\PYGdefault{p}{(}\PYGdefault{n}{velocity}\PYGdefault{p}{,}\PYGdefault{n}{Probability}\PYGdefault{p}{,}\PYGdefault{n}{label}\PYGdefault{o}{=}\PYGdefault{l+s+s1}{\PYGdefaultZsq{}\PYGdefaultZob{}\PYGdefaultZcb{} K\PYGdefaultZsq{}}\PYGdefault{o}{.}\PYGdefault{n}{format}\PYGdefault{p}{(}\PYGdefault{n}{Temperature}\PYGdefault{p}{))}
+
+\PYGdefault{n}{legend}\PYGdefault{o}{=}\PYGdefault{n}{plt}\PYGdefault{o}{.}\PYGdefault{n}{legend}\PYGdefault{p}{()}
+\PYGdefault{n}{plt}\PYGdefault{o}{.}\PYGdefault{n}{xlabel}\PYGdefault{p}{(}\PYGdefault{l+s+s1}{\PYGdefaultZsq{}Velocity (m/s)\PYGdefaultZsq{}}\PYGdefault{p}{)}
+\PYGdefault{n}{plt}\PYGdefault{o}{.}\PYGdefault{n}{ylabel}\PYGdefault{p}{(}\PYGdefault{l+s+s1}{\PYGdefaultZsq{}Probability (1/(m/s))\PYGdefaultZsq{}}\PYGdefault{p}{)}
+\PYGdefault{c+c1}{\PYGdefaultZsh{} plt.title(\PYGdefaultZsq{}Boltzmann distribution at various temperatures\PYGdefaultZsq{})}
+\PYGdefault{n}{plt}\PYGdefault{o}{.}\PYGdefault{n}{savefig}\PYGdefault{p}{(}\PYGdefault{l+s+s1}{\PYGdefaultZsq{}./Images/MB1D.png\PYGdefaultZsq{}}\PYGdefault{p}{)}
+\end{Verbatim}

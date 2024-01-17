@@ -1,0 +1,149 @@
+zn =    1.00000, ze =    1.00000
+itr = 0
+  l = 0
+    n = 1, e =      -0.50011629 (     -1.00023259)
+  cnv =   1.000000, mix =   0.100000
+  integrated charge =   0.100000 out of   1.000000
+itr = 1
+  l = 0
+    n = 1, e =      -0.65959365 (     -1.31918730)
+  cnv =   0.900000, mix =   0.108696
+  integrated charge =   0.197826 out of   1.000000
+itr = 2
+  l = 0
+    n = 1, e =      -0.65556288 (     -1.31112576)
+  cnv =   0.802174, mix =   0.118802
+  integrated charge =   0.293126 out of   1.000000
+itr = 3
+  l = 0
+    n = 1, e =      -0.63223305 (     -1.26446611)
+  cnv =   0.706874, mix =   0.130634
+  integrated charge =   0.385467 out of   1.000000
+itr = 4
+  l = 0
+    n = 1, e =      -0.60208836 (     -1.20417672)
+  cnv =   0.614533, mix =   0.144587
+  integrated charge =   0.474321 out of   1.000000
+itr = 5
+  l = 0
+    n = 1, e =      -0.57117273 (     -1.14234547)
+  cnv =   0.525679, mix =   0.161149
+  integrated charge =   0.559033 out of   1.000000
+itr = 6
+  l = 0
+    n = 1, e =      -0.54394936 (     -1.08789872)
+  cnv =   0.440967, mix =   0.180906
+  integrated charge =   0.638807 out of   1.000000
+itr = 7
+  l = 0
+    n = 1, e =      -0.52374077 (     -1.04748155)
+  cnv =   0.361193, mix =   0.204518
+  integrated charge =   0.712677 out of   1.000000
+itr = 8
+  l = 0
+    n = 1, e =      -0.51147244 (     -1.02294488)
+  cnv =   0.287323, mix =   0.232635
+  integrated charge =   0.779519 out of   1.000000
+itr = 9
+  l = 0
+    n = 1, e =      -0.50524201 (     -1.01048402)
+  cnv =   0.220481, mix =   0.265685
+  integrated charge =   0.838097 out of   1.000000
+itr = 10
+  l = 0
+    n = 1, e =      -0.50239324 (     -1.00478647)
+  cnv =   0.161903, mix =   0.303470
+  integrated charge =   0.887230 out of   1.000000
+itr = 11
+  l = 0
+    n = 1, e =      -0.50114815 (     -1.00229630)
+  cnv =   0.112770, mix =   0.344571
+  integrated charge =   0.926087 out of   1.000000
+itr = 12
+  l = 0
+    n = 1, e =      -0.50061484 (     -1.00122968)
+  cnv =   0.073913, mix =   0.385906
+  integrated charge =   0.954611 out of   1.000000
+itr = 13
+  l = 0
+    n = 1, e =      -0.50038552 (     -1.00077105)
+  cnv =   0.045389, mix =   0.423170
+  integrated charge =   0.973818 out of   1.000000
+itr = 14
+  l = 0
+    n = 1, e =      -0.50028466 (     -1.00056932)
+  cnv =   0.026182, mix =   0.452600
+  integrated charge =   0.985668 out of   1.000000
+itr = 15
+  l = 0
+    n = 1, e =      -0.50023883 (     -1.00047767)
+  cnv =   0.014332, mix =   0.472890
+  integrated charge =   0.992445 out of   1.000000
+itr = 16
+  l = 0
+    n = 1, e =      -0.50021731 (     -1.00043463)
+  cnv =   0.007555, mix =   0.485334
+  integrated charge =   0.996112 out of   1.000000
+itr = 17
+  l = 0
+    n = 1, e =      -0.50020685 (     -1.00041370)
+  cnv =   0.003888, mix =   0.492343
+  integrated charge =   0.998026 out of   1.000000
+itr = 18
+  l = 0
+    n = 1, e =      -0.50020171 (     -1.00040342)
+  cnv =   0.001974, mix =   0.496083
+  integrated charge =   0.999005 out of   1.000000
+itr = 19
+  l = 0
+    n = 1, e =      -0.50019915 (     -1.00039829)
+  cnv =   0.000995, mix =   0.498018
+  integrated charge =   0.999501 out of   1.000000
+itr = 20
+  l = 0
+    n = 1, e =      -0.50019784 (     -1.00039568)
+  cnv =   0.000499, mix =   0.499003
+  integrated charge =   0.999750 out of   1.000000
+itr = 21
+  l = 0
+    n = 1, e =      -0.50019718 (     -1.00039435)
+  cnv =   0.000250, mix =   0.499500
+  integrated charge =   0.999875 out of   1.000000
+itr = 22
+  l = 0
+    n = 1, e =      -0.50019684 (     -1.00039368)
+  cnv =   0.000125, mix =   0.499749
+  integrated charge =   0.999937 out of   1.000000
+itr = 23
+  l = 0
+    n = 1, e =      -0.50019667 (     -1.00039334)
+  cnv =   0.000063, mix =   0.499875
+  integrated charge =   0.999969 out of   1.000000
+itr = 24
+  l = 0
+    n = 1, e =      -0.50019659 (     -1.00039317)
+  cnv =   0.000031, mix =   0.499937
+  integrated charge =   0.999984 out of   1.000000
+itr = 25
+  l = 0
+    n = 1, e =      -0.50019654 (     -1.00039309)
+  cnv =   0.000016, mix =   0.499969
+  integrated charge =   0.999992 out of   1.000000
+itr = 26
+  l = 0
+    n = 1, e =      -0.50019652 (     -1.00039304)
+  cnv =   0.000008, mix =   0.499984
+  integrated charge =   0.999996 out of   1.000000
+
+                   Orbital Summary
+ nl    occ        E           KE       <1/r>     <r>
+ 1s   1.00      -0.5002      0.5003    1.0005   1.4994
+
+     Energy Summary
+ kinetic energy      =     0.5003
+ potential energy    =    -1.0005
+ one-electron energy =    -0.5001
+ two-electron energy =    -0.0000
+
+ total energy =    -0.5002
+ virial ratio =    -1.9996

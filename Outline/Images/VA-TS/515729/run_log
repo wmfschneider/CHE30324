@@ -1,0 +1,5 @@
+Executing script: /home/webmodemo/public_html/cgi-bin/webmo/run_gaussian.cgi
+Creating working directory: /scratch/webmodemo/webmo-4350/515729
+Script execution node: buchner.chem.hope.edu
+Job execution node(s): buchner.chem.hope.edu
+Executing command: /usr/local/g09/g09

@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGdefault{k+kn}{import} \PYGdefault{n+nn}{numpy} \PYGdefault{k+kn}{as} \PYGdefault{n+nn}{np}
+\PYGdefault{k+kn}{import} \PYGdefault{n+nn}{matplotlib.pyplot} \PYGdefault{k+kn}{as} \PYGdefault{n+nn}{plt}
+
+\PYGdefault{n}{R0} \PYGdefault{o}{=} \PYGdefault{l+m+mf}{8.31441e\PYGdefaultZhy{}3}
+
+\PYGdefault{k}{def} \PYGdefault{n+nf}{Boltzmann}\PYGdefault{p}{(}\PYGdefault{n}{E}\PYGdefault{p}{,}\PYGdefault{n}{T}\PYGdefault{p}{):}
+    \PYGdefault{k}{return} \PYGdefault{n}{np}\PYGdefault{o}{.}\PYGdefault{n}{exp}\PYGdefault{p}{(}\PYGdefault{o}{\PYGdefaultZhy{}}\PYGdefault{n}{E}\PYGdefault{o}{/}\PYGdefault{p}{(}\PYGdefault{n}{R0}\PYGdefault{o}{*}\PYGdefault{n}{T}\PYGdefault{p}{))}\PYGdefault{o}{/}\PYGdefault{p}{(}\PYGdefault{n}{R0}\PYGdefault{o}{*}\PYGdefault{n}{T}\PYGdefault{p}{)}
+
+\PYGdefault{n}{energy} \PYGdefault{o}{=} \PYGdefault{n}{np}\PYGdefault{o}{.}\PYGdefault{n}{linspace}\PYGdefault{p}{(}\PYGdefault{l+m+mi}{0}\PYGdefault{p}{,}\PYGdefault{l+m+mi}{25}\PYGdefault{p}{,}\PYGdefault{l+m+mi}{50}\PYGdefault{p}{)}
+
+\PYGdefault{n}{plt}\PYGdefault{o}{.}\PYGdefault{n}{figure}\PYGdefault{p}{(}\PYGdefault{n}{figsize}\PYGdefault{o}{=}\PYGdefault{p}{(}\PYGdefault{l+m+mi}{6}\PYGdefault{p}{,}\PYGdefault{l+m+mf}{4.5}\PYGdefault{p}{))}
+\PYGdefault{k}{for} \PYGdefault{n}{Temperature} \PYGdefault{o+ow}{in} \PYGdefault{p}{[}\PYGdefault{l+m+mi}{100}\PYGdefault{p}{,}\PYGdefault{l+m+mi}{300}\PYGdefault{p}{,}\PYGdefault{l+m+mi}{1000}\PYGdefault{p}{]:}
+   \PYGdefault{n}{Probability} \PYGdefault{o}{=} \PYGdefault{n}{Boltzmann}\PYGdefault{p}{(}\PYGdefault{n}{energy}\PYGdefault{p}{,}\PYGdefault{n}{Temperature}\PYGdefault{p}{)}
+   \PYGdefault{n}{plt}\PYGdefault{o}{.}\PYGdefault{n}{plot}\PYGdefault{p}{(}\PYGdefault{n}{Probability}\PYGdefault{p}{,}\PYGdefault{n}{energy}\PYGdefault{p}{,}\PYGdefault{n}{label}\PYGdefault{o}{=}\PYGdefault{l+s+s1}{\PYGdefaultZsq{}\PYGdefaultZob{}0\PYGdefaultZcb{} K\PYGdefaultZsq{}}\PYGdefault{o}{.}\PYGdefault{n}{format}\PYGdefault{p}{(}\PYGdefault{n}{Temperature}\PYGdefault{p}{))}
+
+\PYGdefault{n}{legend} \PYGdefault{o}{=} \PYGdefault{n}{plt}\PYGdefault{o}{.}\PYGdefault{n}{legend}\PYGdefault{p}{()}
+
+\PYGdefault{n}{plt}\PYGdefault{o}{.}\PYGdefault{n}{xlabel}\PYGdefault{p}{(}\PYGdefault{l+s+s1}{\PYGdefaultZsq{}Energy (kJ/mol)\PYGdefaultZsq{}}\PYGdefault{p}{)}
+\PYGdefault{n}{plt}\PYGdefault{o}{.}\PYGdefault{n}{ylabel}\PYGdefault{p}{(}\PYGdefault{l+s+s1}{\PYGdefaultZsq{}Probability (mol/kJ)\PYGdefaultZsq{}}\PYGdefault{p}{)}
+\PYGdefault{n}{plt}\PYGdefault{o}{.}\PYGdefault{n}{title}\PYGdefault{p}{(}\PYGdefault{l+s+s1}{\PYGdefaultZsq{}Boltzmann distribution at various temperatures\PYGdefaultZsq{}}\PYGdefault{p}{)}
+\PYGdefault{n}{plt}\PYGdefault{o}{.}\PYGdefault{n}{savefig}\PYGdefault{p}{(}\PYGdefault{l+s+s1}{\PYGdefaultZsq{}./Images/Boltzmann.png\PYGdefaultZsq{}}\PYGdefault{p}{)}
+\end{Verbatim}

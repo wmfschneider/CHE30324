@@ -1,0 +1,1606 @@
+\message{ !name(Outline.tex)}\documentclass[11pt]{article}
+\usepackage[left=1in, right=1in, top=1in, bottom=1in, nohead]{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{letterpaper} % or letter or a5paper or ... etc
+% \geometry{landscape} % rotated page geometry
+\usepackage{outline}
+\usepackage{amsmath}
+% See the ``Article customise'' template for come common customisations
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage[labelfont=bf]{caption}
+
+\setlength{\headheight}{15.2pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\lfoot{\today}
+\cfoot{\copyright\ 2013 W. F. Schneider}
+\rfoot{\thepage}
+\lhead{\em{Physical Chemistry for Chemical Engineers}}
+\rhead{ND Chem 30324}
+
+\title{Chem 30324 outline}
+\author{Wm. F. Schneider}
+%\date{} % delete this line to display the current date
+
+%%% BEGIN DOCUMENT
+\begin{document}
+
+\message{ !name(Outline.tex) !offset(-3) }
+
+
+\maketitle
+%\tableofcontents
+\begin{outline}
+\item{{\bf Lecture 0: Introduction}}
+  \begin{outline}
+  \item{Burning lighter example}
+  \item{Foundations of physical chemistry:}
+    \begin{outline}
+    \item{Quantum mechanics}
+    \item{Statistical mechanics}
+    \item{Thermodynamics, kinetics, spectroscopy}
+    \item{Physical and chemical properties of matter}
+    \end{outline}
+  \end{outline}
+
+\begin{table}
+\begin{center}
+\caption{Key units in Physical Chemistry}
+\begin{tabular}{|lrlrl|} 
+\hline
+$N_\mathrm{Av}$: & $6.02214 \times 10^{23}$& mol$^{-1}$  & & \\
+1 amu: & $1.6605\times 10^{-27}$ & kg & & \\
+$k_\mathrm{B}$: & $1.38065\times 10^{-23}$ & J~K$^{-1}$ & $8.61734\times
+10^{-5}$ & eV K$^{-1}$\\
+$R$: & 8.314472 & J K$^{-1}$ mol$^{-1}$ & $8.2057 \times 10^{-2}$ & l atm mol$^{-1}$ K$^{-1}$\\
+$\sigma_\mathrm{SB}$: & $5.6704\times 10^{-8}$ & J s$^{-1}$ m$^{-2}$ K$^{-4}$ & & \\
+$c$: & $2.99792458\times 10^8$ & m s$^{-1}$ & & \\
+$h$: & $6.62607\times 10^{-34}$ & J s & $4.13566\times 10^{-15}$ & eV s
+\\
+$\hbar$: & $1.05457\times 10^{-34}$ & J s & $6.58212\times 10^{-16}$&  eV s \\
+$hc$: & 1239.8 & eV nm  & & \\
+$e$: & $1.60218\times 10^{-19}$ &  C & & \\
+$\epsilon_0$: & $8.85419 \times 10^{-12}$ & C$^2$ J$^{-1}$ m$^{-1}$ & $5.52635\times
+10^{-3}$ & $e^2$ \AA$^{-1}$ eV$^{-1}$ \\
+$e^2/4\pi\epsilon_0$: & $2.30708 \times 10^{-28}$&  J m & 14.39964 & eV \AA\\
+$a_0$: & $0.529177 \times 10^{-10}$ & m & 0.529177 & \AA\\
+$E_\mathrm{H} $: & 1 & Ha & 27.212 & eV \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\item{{\bf Lecture 1: Basic statistics}}
+  \begin{outline}
+  \item{Discrete probability distributions---Coin flip}
+    \begin{outline}
+    \item Example of Bernoulli trial, $2^n$ possible outcomes from
+      $n$ flips
+    \item Number of ways to get $i$ heads in $n$ flips, $_nC_i=n!/i!(n-i)!$
+    \item Probability of $i$ heads $P_i \propto\ _nC_i$
+    \item {\em Normalized} probability, $\tilde P_i = P_i/\sum_i P_i =\ _nC_i/2^n$
+    \item Expectation value $\langle i \rangle = \sum_i i \tilde P_i$
+   \end{outline}
+
+  \item{Continuous distributions---temperature}
+    \begin{outline}
+      \item Probability density $P(x)$ has units $1/x$
+     \item Normalized $\tilde P(x) = P(x)/\int P(x) dx$
+     \item (Unitless) probability $ a < x < b = \int_a^b \tilde P(x) dx$
+     \item Expectation value $\langle f(x) \rangle = \int f(x) \tilde P(x) dx$
+      \item Mean $= \langle x \rangle$
+      \item Mean squared $= \langle x^2 \rangle$
+      \item Variance $\sigma^2=\langle x^2 \rangle - \langle x \rangle^2$
+      \item Standard deviation $\Delta x = \sigma$
+ \end{outline}
+
+ 
+ \begin{table}\small
+\begin{center}
+\caption{Energy conversions and correspondences}
+\begin{tabular}{|l|ccccc|}
+\hline 
+ & J & eV &  Hartree & kJ mol$^{-1}$ & cm$^{-1}$\\
+\hline
+1 J = & 1 & $6.2415\times 10^{18}$ & $2.2937\times 10^{17}$ &  $6.0221 \times
+10^{20}$  & $5.0340 \times 10^{22} $\\ 
+1 eV = & $1.6022 \times 10^{-19} $ & 1 & 0.036748 & 96.485 & 8065.5 \\
+1 Ha = & $4.3598\times 10^{-18}$ & 27.212 & 1 & 2625.6 & 219474.6 \\
+1 kJ mol$^{-1}$ = & $1.6605\times 10^{-21}$ & 0.010364 & $ 3.8087\times 10^{-4}$ & 1 & 83.5935 \\
+1 cm$^{-1}$ = &$ 1.986410^{-23}$ & $1.23984\times 10^{-4}$ & $4.55623\times
+10^{-6}$& 0.011963 & 1 \\
+\hline 
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=1.25]{Images/Boltzmann.pdf}
+\caption{Boltzmann probability distribution at various temperatures}
+\end{center}
+\end{figure}
+
+\item{Boltzmann distribution}
+    \begin{outline}
+    \item $P(E) \propto e^{-E/k_BT}$, in some sense the definition of temperature
+    \item Energy and its units
+    \item Absolute temperature and its units
+    \item $k_BT$ as an energy scale, $\approx 0.026$~eV at 298~K
+
+   \item{Gravity example}
+      \begin{outline}
+      \item $E(h)=mgh$, linear, continuous energy spectrum
+      \item{molecule vs.\ car in a gravitational field}
+      \item{Barometric law for gases, $P=P_0e^{-mgh/k_BT}$}
+      \end{outline}
+    \item {Kinetic energy in 1-D example}
+      \begin{outline}
+      \item $KE = \frac{1}{2}m v_x^2$
+      \item $P_{1D}(v_x) = \left ( \frac{m}{2\pi k_B T} \right )^{1/2}\exp\left
+          (-\frac{m|v_x|^2}{2 k_BT} \right )$
+      \item Gaussian distribution,
+        $G(x)=\frac{1}{\sigma\sqrt{2\pi}} \exp\left (
+          -\frac{(x-\mu)^2}{2\sigma^2} \right )$, mean $\mu$, variance $\sigma^2$
+      \item By inspection, $\mu=\langle v_x \rangle=0$, $\sigma^2=\langle v_x^2\rangle =k_BT/m$
+      \item Molecule vs.\ car again
+      \end{outline}
+    \item Equipartition -- energy freely exchanged between all degrees
+      of freedom
+    \end{outline}
+  \end{outline}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=1.25]{Images/Gaussian.pdf}
+\caption{One-dimensional (Gaussian) velocities of N$_2$ gas}
+\end{center}
+\end{figure}
+
+\begin{table} 
+\begin{center}
+    \caption{Kinetic theory of gases key equations}
+    \begin{tabular}{|lr|}
+     \hline
+ & \\
+Boltzmann distribution & $\displaystyle P(E) = g(E) e^{-E/k_BT}$ \\ \ \ \ \ ($g(E)$: degeneracy of
+$E$) & \\ 
+Maxwell-Boltzmann distribution & $ \displaystyle
+P_{\rm MB}(v) = 4\pi v^2 \left( \frac{m}{2\pi k_B T}\right)^{3/2}\exp\left(-\frac{m
+    v^2}{2k_B T}\right) $ \\  & \\
+Mean and RMS speeds & 
+
+$\displaystyle \langle v \rangle = \left( \frac{8 k_B T}{\pi m} \right)^{1/2} \ \ \ \ \langle v^2
+\rangle^{1/2} = \left( \frac{3 k_B T}{m} \right)^{1/2} $ \\  & \\
+
+Pressure & $
+\displaystyle \langle P \rangle = \frac{\Delta p}{\Delta t} = m \frac{N}{V}\frac{1}{3}\langle v^2
+\rangle = \frac{N k_B T}{V}=\frac{n R T}{V} $ \\ & \\ 
+
+Wall collision frequency &
+$ \displaystyle  J_W = \frac{1}{4}\frac{N}{V}\langle v \rangle=\frac{P}{\left( 2 \pi m k_B
+    T\right)^{1/2}} $ \\ & \\
+
+Molecular collision frequency &
+$ \displaystyle  z=\sqrt{2} \sigma \langle v \rangle\frac{N}{V} = \frac{16\sigma P}{\left( 2\pi m k_B T
+  \right)^{1/2}} $ \\ & \\
+
+Total collisions &
+$ \displaystyle z_{AA} = \frac{1}{2} \frac{N}{V} z$ \\ & \\
+
+Mean free path &
+$\displaystyle \lambda = \frac{ \langle v \rangle}{z} = \frac{V}{\sqrt{2} \sigma N} $
+\\ & \\
+
+Graham's effusion law & $\displaystyle \frac{dN}{dt}=\text{Area}\cdot  J_w \propto 1/m^{1/2} $
+\\ & \\
+Effusion from a vessel & $\displaystyle P=P_0 e^{-t/\tau}, \tau = \frac{V}{A}\left
+  (\frac{2\pi m}{k_B T}\right )^{1/2} $ \\ & \\ 
+
+Self-diffusion constant &
+$\displaystyle D_{11} = \frac{1}{3}\langle v \rangle \lambda $ \\ & \\
+
+Diffusion rate &
+$\displaystyle \langle x^2 \rangle^{1/2} = \sqrt{2 D t} $\ \ \ \  $\langle r^2 \rangle^{1/2} = \sqrt{6
+D t}$ \\ & \\
+
+Einstein-Smoluchowski equation & $\displaystyle D_{11}= \frac{\delta^2}{2\tau}$ \\ & \\
+
+Stokes-Einstein equation for liquids & $\displaystyle D_{11}=\frac{k_BT}{4\pi\eta r}$\ \ \
+``Slip'' boundary \\
+ & \\
+ & $\displaystyle D_\mathrm{Brownian}=\frac{k_BT}{6\pi\eta r}$\ \ \ ``Stick'' boundary \\
+\hline
+    \end{tabular}
+\end{center}
+ \end{table}
+
+\item{{\bf Lecture 2: Kinetic theory of gases}}
+  \begin{outline}
+  \item{Postulates}
+    \begin{outline}
+    \item Gas is composed of molecules in constant random, thermal motion
+    \item Molecules only interact by perfectly elastic collisions
+    \item Volume of molecules is $<<$ total volume
+    \end{outline}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=1.25]{Images/MaxwellBoltzmann.pdf}
+\caption{Maxwell-Boltzmann speed distribution of N$_2$ gas}
+\end{center}
+\end{figure}
+
+ \item{Maxwell-Boltzmann distribution}
+    \begin{outline}
+     \item{3-dimensional gas, degeneracy, and $P_{MB}$}
+      \item{mean speeds $\propto \sqrt{T}$ }
+      \item{mean energy $U=3/2 RT$ and heat capacity $C_v=3/2 R$}
+    \end{outline}
+  \item{Flux and pressure}
+    \begin{outline}
+    \item{Velocity flux $j(v_x) dv_x= v_x \frac{N}{V}P(v_x)dv_x$, molecules /area /time /$v_x$}
+    \item{Wall collisions, $J_w$, total collisions /area /time}
+    \item{Momentum exchange, pressure, ideal gas law}
+    \end{outline}
+  \item{Collisions and mean free path}
+    \begin{outline}
+   \item{Collision cross section $\sigma=\pi d^2$, size of molecule}
+    \item {Molecular collisions, $z$ per molecule and $z_{\mathrm{AA}}$ per volume}
+    \item{Mean free path, $\lambda$, mean distance between collisions}
+    \end{outline}
+  \end{outline}
+ 
+\item{{\bf Lecture 3: Transport}}
+  \begin{outline}
+  \item{Effusion and Graham's law, $\text{effusion rate}\propto MW^{-1/2}$}
+  \item{Fick's first law: net flux proportional to concentration gradient}
+    \begin{outline}
+      \item{Self-diffusion constant, $D=\lambda \langle v \rangle$}
+    \end{outline}
+  \item{Fick's second law: time evolution of concentration gradient}
+  \item Knudsen diffusion, $D=l \langle v \rangle$
+  \item{Random walk model}
+    \begin{outline}
+    \item{Binomial distribution}
+    \item{Large $N$ and Stirling approximation}
+    \item{Einstein-Smoluchowski relation}
+    \end{outline}
+  \item{Diffusion in liquids}
+    \begin{outline}
+    \item{Brownian motion}
+    \item{Stokes-Einstein equation}
+    \end{outline}
+  \end{outline}
+
+\begin{table} 
+\begin{center}
+    \caption{The new physics}
+    \begin{tabular}{|lr|}
+     \hline
+ & \\
+Stefan-Boltzmann Law & $\displaystyle  \int I(\lambda,T)d\lambda = \sigma_\mathrm{SB} T^4$
+\\ & \\
+Wien's Law & $\displaystyle \lambda_\mathrm{max}T=2897768$ nm K \\
+ & \\
+Rayleigh-Jeans eq& $\displaystyle I(\lambda,T) = \frac{8\pi}{\lambda^4} k_B T c $ \\ 
+& \\
+Blackbody irradiance & $\displaystyle I(\lambda, T) =
+\frac{8\pi}{\lambda^5}\frac{hc^2}{e^{hc/\lambda k_B T}-1}$ \\ 
+& \\
+Einstein crystal & $\displaystyle C_v=3R \left(\frac{h\nu}{k_BT}\right )^2\frac{e^{h\nu/k_BT}}{\left
+            ( e^{h\nu/k_BT}-1 \right )^2}$ \\
+& \\
+Photon energy & $\displaystyle \epsilon=h\nu $ \\
+& \\
+Rydberg equation & $\displaystyle \nu = R_H c\left (1/n^2
+        -1/k^2 \right)$ \\
+& \\
+Bohr equations & $\displaystyle l_n=n \hbar$ \\
+$\displaystyle n=1,2, \ldots $ & $\displaystyle r_n = n^2 \left ( \frac{4 \pi
+    \epsilon_0 \hbar^2}{e^2 m_e} \right ) = n^2 a_0$ \\
+ & $\displaystyle E_n =-\frac{m_e e^4}{8\epsilon_0^2
+   h^2}\frac{1}{n^2}=-\frac{E_H}{2}\frac{1}{n^2}$ \\ 
+ & $\displaystyle p_n =\frac{e^2}{4\pi\epsilon_0}\frac{m_e}{\hbar}\frac{1}{n} =
+p_0 \frac{1}{n} $ \\
+& \\
+de Broglie equation & $\displaystyle \lambda=h/p $ \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\item{{\bf Lecture 4: Duality and demise of classical physics}}
+  \begin{outline}
+    \item{Properties of waves}
+      \begin{outline}
+      \item traveling waves, $\psi(x,t)=A \sin(kx-\omega t)$, $k=2\pi/\lambda$, $\omega=2\pi\nu$
+      \item standing waves, $\psi(x,t) = A \sin(kx) \cos(\omega t) $
+      \item interference, diffraction
+      \item energy proportional to amplitude squared
+      \item  Expected energy of a classical oscillator, $\langle \epsilon \rangle _\nu = k_B T$ for all $\nu$
+      \end{outline}
+    \item{Blackbody radiation}
+      \begin{outline}
+      \item Hohlraum spectrum
+      \item Stefan-Boltzmann law, total irradiance 
+      \item Wien's displacement law
+      \item{Rayleigh-Jeans and ultraviolet catastrophe}
+      \item{Planck model}
+        \begin{outline}
+        \item Energy spectrum of oscillators are {\em quantized}, $\epsilon_\nu=nh\nu$ 
+        \item Expected energy of a quantized oscillator, $\langle \epsilon \rangle_\nu = h\nu/\left (
+          e^{h\nu/k_BT}-1 \right ) $
+      \item Planck expression for blackbody radiation works!
+      \end{outline}
+
+    \end{outline}
+  \item{Heat capacities of solids and gases}
+    \begin{outline}
+    \item Law of DuLong and Pettite, $C_v = 3R$, fails at low $T$
+    \item Einstein solid
+      \begin{outline}
+      \item Quantized vibrational energy, $\epsilon_n=nh\nu$
+      \item Heat capacity goes to zero at low $T$
+      \end{outline}
+  \end{outline}
+
+  \item{Photoelectric effect}
+    \begin{outline}
+    \item Stopping potential and work function, $T =h\nu -W$
+    \item Frequency and intensity dependence
+    \item{Wave-particle duality}
+    \item{Photon properties, $\epsilon = h\nu, p=h/\lambda$}
+    \item Compton effect, light scattering of electrons changes $\lambda$
+    \end{outline}
+  
+  \item Rutherford, planetary model of atom, and inconsistency with Maxwell's equations
+  \item{Bohr model of H atom}
+    \begin{outline}
+    \item Discrete H energy spectrum and Rydberg formala
+    \item Bohr model (the old quantum mechanics)
+      \begin{outline}
+      \item Stable electron ``orbits,'' quantized angular momentum
+      \item Light emission corresponds to orbital jumps, $\nu=\Delta E/h$
+      \item Bohr equations
+      \item Comparison with Rydberg formula
+      \item Failure for larger atoms
+      \end{outline}
+    \end{outline}
+  \item{de Broglie relation}
+    \begin{outline}
+      \item{$\lambda=h/p$ {\em universally}}
+      \item Relation to Bohr orbits
+      \item Davison and Germer experiment, $e^-$ diffraction off Ni
+    \end{outline}
+  \end{outline}
+  
+\begin{table} 
+\begin{center}
+    \caption{\large{Postulates of Non-relativistic Quantum Mechanics}}
+   \begin{description}
+    \item[Postulate 1:] {{\bf The physical state of a system is completely described by
+        its wavefunction $\Psi$.}  In general, $\Psi$ is a complex function of the spatial
+      coordinates and time.  $\Psi$ is required to be:}
+    \begin{outline}
+      \item{Single-valued}
+      \item {continuous and twice differentiable}
+      \item {square-integrable ($\int \Psi^*\Psi d\tau$ is defined over all finite domains)}
+      \item {For bound systems, $\Psi$ can always be normalized such that $\int \Psi^*\Psi d\tau=1$}
+    \end{outline}
+
+  \item[Postulate 2:]  To every physical observable quantity $M$ there corresponds a
+    Hermitian operator $\hat{M}$.  {\bf The only observable values of $M$ are the
+      eignevalues of $\hat{M}$.}
+    \begin{center}
+    \begin{tabular}[h]{ccc}
+      \hline
+{\bf Physical quantity} & {\bf Operator} & {\bf Expression} \\
+\hline
+Position $x,y,z$ & $\hat{x},\hat{y},\hat{z}$ & $x\cdot, y\cdot, z\cdot$ \\ \\
+Linear momentum $p_x, \ldots$ & $\hat{p}_x,\ldots $ & $\displaystyle -i\hbar\frac{\partial}{\partial
+  x},\ldots $\\
+Angular momentum $l_x, \ldots$ & $\hat{p}_x,\ldots $ & $\displaystyle -i\hbar \left
+  (y\frac{\partial}{\partial z}-z\frac{\partial}{\partial y}\right ), \ldots $ \\
+Kinetic energy $T$ & $\hat{T}$ & $\displaystyle -\frac{\hbar^2}{2m}\nabla^2$ \\
+Potential energy $V$ & $\hat{V}$ & $V({\bf r},t)$ \\
+Total energy $E$ & $\hat{H}$ & $\displaystyle -\frac{\hbar^2}{2m}\nabla^2+V({\bf r},t)$\\ \\
+\hline
+    \end{tabular}
+  \end{center}
+    \item[Postulate 3:] {If a particular observable $M$ is measured many times on many
+      identical systems is a state $\Psi$, the average resuts with be the expectation
+      value of the operator $\hat{M}$:
+      \begin{equation*}
+        \langle M \rangle = \int \Psi^* (\hat{M}\Psi)d{\bf\tau}
+      \end{equation*}}
+    \item[Postulate 4:] {The energy-invariant states of a system are solutions of the equation
+        \begin{eqnarray*}
+          \hat{H}\Psi({\bf r},t) & = & i\hbar\frac{\partial}{\partial t}\Psi({\bf r},t) \\
+          \hat{H} & = & \hat{T}+\hat{V}
+        \end{eqnarray*}
+      The time-independent, stationary states of the system are solutions to the equation
+      \begin{equation*}
+        \hat{H}\Psi({\bf r}) = E\Psi(\bf{r})
+      \end{equation*}
+}
+    \item[Postulate 5:] (The {\bf uncertainty principle}.)  Operators that do not commute
+      $(\hat{A}(\hat{B}\Psi)\neq\hat{B}(\hat{A}\Psi))$ are called {\em conjugate}.
+      Conjugate observables cannot be determined simultaneously to arbitrary accuracy.
+      For example, the standard deviation in the measured positions and momenta of
+      particles all described by the same $\Psi$ must satisfy $\Delta x\Delta p_x \geq \hbar/2$.
+    \end{description}
+\end{center}
+\end{table}
+
+\item{{\bf Lecture 5: Postulates of quantum mechanics}}
+  \begin{outline}
+  \item{Schr\"{o}dinger equation describes wave-like properties of matter}
+  \item{Born interpretation}
+    \begin{outline}
+      \item wavefunction is a probability amplitude
+      \item wavefunction squared is probability density
+    \end{outline}
+
+  \item{Postulates}
+    \begin{outline}
+    \item{Wavefunction contains all information about a system}
+    \item{Operators used to extract that information}
+      \begin{outline}
+      \item QM operators are {\em Hermitian}
+      \item Have eigenvectors and real eigenvalues, $\hat{O}\psi_i=o\psi_i$
+      \item Are orthogonal, $\langle \psi_i | \psi_j \rangle = \delta_{ij}$
+      \item Always observe an eigenvalue when making an observation
+      \end{outline}
+    \item{Expectation values}
+    \item{Energy-invariant wavefunctions given by Schr\"odinger equation}
+    \item{Uncertainty principle}
+    \end{outline}
+  \item{Particle in a box illustrations}
+  \end{outline}
+
+\item{{\bf Lecture 6: Particle in a box model}}
+  \begin{outline}
+ \item{Particle between infinite walls, electron confined in a wire}
+ \item Classical solution, either stationary or uniform bouncing back and forth
+  \item{One-dimesional QM solutions}
+    \begin{outline}
+    \item Schr\"{o}dinder equation and boundary conditions
+    \item discrete, quantized solutions
+     \item standing waves, $\lambda=2 L/n$, $n-1$ nodes, non-uniform probability
+      \item Ho paper, STM of Pd wire
+      \item zero point energy and uncertainty
+      \item correspondence principle
+      \item superpositions
+    \end{outline}
+  \item{Finite walls and tunneling}
+    \begin{outline}
+    \item Potential well of finite depth $V_0$
+    \item Finite number of bound states
+    \item Classical region, $\psi(x) ~ e^{ikx}+e^{-ikx}, k=\sqrt{2mE}/\hbar$
+    \item ``Forbidden'' region, $\psi(x) ~ e^{\kappa x}+e^{-\kappa x},
+      \kappa=\sqrt{2m(V_0-E)}/\hbar$
+    \item Non-zero probability to ``tunnel'' into forbidden region
+    \item Tunneling between two adjacent wells: chemical bonding, STM, nanoelectronics
+    \item H atom tunneling: NH$_3$ inversion, H transfer, kinetic isotope effect
+    \end{outline}
+
+  \item{Multiple dimensions}
+    \begin{outline}
+    \item separation of variables
+    \end{outline}
+  \item Introduce Pauli principle for fermions?
+
+  \end{outline}
+\begin{table}[tb]
+   \begin{center}
+   \caption{Particle-in-a-box model}
+    \label{Particle-in-a-box}
+\begin{tabular}[h]{|c|}
+\hline
+ \\
+$\displaystyle       V(x) = \left \{
+        \begin{array}{rl}
+          0 & 0 < x < L \\
+          \infty & x \leq 0 \text{ or } x \geq L
+        \end{array} \right . $ \\
+ \\
+$\displaystyle     \psi_n(x) =\sqrt{\frac{2}{L}} \sin \left ( \frac{n\pi x}{L} \right )$
+\\ 
+ \\
+$\displaystyle     E_n =\frac{n^2\pi^2\hbar^2}{2mL^2}, n = 1, 2, ...$ \\
+ \\
+     \includegraphics[scale=.6]{Images/PIB} \\       
+\hline
+\end{tabular}
+ \end{center}
+\end{table}
+
+
+\item{{\bf Lecture 7: Harmonic oscillator}}
+  \begin{outline}
+  \item{Classical harmonic oscillator}
+    \begin{outline}
+    \item Hooke's law, $F=-k(x-x_0)$, $k$ spring constant
+   \item Continuous sinusoidal motion
+    \item $x(t)=A \sin(\frac{k}{\mu})^{1/2}t, \nu=\frac{1}{2\pi}(\frac{k}{\mu})^{1/2}, E=\frac{1}{2}kA^2$
+    \item Exchanging kinetic and potential energies
+    \end{outline}
+  \item Quantum harmonic oscillator
+    \begin{outline}
+    \item Solutions like P-I-A-B, waves, nodes
+   \item Zero-point energy
+    \item Expectation values $\langle x^2 \rangle =
+      \alpha^2 (v+1/2), \langle V(x) \rangle = \frac{1}{2} h\nu (v+\frac{1}{2})$
+    \item Classical turning point and tunneling
+    \item Classical limiting behavior
+    \end{outline}
+  \item HCl example
+    \begin{outline}
+          \item Reduced mass, $\frac{1}{\mu}=\frac{1}{m_A}+\frac{1}{m_B}$
+    \end{outline}
+    \item Anharmonicity, Morse potential
+  \end{outline}
+
+\begin{table}[tbh]
+   \begin{center}
+   \caption{Harmonic oscillator model}
+    \label{Harmonic-oscillator}
+\begin{tabular}[h]{|c|}
+\hline
+ \\
+$\displaystyle       V(x) = \frac{1}{2} k x^2, -\infty < x < \infty $ \\
+ \\
+$\displaystyle     \psi_v(x) = N_v H_v(x/\alpha)e^{-x^2/2\alpha^2}, v = 0, 1, 2, \ldots $ \\
+\\
+$\displaystyle \alpha=(\hbar^2/\mu k)^{1/4}, N_v=(2^vv!\alpha\sqrt{\pi})^{-1/2} $ \\
+ \\
+$\displaystyle  H_v(x/\alpha)=$ Hermite polynomials \\
+$\displaystyle H_0(y) =1, H_1(y) = 2y, H_2(y) = 4y^2-2, \ldots $ \\ 
+ \\
+$\displaystyle     E_v=(v+\frac{1}{2})h \nu, v=0, 1, 2, ...$ \\
+ \\
+     \includegraphics[scale=.6]{Images/HO} \\       
+\hline
+\end{tabular}
+ \end{center}
+\end{table}
+
+\item{{\bf Lecture 8: Vibrational spectroscopy}}
+  \begin{outline}
+    \item Spectroscopy, measuring interaction of light with matter, $I(\nu)/I(\nu_0)$
+    \item Bohr condition, $|E_f-E_i|/h=\nu =c\tilde{\nu}=c/\lambda$
+    \item Intensities determined by state populations and transition probabilities
+    \item Einstein coefficients
+      \begin{outline}
+        \item Stimulated absorption, $dn_1/dt= -n_1 B\rho(\nu)$
+        \item Stimulated emission, $dn_2/dt= -n_2 B\rho(\nu)$
+        \item Spontaneous emission, $dn_2/dt=-n_2 A, A=\left ( \frac{8\pi h
+              \nu^3}{c^3}\right )B$
+        \item $1/A=$ lifetime
+      \end{outline}
+
+    \item Transition probability
+      \begin{outline}
+        \item Einstein coefficient $B_{if}=\frac{|\mu_{if}|^2}{6\epsilon_0\hbar^2}$
+        \item Classical electric dipole, $\overrightarrow{\mu}=q \cdot
+          \overrightarrow{l}$, quantum dipole operator $\hat\mu = e\cdot \overrightarrow{r}$
+        \item Transition dipole moment, $\mu_{if} = \left(
+        \frac{d\mu}{dx}\right ) \langle \psi_i|\hat\mu |\psi_f \rangle $
+    \item Selection rules---conditions that make $\mu_{if}$ non-zero,
+      ``allowed'' vs. ``forbidden'' transitions
+      \end{outline}
+
+    \item Vibrational transitions
+      \begin{outline}
+        \item Gross selection rule: dynamic dipole $d\mu/dx$ non-zero
+        \item Specific selection rule: dipole integral $\langle \psi_v|\hat\mu|\psi_{v^\prime} \rangle =0$
+          unless $\Delta v = \pm 1$
+        \item Allowed $\Delta E = h\nu$
+        \item Boltzmann, $v=1$ states dominate at normal $T$
+      \end{outline}
+
+    \item Vibrational spectroscopy
+      \begin{outline}
+        \item Diatomics, homo- vs. heteronuclear
+        \item Polyatomics, $3n-6$ ($3n-5$ for linear polyatomic) vibrational modes
+        \item CO$_2$ example
+      \end{outline}
+
+    \item Raman spectroscopy
+ \end{outline}
+
+\begin{table}[tbh]
+   \begin{center}
+   \caption{2-D rigid rotor model}
+    \label{Rigid rotor}
+\begin{tabular}[h]{|c|}
+\hline
+ \\
+$\displaystyle       V(\phi) = 0, 0 \leq \phi \leq 2\pi $ \\
+ \\
+$\displaystyle \hat H = -\frac{\hbar^2}{2 I} \frac{\partial^2}{\partial
+  \phi^2},\ \ \ \ \ I=\mu R^2
+$\\
+\\
+$\displaystyle     \psi_{m_l}(\phi) = \frac{1}{\sqrt{2\pi}} e^{-i m_l \phi}, m_l
+= 0, \pm 1, \pm 2, \ldots $ \\
+\\
+$\displaystyle     E_{m_l}=\frac{m_l^2 \hbar^2}{2 I^2}$ \\
+ \\
+$\displaystyle L_z = m_l \hbar$ \\
+\\
+     \includegraphics[scale=1]{Images/2D_rotor} \\       
+\hline
+\end{tabular}
+ \end{center}
+\end{table}
+
+\item{{\bf Lecture 9: Rigid rotor}}
+  \begin{outline}
+  \item Classical rigid rotor
+    \begin{outline}
+      \item Rotation about an axis vs.\ linear motion
+      \item Moment of intertia $I=\mu r^2$
+      \item Angular momentum, ${\bf l} = I {\bf \omega}= {\bf r}\times{\bf p}$, $T=|{\bf l}|^2/2 I$
+      \item Angular momentum and energy continuous variable
+    \end{outline}
+
+  \item Quantum rotor in a plane
+    \begin{outline}
+    \item Angular momentum and kinetic energy operators in polar coordinates,
+      $\hat l_z = -i\hbar \frac{d}{d\phi}$
+    \item Eigenfunctions and energy spectrum
+    \item No zero point energy
+    \item Angular momentum eignefunctions, $l_z = m_l \hbar$
+      \item Energy superpositions and localization 
+    \end{outline}
+  \item Quantum rotor in 3-D
+    \begin{outline}
+    \item Angular momentum and kinetic energy operators in spherical coordinates
+    \item Spherical harmonic solutions, $Y_{lm_l}$
+    \item Azimuthal QN $l=0, 1, ...$
+    \item Magnetic QN $m_l = -l, -l+1, ..., l$
+    \item Energy spectrum, $2 l + 1$ degeneracy
+    \item Vector model - can only know total total $|L|$ and $L_z$
+    \item Wavefunctions look like atomic orbitals, $l$ nodes
+    \end{outline}
+  \item Particle angular momentum
+    \begin{outline}
+    \item Fermions, mass, half-integer spin
+      \begin{outline}
+      \item Electron, $s=1/2, m_s=\pm 1/2$
+      \end{outline}
+    \item Bosons, force-carrying, integer spin
+    \end{outline}
+  \item{Diatomic rotational spectroscopy}
+    \begin{outline}
+    \item Rotational constant $B = \hbar/4\pi I c$ cm$^{-1}$, $I=\mu R^2$
+    \item Gross selection rule: dipole moment non-zero
+    \item Specific selection rule: $\Delta l=\pm 1$, $\Delta m_l=0, \pm1$
+    \item $\Delta \tilde E_l  = 2B(l+1)$ cm$^{-1}$
+    \item Rotational state populations
+    \end{outline}
+  \item{Polyatomic rotational spectroscopy}
+  \item{Vibration-rotation spectroscopy}
+    \begin{outline}
+    \item Harmonic oscillator + rigid rotor
+    \item Selection rules: $\Delta v = \pm 1, \Delta l=\pm 1$
+    \item $R$ branch: $\Delta \tilde E  = \tilde \nu + 2B(l+1), \Delta l = 1$ 
+    \item $P$ branch: $\Delta \tilde E = \tilde \nu - 2B(l), \Delta l = -1$       
+    \end{outline}
+
+  \end{outline}
+\begin{table}[tbh]
+   \begin{center}
+   \caption{3-D rigid rotor model}
+    \label{3-D Rigid rotor}
+\begin{tabular}[h]{|c|}
+\hline
+ \\
+$\displaystyle       V(\theta,\phi) = 0, 0 \leq \phi \leq 2\pi, 0 \leq \theta <
+\pi$ \\
+ \\
+$\displaystyle     \hat L^2 = -\hbar^2 \left [
+  \frac{1}{\sin^2\theta}\frac{\partial^2}{\partial \phi^2}+\frac{1}{\sin
+    \theta}\frac{\partial}{\partial \theta}\left ( \sin \theta
+    \frac{\partial}{\partial \theta}\right ) \right ] $ \\
+\\
+$\displaystyle \hat H_\text{rot} = \frac{1}{2 I} \hat L^2$ \\
+\\
+$\displaystyle     Y_{lm_l}(\theta,\phi)=N_l^{|m|}P_l^{|m|}(\cos(\theta))e^{im_l\phi}$ \\
+\\
+$\displaystyle l = 0, 1, 2, \ldots, \ \ \ \ \ \ m_l = 0,\pm 1, \ldots, \pm l$
+\\
+\\
+$\displaystyle     E_{l}=\frac{\hbar^2}{2 I}l(l+1)$ \\
+ \\
+$\displaystyle |L| = \hbar \sqrt{l(l+1)}, L_z = m_l \hbar $ \\
+\\
+     \includegraphics[scale=0.4]{Images/3D_rotor} \\       
+\hline
+\end{tabular}
+ \end{center}
+\end{table}
+
+\item{{\bf Lecture 10: Hydrogen atom}}
+  \begin{outline}
+  \item Schr\"odinger equation
+    \begin{outline}
+    \item Spherical coordinates and separation of variables
+    \item Coulomb potential $v_\mathrm{Coulomb}(r)=-\frac{e^2}{4\pi\epsilon_0}\frac{1}{r}$
+    \item Centripetal potential  $v=\hbar^2\frac{l(l+1)}{2\mu r^2}$
+    \end{outline}
+    \item Solutions
+    \begin{outline}
+  \item{$\psi(r,\theta,\phi)=R_{nl}(r)Y_{lm}(\theta,\phi)$}
+  \item Principle quantum number $n=1,2,...$
+    \begin{outline}
+    \item $K$, $L$, $M$, $N$, ... shells
+    \item $n-1$ radial nodes
+    \end{outline}
+  \item Azimuthal quantum number $l=0,1,...,n-1$
+    \begin{outline}
+    \item $s$, $p$, $d$, ... orbital sub-shells
+    \item $l$ angular nodes
+    \end{outline}
+  \item Magnetic quantum number $m_l=-l,-l+1,...,l$
+  \item Spin quantum number $m_s=\pm 1/2$
+    \end{outline}
+  \item Energy spectrum and populations
+  \item Electronic selection rules
+    \begin{outline}
+    \item $\Delta l=\pm 1$, $\Delta m_s =0$, $\Delta m_l = 0,\pm 1$
+    \end{outline}
+  \item Wavefunctions = ``orbitals''
+  \item Radial probability function $P_{nl}(r)=r^2 R_{nl}^2(r)$
+    \begin{outline}
+    \item $\langle r\rangle = \int r P_{nl}(r) dr = (\frac{3}{2}n^2-l(l+1))a_0$
+    \end{outline}
+  \end{outline}
+\begin{table}[tbh]
+   \begin{center}
+   \caption{Hydrogen atom}
+    \label{Hydrogen atom}
+\begin{tabular}[h]{|c|}
+\hline
+ \\
+$\displaystyle       V(r) = -\frac{e^2}{4\pi\epsilon_0}\frac{1}{r}, 0 < r< \infty$ \\
+ \\
+$\displaystyle     \hat H = -\frac{\hbar^2}{2m_e}\frac{1}{r^2}\left [
+  \frac{\partial}{\partial r}r^2\frac{\partial}{\partial r} + \hat L^2 \right ] +V(r)$ \\
+\\
+$\displaystyle \psi(r,\theta,\phi) = R(r)Y_{l,m_l}(\theta,\phi) $ \\
+\\
+$\displaystyle   \left \{ -\frac{\hbar^2}{2m_e}\frac{1}{r^2}
+            \frac{d}{d r} \left ( r^2 \frac{d}{dr}\right ) + \frac{\hbar^2
+              l(l+1)}{2 m_e r^2}
+          -\frac{e^2}{4\pi\epsilon_0}\frac{1}{r}\right \} R(r) = E R(r) $ \\
+\\
+$\displaystyle R_{nl}(r) = N_{nl} e^{-x/2} x^l L_{nl}(x),\ \ \  x = \frac{2 r}{n a_0} $
+\\
+$\displaystyle P_{nl}(r) = r^2 R_{nl}^2 $
+\\
+\\
+$\displaystyle n = 1, 2, \ldots,\ \  l = 0, \ldots, n-1 \ \ m_l = 0,\pm 1, \ldots, \pm l$
+\\
+\\
+$\displaystyle     E_{n}=-\frac{1}{2}\frac{\hbar^2}{m_e a_0^2}\frac{1}{n^2} =-\frac{E_H}{2}\frac{1}{n^2}$ \\
+ \\
+$\displaystyle |L| = \hbar \sqrt{l(l+1)}, L_z = m_l \hbar $ \\
+\\
+%%     \includegraphics[scale=0.4]{Images/H_atom} \\       
+\hline
+\end{tabular}
+ \end{center}
+\end{table}
+
+\item{{\bf Lecture 11: Many-electron atoms}}
+  \begin{outline}
+  \item Many-electron problem, Schr\"odinger equation not exactly solvable
+    \begin{outline}
+      \item $e^- -e^-$ interaction terms prevent separation of variables
+    \end{outline}
+  \item Independent electron model basis of all solutions, describes each
+    electron by its own wavefunction, or ``orbital''
+  \item Qualitative solutions
+    \begin{outline}
+    \item $\psi_i$ look like H atom orbitals,  labeled by same quantum numbers
+    \item {\em Aufbau principle}: ``Build-up'' electron configuration by adding
+      electrons into H-atom-like orbitals, from bottom up
+    \item {\em Pauli exclusion principle}: Every electron in atom must have a unique
+      set of quantum numbers, so only two per orbital (with opposite spin)
+    \item {\em Pauli exclusion principle} (formally): The wavefunction of a
+      multi-particle system must be anti-symmetric to coordinate exchange if
+      the particles are fermions, and symmetric to coordinate exchange if the
+      particles are bosons
+    \item {\em Hund's rule}: Electrons in degenerate orbitals prefer to be
+      spin-aligned.  Configuration with highest {\em spin multiplicity} is the
+      most preferred
+    \item Rules give the familiar structure of the periodic table
+    \item Electrons in different subshells experience different effective nuclear
+      charge $Z_\mathrm{eff} = Z - \sigma_{nl}$
+      \begin{outline}
+      \item Inner (``core'') shells not shielded well at all
+      \item Inner shell electrons ``shield'' outer electrons well
+      \item Within a shell, $s$ shielded less than $p$ less than $d$ ...,
+        causes degeneracy to break down
+      \item Electrons in same subshell shield each other poorly, causing
+        ionization energy to increase across the subshell
+      \end{outline}
+    \end{outline}
+  \item {\em Variational principle}--True wavefunction energy is lower bound on
+    energy of any trial wavefunction
+    \begin{outline}
+      \item Because true solutions form a complete set
+      \item Use to optimize candidate wavefunctions (give an example?)
+    \end{outline}
+  \item Quantitative solutions
+    \begin{outline}
+    \item Schr\"odinger equation
+     \begin{outline}
+     \item $\hat H \Psi({\bf r}_1, {\bf r}_2,...)=E \Psi({\bf r}_1, {\bf r}_2,...)$
+     \item $\hat H = \sum_i \hat h_i + \frac{e^2}{4 \pi
+         \epsilon_0}\sum_i\sum_{j>i}\frac{1}{|{\bf r}_i-{\bf r}_j|}$
+     \item $\hat h_i = -\frac{\hbar^2}{2m_e}\nabla^2_i-\frac{Z
+         e^2}{4\pi\epsilon_0}\frac{1}{|{\bf r}_i|}$
+     \end{outline}
+   \item Construct candidate many-electron wavefunction $\Psi$ from one
+     electron wavefunctions (mathematical details vary with exact approach)
+       \begin{outline}
+       \item $\Psi({\bf r}_1, {\bf r}_2,...)\approx \psi_1({\bf
+           r}_1)\psi_2({\bf r}_2)...\psi_n({\bf r}_n)$
+       \end{outline}
+     \item Calculate expectation value of $E$ of approximate model and apply
+      {\em  variational principle} to find equations that describe ``best'' (lowest
+       total energy) set of $\psi_i$
+       \begin{outline}
+       \item $\frac{\partial E}{\partial \psi_i}=0 \ \ \ \forall i$
+       \item $\hat f\psi=\left\{\hat h + \hat v_\mathrm{Coul}[\psi_i] + \hat
+           v_\mathrm{ex}[\psi_i]+\hat v_\mathrm{corr}[\psi_i] \right\}\psi=\epsilon\psi$
+       \item (Motivate as equation for an electron moving in a ``field'' of
+         other electrons, adding an electron to a known set of $\psi_i$)
+       \item $E=\sum_i \epsilon_i-\frac{1}{2}\langle \Psi |\hat v_\mathrm{Coul}[\psi_i] + \hat
+           v_\mathrm{ex}[\psi_i]+\hat v_\mathrm{corr}[\psi_i]|\Psi \rangle$
+       \end{outline}
+     \item Electron-electron interactions
+       \begin{outline}
+       \item Coulomb ($\hat v_\mathrm{Coul}$): classical electrostatic
+         repulsion between distinguishable electron ``clouds''
+       \item Exchange ($\hat v_\mathrm{ex}$): accounts for electron
+         indistinguishability (Pauli principle for fermions).  Decreases
+         Coulomb repulsion because electrons of like spin intrinsically avoid
+         one another
+       \item Correlation ($\hat v_\mathrm{corr}$): decrease in Coulomb
+         repulsion due to dynamic ability of electrons to avoid one another;
+         ``fixes'' orbital approximation
+       \end{outline}
+     \item General form of exchange potential is expensive to calculate; general
+       form of correlation potential is unknown
+       \begin{outline}
+     \item {\em Hartree model}: Include only classical Coulomb repulsion $\hat
+       v_\mathrm{Coul}$
+     \item {\em Hartree-Fock model}: Include Coulomb and exchange
+     \item {\em Density-functional theory} (DFT): Include Coulomb and
+       approximate expressions for exchange and correlation         
+       \end{outline}
+     \item All the potential terms $\hat v$ depend on the solutions, so equations
+       must be solved {\em iteratively} to {\em self-consistency}
+     \end{outline}
+   \item Herman-Skillman code for DFT calculations on atoms
+   \end{outline}
+
+ \item {\bf Lecture 12: Molecular orbital theory of molecules}
+   \begin{outline}
+   \item Clamped nucleus (``Born-Oppenheimer'') approximation
+     \begin{outline}
+     \item Write one-electron equations parametrically in terms of positions of
+     all atoms
+   \item   $\hat h_i = -\frac{\hbar^2}{2m_e}\nabla^2_i-\sum_\alpha \frac{Z_\alpha
+         e^2}{4\pi\epsilon_0}\frac{1}{|{\bf r}_i-{\bf R}_\alpha|}$
+     \item Solve as for atoms, using some model for electron-electron interactions
+     \item Potential energy surface (PES)
+       \begin{outline}
+       \item $E({\bf R}_\alpha, {\bf
+           R}_\beta,...)=E_\mathrm{elec}+\frac{e^2}{4\pi\epsilon_0}\sum_\alpha\sum_{\beta>\alpha}\frac{Z_\alpha
+           Z_\beta}{|{\bf R}_\alpha-{\bf R}_\beta|}$ 
+       \end{outline}
+     \end{outline}
+   \item H$_2$ molecule as perturbation on two H atoms brought from infinite distance
+     \begin{outline}
+       \item ``Bonding'' orbital, $\sigma_g({\bf r}) = 1{\rm s_A}+1{\rm s_B}$
+       \item ``Anti-bonding'' orbital, $\sigma_u({\bf r}) = 1{\rm s_A}-1{\rm s_B}$
+       \item Interaction scales with ``overlap'' $\langle 1{\rm s_A} | 1{\rm
+           s_B} \rangle$
+       \item Ground ``configuration'' $=\sigma_g^2$
+       \item Bond order = $\frac{1}{2}(n-n^*)$
+     \end{outline}
+   \item Secular equations
+     \begin{outline}
+     \item Expand molecular orbitals in ``basis'' of atomic-like orbitals
+       \begin{equation}
+         \psi_\mathrm{MO}=\sum_a c_a\phi_a({\bf r})
+       \end{equation}
+     \item Problem reduces to finding set of $c_a$ that give best molecular
+       orbitals (MOs)
+     \item Substituting into Fock equation and integrating yields set of linear
+       equations for the $c_a$ for each MO
+       \begin{displaymath}
+         \left ( \begin{array}{ccc}
+           F_{11}-\epsilon S_{11} & F_{12}-\epsilon S_{12} & \ldots \\
+           F_{21}-\epsilon S_{21} & F_{22}-\epsilon S_{22} & \ldots \\
+           \vdots & \vdots & \vdots
+         \end{array} \right ) \left (
+         \begin{array}{c}
+           c_1 \\
+           c_2 \\
+           \vdots
+         \end{array} \right ) = 0
+     \end{displaymath}
+     \begin{outline}
+     \item $F_{ij} = F_{ji} = \langle \phi_i | \hat f | \phi_j \rangle$ are Fock
+       ``matrix elements''
+     \item $S_{ij} = S_{ji} = \langle \phi_i | \phi_j \rangle$ are overlaps
+     \item Typically basis functions normalized such that $S_{ii} = 1$
+     \item $\epsilon$ are molecular orbital energies (to be solved for, as many
+       as there are equations)
+     \end{outline}
+   \item From linear algebra, only possible solutions are those that make the
+     determinant vanish
+       \begin{displaymath}
+         \left | \begin{array}{ccc}
+           F_{11}-\epsilon S_{11} & F_{12}-\epsilon S_{12} & \ldots \\
+           F_{21}-\epsilon S_{21} & F_{22}-\epsilon S_{22} & \ldots \\
+           \vdots & \vdots & \vdots
+         \end{array} \right | = 0
+     \end{displaymath}
+   \item Solve for $\epsilon$s and back-substitute to find correspond $c_i$s
+   \end{outline}
+ \item Qualitative solutions of secular equations
+   \begin{outline}
+   \item Lot's of insight into chemical bonding can be obtained from
+     approximate solutions to secular equations, basis of ``molecular orbital theory''
+   \item Two general assumptions
+     \begin{outline}
+     \item Diagonal Fock elements are approximately equal to energies of
+       corresponding atomic orbitals: $F_{ii} \approx \epsilon_{i,\mathrm{ao}}$
+     \item Off-diagonal elements proportional to overlap and inversely
+       proportional to energy difference:
+       \begin{displaymath}
+         F_{ij} \propto \frac{S_{ij}}{\epsilon_{i,\mathrm{ao}}-\epsilon_{j,\mathrm{ao}}}
+       \end{displaymath}
+     \item (Often) set differential overlap $S_{ij}=0$
+     \end{outline}
+   \end{outline}
+ \item H$_2$ example, again
+   \begin{outline}
+   \item Assign one 1s atomic orbital (``basis function'') to each atom
+     \begin{eqnarray*}
+       F_{11}=F_{22}=\epsilon_{1\mathrm{s}}=\alpha \\
+       F_{12}=F_{21}=\beta \\
+       \alpha < \beta < 0\ \ \mathrm{typically}
+     \end{eqnarray*}
+   \item Set-up and solve secular matrix
+     \begin{displaymath}
+      \left | \begin{array}{cc}
+          \alpha-\epsilon & \beta-\epsilon S \\
+          \beta - \epsilon S & \alpha-\epsilon
+          \end{array} \right | = 0
+     \end{displaymath}
+     \begin{eqnarray*}
+       \epsilon_+=\frac{\alpha+\beta}{1+S}, c_1=c_2=\frac{1}{\sqrt{2(1+S)}} \\
+       \epsilon_-=\frac{\alpha-\beta}{1+S}, c_1=-c_2=\frac{1}{\sqrt{2(1-S)}} \\
+     \end{eqnarray*}
+     \begin{center}
+     \includegraphics[scale=0.25]{Images/H2-MO}       
+     \end{center}
+   \end{outline}
+ \item Heteronuclear diatomic: LiH, HF, BH example
+   \begin{outline}
+   \item Only AOs of appropriate symmetry, overlap, and energy match can
+     combine to form MOs
+   \item LiH: H 1s + Li 2s, bond polarized towards H
+   \item HF: H 1s + F 2p, bond polarized towards F, lots of non-bonding orbitals
+   \item BH: H 1s, B 2s and 2p$_z \rightarrow$ bonding, non-bonding, anti-bonding orbitals
+   \end{outline}
+ \item Homonuclear diatomic: O$_2$
+   \begin{outline}
+   \item Assign aos, 1s, 2s, 2p for each atom (10 total)
+   \item In principle, solve $10\times 10$ secular matrix
+   \item In practice, matrix elements rules mean only a few off-diagonal
+     elements survive
+     \begin{outline}
+     \item 1s + 1s do nothing
+     \item 2s + 2s form $\sigma$ bond and anti-bond
+     \item 2p$_z$ + 2p$_z$ form second bond and anti-bond
+     \item 2p$_{x,y}$ + 2p$_{x,y}$ form degenerate $\pi$ bonds and anti-bonds
+     \item O$_2$ is a triplet, consistent with experiment!
+     \end{outline}
+   \end{outline}
+ \item The H\"uckel/tight binding model
+    \begin{outline}
+   \item $F_{ii}=\alpha, S_{ij}=\delta_{ij}, F_{ij}=\beta$ iff $i$ adjacent
+     to $j$
+   \item Ethylene example
+   \item Butadiene example
+   \item Benzene example
+   \item Infinite chain example      
+    \end{outline}
+  \item Band structure of solids
+  \end{outline}
+
+\item {\bf Lecture 13: Computational chemistry}
+  \begin{outline}
+  \item Numerical solvers of Schr\"odinger equation for molecules readily
+    available today
+  \item Have to specify:
+    \begin{outline}
+    \item Identity of atoms
+    \item Positions of atoms (distances, angles, $\ldots$)
+    \item (spin multiplicity)
+    \item exact theoretical model (how are Coulomb, exchange, and correlation described?)
+      \begin{outline}
+      \item Hartree, Hartree-Fock, DFT (various flavors), $\ldots$
+      \end{outline}
+    \item basis set to express wavefunctions in terms of
+    \item initial guess of wavefunction coefficients (often guessed for you)
+    \end{outline}
+  \item Secular equations solved iteratively until input coefficients = output coefficients
+    \begin{outline}
+      \item ``self-consistent field''
+    \end{outline}
+  \item Output
+    \begin{outline}
+      \item energies of molecular orbitals
+      \item occupancies of molecular orbitals
+      \item coefficients describing molecular orbitals
+      \item total electron wavefunction, total electron density, dipole moment, $\ldots$
+      \item total molecular energy
+      \item derivatives (``gradients'') of total energy w.r.t. atom positions
+    \end{outline}
+  \item Plot total energy vs.\ internal coordinates: potential energy surface (PES)
+  \item Search iteratively for minimum point on PES (by hand or using
+    gradient-driven search): equilibrium geometry
+  \item Find second derivative of energy at minimum point on PES: harmonic
+    vibrational frequency
+  \item Find energy at minimum relative to atoms (or other molecules): reaction energy
+  \item H$_2$ example
+    \begin{center}
+      \includegraphics[scale=0.6]{Images/H2-PES}
+    \end{center}
+  \item Polyatomic molecules
+    \begin{outline}
+    \item Gradient-driven optimizations, $3n-6$ degrees of freedom
+    \item Hessian matrix for frequencies
+    \end{outline}
+  \end{outline}
+
+\item {\bf Lecture 14: Electronic spectroscopy}
+  \begin{outline}
+  \item Electronic spectroscopy examines electron jumps between energy states (“orbitals”)
+  \item The orbital structure of each substance is unique, so unlike vibrational or rotational spectroscopy, there is no simple general energy model for electronic transitions.  There are a couple general rules, though:
+    \begin{outline}
+      \item Spin selection rule: $\Delta S = 0$
+        \begin{outline}
+          \item electron spins are ``forbidden to change''
+        \end{outline}
+      \item Koopman’s ``theorem'':
+        \begin{outline}
+        \item the energy of an electronic transition is approximately the difference in energy between the orbital an electron starts in and the one it ends up in
+          \begin{outline}
+          \item $h \nu \approx \epsilon_\mathrm{final}-\epsilon_\mathrm{initial}$
+          \end{outline}
+        \item this “theorem” is an approximation because the orbitals are not static; more correctly, the energy difference is given by a full electronic structure calculation on the initial and final states
+        \end{outline}
+      \end{outline}
+    \item Various classes of transitions
+      \begin{outline}
+      \item UV/visible spectroscopy
+        \begin{outline}
+        \item electron jumps from valence filled to empty orbital
+        \item energies of an eV or so
+        \item $\pi$ to $\pi^*$ classic example
+        \end{outline}
+      \item UV photoelectron spectroscopy
+        \begin{outline}
+        \item electron ionized from valence filled orbital          
+        \end{outline}
+      \item X-ray spectroscopy
+        \begin{outline}
+        \item electron ionized from core orbital or promoted from core to an empty orbital 
+        \item 10’s-1000’s eV energies
+        \item many types, from lab scale to massive synchrotrons
+        \item information about elemental composition, oxidation state, coordination, ...          
+        \end{outline}
+      \end{outline}
+
+    \item Various classes of electron events
+      \begin{outline}
+      \item stimulated absorption
+        \begin{outline}
+        \item photon causes jump from lower to higher energy electronic state
+        \item often convoluted with jumps to different vibrational, rotational states          
+        \end{outline}
+      \item spontaneous emission
+        \begin{outline}
+        \item electron spontaneously jumps to a lower energy state and emits a photon
+        \item basis of fluorescence ($\Delta S = 0$)
+        \item basis of long-lived phosphorescence ($\Delta S \neq  0$)
+        \item long-lived because it breaks the spin selection rule
+        \end{outline}
+      \item stimulated emission
+        \begin{outline}
+        \item passing photon causes electron to jump from higher to a lower energy state and to emit another photon
+        \item cascade of such stimulated events is the basis of laser action
+        \end{outline}
+      \end{outline}
+    \end{outline}
+
+\item {\bf Lecture XX: Electronic and magnetic properties} - skipped
+
+\item {\bf Lecture 15: Statistical mechanics}
+  \begin{outline}
+    \item Need machinary to average QM information over macroscopic systems
+    \item Equal {\em a priori} probabilities
+    \item Two-state model
+      \begin{outline}
+      \item Box of particles, each of which can have energy 0 or $\epsilon$
+      \item Thermodynamic state defined by number of elements $N$, and number of
+        quanta $q$, $U=q\epsilon$
+      \item Degeneracy of given $N$ and $q$ given by binomial distribution:
+        \begin{displaymath}
+          \Omega=\frac{N!}{q!(N-q)!}
+        \end{displaymath}
+      \item Allow energy to flow between two such systems
+        \begin{outline}
+        \item Energy of a closed system is conserved (first law!)
+        \item Degeneracy of total system is always $\geq$ degeneracy of the
+          starting parts!
+        \item Boltzmann's tombstone, $S = k_B \ln \Omega$
+        \item Clausius: entropy of the universe seeks a maximum!  Second Law...
+        \end{outline}
+      \end{outline}
+      \item Energy flow/thermal equilibrium between two large systems
+        \begin{outline}
+          \item Each subsystem has energy $U_i$ and degeneracy $\Omega_i(U_i)$
+          \item Bring in thermal contact, $U=U_1+U_2$, $\Omega=\Omega_1(U_1)\Omega_2(U_2)$
+          \item If systems are very large, one combination of $U_1$, $U_2$ and $\Omega$
+            will be much more probably than all others
+          \item What value of $U_1$ and $U_2=U-U_1$ maximizes $\Omega$?
+        \begin{displaymath}
+ \left ( \frac{\partial \ln \Omega_1}{\partial U_1} \right )_N = \left ( \frac{\partial \ln \Omega_2}{\partial U_2} \right )_N
+        \end{displaymath}
+        \begin{displaymath}
+ \left ( \frac{\partial S_1}{\partial U_1} \right )_N = \left ( \frac{\partial S_2}{\partial U_2} \right )_N
+        \end{displaymath}
+      \item Thermal equilibrium is determined by equal {\bf temperature!}
+        \begin{displaymath}
+            \frac{1}{T}=\left ( \frac{\partial S}{\partial U} \right )_N
+          \end{displaymath}
+        \item When the temperatures of the two subsystems are equal, the
+          entropy of the combined system is maximized!
+        \item (Same arguments lead to requirement that equal pressures ($P_i$) and
+          equal chemical potentials ($\mu_i$) maximize entropy when volumes or
+          particles are exchanged)
+        \end{outline}
+
+      \item Two-state model in limit of large $N$
+        \begin{outline}
+        \item Large $N$ and Stirling's approximation
+        \item Fundamental thermodynamic equation of two-state system:
+        \begin{displaymath}
+          S(U)=-k_B \left ( x \ln x + (1-x) \ln (1-x) \right ), \mathrm{where}\
+          x = q/N = U/N\epsilon
+        \end{displaymath}
+      \item Temperature is derivative of entropy wrt energy yields          
+          \begin{displaymath}
+            U(T) = \frac{N\epsilon}{1+e^{\epsilon/k_BT}}
+          \end{displaymath}
+        \begin{outline}
+          \item $T \rightarrow 0, U \rightarrow 0, S \rightarrow 0$, minimum disorder
+          \item $T \rightarrow \infty, U \rightarrow N\epsilon/2, S \rightarrow
+            k_B \ln 2$, maximum disorder
+        \end{outline}
+      \item Differentiate again to get heat capacity
+      \end{outline}
+
+    \item Canonical ($NVT$) ensemble
+      \begin{outline}
+      \item Previous is example of microcanonical (``$NVE$'') ensemble
+      \item Direct evaluation of $S(U)$ is generally intractable, so seek simpler approach
+      \item Imagine a system brought into thermal equilibrium with a much
+        larger ``reservoir'' of constant $T$, such that the aggregate has a
+        total energy $U$
+      \item Degeneracy of a given system microstate $j$ with energy $U_j$
+        is $\Omega_{res}(U-U_j)$
+        \begin{eqnarray*}
+          T = \frac{dU_{res}}{k_Bd\ln\Omega_{res}} \\
+          \Omega_{res}(U-U_j) \propto e^{-U_j/k_B T}
+        \end{eqnarray*}
+      \item Probability for system to be in a microstate with energy $U_j$ given by Boltzmann
+        distribution!
+        \begin{displaymath}
+          P(U_j) \propto e^{-U_j/k_B T} = e^{-U_j \beta}
+        \end{displaymath}
+      \item Partition function ``normalizes'' distribution, $Q(T) = \sum_j
+        e^{-U_j \beta}$
+      \item For system of identical (distinguishable) elements with energy states $\epsilon_i$,
+        can factor probability to show
+        \begin{eqnarray*}
+          P(\epsilon_i) \propto e^{-\epsilon_i/k_B T} = e^{-\epsilon_i \beta},\
+          \ \ \ \ \beta=1/k_BT
+        \end{eqnarray*}
+      \end{outline}
+
+
+\item{Energy factoring}
+  \begin{outline}
+  \item{If system is large, how to determine it's energy states $U_j$?  There
+      would be many, many of them!}
+  \item{One simplification is if we can write energy as sum of energies of
+      individual elements (atoms, molecules) of system:}
+    \begin{align}
+      U_j&=\epsilon_j(1)+\epsilon_j(2) + ... + \epsilon_j(N) \\
+      Q(N,V,T) &= \sum_j e^{-U_j\beta} \\
+      &=\sum_je^{-(\epsilon_j(1)+\epsilon_j(2) + ... + \epsilon_j(N))\beta}
+    \end{align}
+    \begin{outline}
+    \item{{\em If} molecules/elements of system can be distinguished from each
+        other (like atoms in a fixed lattice), expression can be factored:}
+      \begin{align}
+        Q(N,V,T)&=\left ( \sum_j e^{-\epsilon_j(1)\beta}\right )\cdots \left ( \sum_j
+          e^{-\epsilon_j(N)\beta}\right ) \\
+      &= q(1)\cdots q(N) \\
+      \text{Assuming all the elements are the same:}\\
+      &= q^N \\
+     q&=\sum_j e^{-\epsilon_j \beta}: \mathrm{molecular\ partition\ function}
+   \end{align}
+  \item{{\em If not} distinguishable (like molecules in a liquid or gas, or
+      electrons in a solid), problem is difficult, because identical
+      arrangements of energy amongst elements should only be counted once.
+      Approximate solution, good almost all the time:}
+    \begin{equation}
+      Q(N,V,T)=q^N/N!
+    \end{equation}
+  \item{Sidebar: ``Correct'' factoring depends on whether individual elements
+      are fermions or bosons, leads to funny things like superconductivity and
+      superfluidity.}
+  \end{outline}
+\end{outline}
+% \item{Molecular partition function}
+%   \begin{outline}
+%   \item{Sum over energy states of single molecule/element of system}
+%     \begin{equation}
+%       q=\sum_j e^{-\epsilon_j \beta}: \mathrm{molecular\ partition\ function}
+%     \end{equation}
+%   \item{{\em This} can be evaluated for our QM energy models}
+%   \end{outline}
+
+    \item Two-state system again
+      \begin{outline}
+      \item Partition function, $q(T)=1+e^{-\epsilon\beta}$
+      \item State probabilities
+      \item{Internal energy $U(T)$}
+        \begin{equation}
+          U(T)=-N \left ( \frac{\partial \ln(1+e^{-\epsilon\beta})}{\partial\beta}
+          \right)=\frac{N\epsilon e^{-\epsilon\beta}}{1+e^{-\epsilon\beta}}
+        \end{equation}
+     \item Heat capacity $C_v$
+        \begin{outline}
+        \item Minimum when change in states with $T$ is small
+        \item Maximize when chagne in states with $T$ is large
+        \end{outline}
+      \item Helmholtz energy, $A= -\ln q/\beta$, decreasing function of $T$
+      \item Entropy
+      \end{outline}
+    \item Distinguishable vs.\ indistinguishable particles
+      \begin{outline}
+      \item Distinguishable (e.g., in a lattice): $Q(N,V,T) = q(V,T)^N$
+      \item Indistinguishable (e.g., a gas): $Q(N,V,T)\approx q(V,T)^N/N!$
+      \end{outline}
+      \item Thermodynamic functions in canonical ensemble
+    \end{outline}
+
+\begin{table}\small
+  \begin{center}
+    \caption{Equations of the Canoncial ($NVT$) Ensemble}
+    \label{Canonical}
+    \begin{tabular}[h]{lccc}
+      \hline
+$\beta=1/k_BT$ & {\bf Full Ensemble} & {\bf Distinguishable particles} & {\bf Indistinguishable
+particles} \\
+               &               & (e.g. atoms in a lattice) & (e.g. molecules in
+               a fluid) \\
+\hline
+Single particle & & & \\partition function& & $\displaystyle q(V,T) = \sum_i
+e^{-\epsilon_i\beta} $& $\displaystyle q(V,T) = \sum_i e^{-\epsilon_i\beta} $ \\
+Full partition & & & \\function & $\displaystyle Q(N,V,T) = \sum_j e^{-U_j\beta} $ &
+$\displaystyle Q = q(V,T)^N $ & $\displaystyle Q = q(V,T)^N/N! $ \\
+Log partition &  $\ln Q$ & $N\log q$ & $ N\ln q - \ln N! $\\
+function & & & $\approx N(\ln Q - \ln N +1)$ \\ & & & \\
+Helmholtz energy & $\displaystyle -\frac{\ln Q}{\beta}$ & $\displaystyle
+-\frac{N\ln q}{\beta}$ & $\displaystyle -\frac{N}{\beta}\left (\ln\frac{q}{N} +
+  1 \right ) $ \\
+($A=U-TS$) & & & \\ & & &  \\
+Internal energy ($U$)& $\displaystyle -\left (\frac{\partial\ln
+    Q}{\partial\beta}\right )_{NV}$ & $\displaystyle -N\left (\frac{\partial\ln
+    q}{\partial\beta}\right )_{V}$ &  $\displaystyle -N\left (\frac{\partial\ln
+    q}{\partial\beta}\right )_{V}$ \\ & & & \\
+Pressure ($P$) & $\displaystyle -\left (\frac{\partial\ln
+    Q}{\partial V}\right )_{N\beta}$ & $\displaystyle -N\left (\frac{\partial\ln
+    q}{\partial V}\right )_{\beta}$ &  $\displaystyle -N\left (\frac{\partial\ln
+    q}{\partial V}\right )_{\beta}$ \\ & & & \\
+
+Entropy ($S/k_B$) & $ \beta U + \ln Q$ & $\beta U + N \ln q$ & $\beta U +
+N\left ( \ln(q/N) + 1\right )$ \\ & & & \\
+Chemical potential ($\mu$) & $\displaystyle -\frac{1}{\beta}\left ( \frac{\partial \ln
+    Q}{\partial N}\right )_{VT} $& $\displaystyle -\frac{\ln q}{\beta}$ & $\displaystyle
+-\frac{\ln (q/N)}{\beta}$ \\ & & & \\
+\hline
+    \end{tabular}
+{\bf NOTE!} All energies are referenced to their values at 0~K.  Enthalpy $H=U+PV$, Gibb's
+Energy $G=A+PV$.
+  \end{center}
+\end{table}
+
+  \item{\bf Lecture 16: Molecular partition functions}
+    \begin{outline}
+    \item Ideal gas of molecules
+      \begin{displaymath}
+        Q_{ig}(N,V,T) = \frac{(q_\mathrm{trans}q_\mathrm{rot}q_\mathrm{vib})^N}{N!}
+      \end{displaymath}
+
+      \item Particle-in-a-box (translational states of a gas)
+        \begin{outline}
+          \item Energy states $\epsilon_n=n^2\epsilon_0, n=1,2, \ldots$,
+            $\epsilon_0$ tiny for macroscopic $V$
+          \item $\Theta_\mathrm{trans} = \epsilon_0/k_B$ translational temperature
+          \item $\Theta_\mathrm{trans} << T \rightarrow$ {\em many} states contribute
+            to $q_\mathrm{trans}\rightarrow$ integral approximation
+            \begin{eqnarray*}
+              q_\mathrm{trans,1D} = \int_0^\infty e^{-x^2\beta\epsilon_0}dx =
+              L/\Lambda \\
+              \Lambda = \left ( \frac{h^2\beta}{2\pi m} \right )^{1/2}\
+              \mathrm{thermal\ wavelength} \\
+              q_\mathrm{trans,3D} = V/\Lambda^3
+            \end{eqnarray*}
+          \item Internal energy
+          \item Heat capacity
+          \item Equation of state (!)
+          \item Entropy: Sackur-Tetrode equation
+        \end{outline}
+      \item Rigid rotor (rotational states of a gas)
+        \begin{outline}
+        \item energy states and degeneracies
+        \item $\Theta_\mathrm{rot} = \hbar^2/2 I k_B$
+        \item ``High'' T $q_\mathrm{rot}(T) \approx \sigma \Theta_\mathrm{rot}/T$
+        \end{outline}
+      \item Harmonic oscillator (vibrational states of a gas)
+        \begin{outline}
+          \item $\Theta_\mathrm{vib}=h\nu/k_B$
+        \end{outline}
+
+      \item Electronic partition functions $\rightarrow$ spin multiplicity
+      \item Non-ideality
+        \begin{outline}
+          \item Real molecules interact through vdW interactions
+          \item Particle-in-a-box model breaks down, have to work harder but
+            can still get at same ideas
+          \item See Hill, {\em J. Chem. Ed.} {\bf 1948}, {\em 25}, p. 347, http://dx.doi.org/10.1021/ed025p347
+        \end{outline}
+      \end{outline}
+
+\begin{table} 
+\begin{center}
+    \caption{\large{Statistical Thermodynamics of an Ideal Gas}}
+   \begin{description}
+    \item[\underline{Translational DOFs}] {3-D particle in a box model}
+
+$\displaystyle \theta_\mathrm{trans}= \frac{\pi^2\hbar^2}{2 m
+  L^2 k_B}$, 
+$\displaystyle \Lambda=h\left( \frac{\beta}{2\pi m}\right )^{1/2}$
+
+For $ T >> \Theta_\mathrm{trans}$, $\Lambda << L$, $\displaystyle
+q_\mathrm{trans}=V/\Lambda^3$ (essentially always true)
+
+\begin{tabular}{ccc}
+$\displaystyle U_\mathrm{trans}=\frac{3}{2}RT$ & $\displaystyle C_\mathrm{v,trans} =
+\frac{3}{2}R $ & $\displaystyle S^\circ_\mathrm{trans}=R \ln \left (
+  \frac{e^{5/2}V^\circ}{N^\circ \Lambda^3}\right ) = R \ln \left (
+  \frac{e^{5/2}k_BT}{P^\circ \Lambda^3}\right ) $ \\
+\end{tabular}
+
+  \item[\underline{Rotational DOFs}] {Rigid rotor model}
+\begin{description}
+\item[Linear molecule]{}
+$\theta_\mathrm{rot} =hcB/k_B$
+
+\begin{equation*}
+q_\mathrm{rot}=\frac{1}{\sigma}\sum_{l=0}^\infty (2l+1)e^{-l(l+1)\theta_\mathrm{rot}/T},  
+\approx \frac{1}{\sigma}\frac{T}{\theta_\mathrm{rot}},\ \ T>>\theta_\mathrm{rot}\ \ \ \sigma = \left \{
+        \begin{array}{rl}
+          1, & \text{unsymmetric} \\
+          2, & \text{symmetric}
+        \end{array} \right . 
+\end{equation*}
+\begin{tabular}{ccc}
+$\displaystyle U_\mathrm{rot}=RT$ & $\displaystyle C_\mathrm{v,rot} =
+R $ & $\displaystyle S^\circ_\mathrm{rot}=R (1-\ln(\sigma\theta_\mathrm{rot}/T)) $ \\
+\end{tabular}
+
+\item[Non-linear molecule]{} $\theta_{\mathrm{rot},\alpha}=hcB_\alpha/k_B$
+\begin{equation*}
+q_\mathrm{rot} 
+\approx \frac{1}{\sigma}\left ( \frac{\pi
+    T^3}{\theta_{\mathrm{rot},\alpha}\theta_{\mathrm{rot},\beta}\theta_{\mathrm{rot},\gamma}}
+  \right )^{1/2},\ \ T>>\theta_{\mathrm{rot},\alpha,\beta,\gamma}\ \ \ \sigma =
+  \text{rotational symmetry number}
+\end{equation*}
+\begin{tabular}{ccc}
+$\displaystyle U_\mathrm{rot}=\frac{3}{2}RT$ & $\displaystyle C_\mathrm{v,rot} = \frac{3}{2}
+R $ & $\displaystyle S^\circ_\mathrm{rot}=\frac{R}{2}
+\left ( 3-\ln\frac{\sigma\theta_{\mathrm{rot},\alpha}\theta_{\mathrm{rot},\beta}\theta_{\mathrm{rot},\gamma}}{\pi
+  T^3} \right ) $ \\
+\end{tabular}
+
+\end{description}
+
+\item[\underline{Vibrational DOFs}] {Harmonic oscillator model}
+\begin{description}
+\item[Single harmonic mode] {$\theta_\mathrm{vib}=h\nu/k_B $}
+  \begin{equation*}
+    q_\mathrm{vib}=\frac{1}{1-e^{-\theta_\mathrm{vib}/T}} \approx
+      \frac{T}{\theta_\mathrm{vib}}, \ \ \ T>>\theta_\mathrm{vib}
+  \end{equation*}
+
+\begin{tabular}{ccc}
+$ U_\mathrm{vib}= $ & $  C_\mathrm{v,vib} = $ & $S^\circ_{\mathrm{vib},i}=$ \\
+$\displaystyle
+R\frac{\theta_\mathrm{vib}}{e^{\theta_\mathrm{vib}/T}-1}$ &
+$\displaystyle R\left (
+  \frac{\theta_\mathrm{vib}}{T}\frac{e^{\theta_\mathrm{vib}/2T}}{e^{\theta_\mathrm{vib}/T}-1}
+\right )^2 $ & $\displaystyle R \left ( \frac{\theta_\mathrm{vib}/T}{e^{\theta_\mathrm{vib}/T}-1}
+-\ln(1-e^{-\theta_\mathrm{vib}/T})\right ) $ \\
+\end{tabular}
+
+\item[Multiple harmonic modes] {$\theta_{\mathrm{vib},i}=h\nu_i/k_B $}
+
+  \begin{equation*}
+    q_\mathrm{vib}=\prod_i\frac{1}{1-e^{-\theta_{\mathrm{vib},i}/T}} 
+  \end{equation*}
+
+\begin{tabular}{ccc}
+$ U_\mathrm{vib}= $ & $  C_\mathrm{v,vib} = $ & $S^\circ_{\mathrm{vib},i}=$ \\
+$\displaystyle
+R\sum_i\frac{\theta_{\mathrm{vib},i}}{e^{\theta_{\mathrm{vib},i}/T}-1}$ &
+$\displaystyle R \sum_i \left (
+  \frac{\theta_{\mathrm{vib},i}}{T}\frac{e^{\theta_{\mathrm{vib},i}/2T}}{e^{\theta_{\mathrm{vib},i}/T}-1}
+\right )^2 $ & $\displaystyle R \left ( \frac{\theta_{\mathrm{vib},i}/T}{e^{\theta_{\mathrm{vib},i}/T}-1}
+-\ln(1-e^{-\theta_{\mathrm{vib},i}/T})\right ) $ \\
+\end{tabular}
+
+\end{description}
+\item[\underline{Electronic DOFs}] {}
+$q_\mathrm{elec} = \text{spin multiplicity}$
+
+
+\end{description}
+\end{center}
+\end{table}
+
+
+    \item {\bf Lecture 17: Chemical reactions and equilibrium}
+      \begin{outline}
+      \item Standard states
+        \begin{outline}
+          \item Translational partition function depends on concentration $N/V$
+          \item ``Standard state'' corresponds to some standard choice for $N/V$, $c^\circ$
+          \item For ideal gas, related to pressure by $P^\circ = c^\circ k_B T$
+        \end{outline}
+      \item Chemical reaction $A \rightarrow B$
+      \item Reaction entropy $\Delta S^\circ (T) =  S^\circ_\mathrm{B}(T)-S^\circ_\mathrm{A}(T)$
+        \item Reaction energy $\Delta U^\circ (T) =
+          U^\circ_\mathrm{B}(T)-U^\circ_\mathrm{A}(T)+\Delta E(0)$
+        \item Equilibrium condition---equate chemical potentials, $\mu_A(N,V,T) = \mu_B(N,V,T)$
+        \item Equilibrium constant---evaluate from partition functions directly
+          or indirectly from thermodynamic potentials
+\item Le'Chatlier's principle
+  \begin{outline}
+    \item Response to temperature: Boltzmann distribution favors higher energy
+      things as $T$ increases
+    \item Response to volume chance: particle-in-a-box states increasingly favor
+      side with more molecules as volume increases 
+  \end{outline}
+\end{outline}
+\item {\bf Lecture 18: Chemical kinetics}
+  \begin{outline}
+  \item Kinetics and reaction rates
+    \begin{outline}
+      \item Rate: number per unit time per unit something
+    \end{outline}
+
+  \item Empirical chemical kinetics
+    \begin{outline}
+    \item Rate laws, rate orders, and rate constants
+    \item Arrhenius expression, $k=A e^{-E_a/k_BT}$
+    \end{outline}
+  \item Reaction mechanisms
+  \item Elementary steps and molecularity
+  \item Collision theory---overpredicts rates
+  \item Transition state theory (TST)
+    \begin{outline}
+    \item Existence of reaction coordinate (PES)
+    \item Existence of dividing surface
+    \item Equilibrium between reactants and ``transition state''
+    \item Harmonic approximation for transition state
+    \end{outline}
+  \item Locating transition states computationally
+  \item Thermodynamic connection 
+  \item (Skipped) Diffusion-controlled reactions 
+    \begin{outline}
+      \item Intermediate complex
+      \item Steady-state approximation
+      \item Diffusion-controlled limit ($k_D = 4\pi (r_A + r_B) D_{AB}$)
+      \item Reaction-controlled limit ($k_{app}=(k_D/k_{-D})k_r$)
+    \end{outline}
+
+  \end{outline}
+
+\begin{table} 
+\begin{center}
+    \caption{\large{Equilibrium and Rate Constants}}
+   \begin{description}
+   \item[Equilibrium Constants] $a~\text{A} + b~\text{B} \rightleftharpoons c~\text{C} + d~\text{D} $
+     \begin{eqnarray*}
+       K_{eq}(T) &=& e^{\Delta S^\circ(T,V)/k_B}e^{-\Delta H^\circ(T,V)/k_BT}
+       \\ \\ 
+            K_c(T) &=&
+          \left(\frac{1}{c^\circ}\right)^{\nu_c+\nu_d-\nu_a-\nu_b}\frac{(q_c/V)^{\nu_c}(q_d/V)^{\nu_d}}{(q_a/V)^{\nu_a}(q_b/V)^{\nu_b}}e^{-\Delta
+            E(0)\beta}\\ \\
+            K_p(T) &=&
+          \left(\frac{k_BT}{P^\circ}\right)^{\nu_c+\nu_d-\nu_a-\nu_b}\frac{(q_c/V)^{\nu_c}(q_d/V)^{\nu_d}}{(q_a/V)^{\nu_a}(q_b/V)^{\nu_b}}e^{-\Delta
+            E(0)\beta}
+\end{eqnarray*}
+\item[Unimolecular Reaction] $\text[A] \rightleftharpoons [\text{A} ]^\ddagger
+  \rightarrow C$
+      \begin{displaymath}
+        k(T)=\nu^\ddagger \bar K^\ddagger=\frac{k_B T}{h} \frac{\bar{q}_\ddagger(T)/V}{q_A(T)/V}
+          e^{-\Delta E^\ddagger(0)\beta}               
+      \end{displaymath}
+\begin{center}
+      \begin{tabular}{cc}
+      $ \displaystyle E_a =\Delta H^{\circ\ddagger}+k_B T $
+      & $ \displaystyle A = e^1\frac{k_B T}{h} e^{\Delta S^{\circ\ddagger}} $
+      \end{tabular}
+\end{center}
+\item[Bimolecular Reaction] $
+        \mathrm{A} + \mathrm{B} \rightleftharpoons [ \mathrm{AB}]^\ddagger
+        \rightarrow \text{C}$
+      \begin{displaymath}
+        k(T)=\nu^\ddagger \bar K^\ddagger=\frac{k_B T}{h} \frac{q_\ddagger(T)/V}{(q_A(T)/V)(q_B(T)/V)}\left
+          (\frac{1}{c^\circ}\right )^{-1}
+        e^{-\Delta E^\ddagger(0)\beta}               
+      \end{displaymath}
+      \begin{center}
+        \begin{tabular}{cc}
+        $ \displaystyle E_a  =\Delta H^{\circ\ddagger}+2 k_B T $ & $ \displaystyle
+        A  = e^2\frac{k_B T}{h} e^{\Delta S^{\circ\ddagger}} $
+      \end{tabular}
+      \end{center}
+   \end{description}
+ \end{center}
+ \end{table}
+
+\item {\bf Lecture 19: Conclusion}
+  \begin{outline}
+    \item Do you think about the burning lighter any differently now?  
+  \end{outline}
+
+\end{outline}
+\end{document}
+\message{ !name(Outline.tex) !offset(-1606) }

@@ -1,0 +1,109 @@
+#+BEGIN_OPTIONS
+#+AUTHOR: William F. Schneider
+#+TITLE: CHE 30324 Going On-Line!
+#+EMAIL: wschneider@nd.edu
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+LATEX_HEADER:\usepackage[left=1in, right=1in, top=1in, bottom=1in, nohead]{geometry}
+#+LATEX_HEADER:\geometry{margin=1.0in}
+#+LATEX_HEADER:\usepackage{amsmath}
+#+LATEX_HEADER:\usepackage{graphicx}
+#+LATEX_HEADER:\usepackage{epstopdf}
+#+LATEX_HEADER:\usepackage{fancyhdr}
+#+LATEX_HEADER:\usepackage{hyperref}
+#+LATEX_HEADER:\usepackage[labelfont=bf]{caption}
+#+LATEX_HEADER:\usepackage{setspace}
+# #+LATEX_HEADER:\setlength{\headheight}{10.2pt}
+# #+LATEX_HEADER:\setlength{\headsep}{20pt}
+#+LATEX_HEADER:\def\dbar{{\mathchar'26\mkern-12mu d}}
+#+LATEX_HEADER:\pagestyle{fancy}
+#+LATEX_HEADER:\fancyhf{}
+#+LATEX_HEADER:\renewcommand{\headrulewidth}{0.5pt}
+#+LATEX_HEADER:\renewcommand{\footrulewidth}{0.5pt}
+#+LATEX_HEADER:\lfoot{\today}
+#+LATEX_HEADER:\cfoot{\copyright\ 2020 W.\ F.\ Schneider}
+#+LATEX_HEADER:\rfoot{\thepage}
+#+LATEX_HEADER:\title{University of Notre Dame\\Physical Chemistry for Chemical Engineers\\(CHE 30324)}
+#+LATEX_HEADER:\author{Prof. William F.\ Schneider}
+#+LATEX_HEADER:\def\dbar{{\mathchar'26\mkern-12mu d}}
+#+LATEX_HEADER:\usepackage[small]{titlesec}
+#+LATEX_HEADER:\titlespacing*{\section}
+#+LATEX_HEADER:{0pt}{0.4\baselineskip}{0.0\baselineskip}
+#+LATEX_HEADER:\titlespacing*{\subsection}
+#+LATEX_HEADER:{0pt}{0.4\baselineskip}{0.0\baselineskip}
+#+LATEX_HEADER:\titlespacing*{\subsubsection}
+#+LATEX_HEADER:{0pt}{0.1\baselineskip}{0.0\baselineskip}
+
+#+OPTIONS: toc:nil
+#+OPTIONS: H:3 num:3
+#+OPTIONS: ':t
+#+END_OPTIONS
+
+#+BEGIN_EXPORT latex
+\begin{center}
+\textsc{\Large Physical Chemistry for Chemical Engineers (CHE 30324)}\\University of Notre Dame, Spring 2020
+\end{center}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l r}
+\hline
+Prof.\ Bill Schneider & Classroom: 129 DBRT\\
+Office: 370 Nieuwland & Lecture MWF 9:25-10:15\\
+\email{wschneider@nd.edu}, phone 574-631-8754 & \http{https://github.com/wmfschneider/CHE30324} \\
+\hline
+\end{tabular*}
+\vspace{2pt}
+#+END_EXPORT
+
+\noindent
+Due to conditions beyond our control, we are venturing on a grand experiment to complete the  Physical Chemistry for ChEGs course completely remotely.  Following are details on how we will accomplish this. While it is impossible to recreate the learning experience of being on campus, the TA's and I will strive to make the experience as constructive as possible.
+
+** Technology access 
+Remote learning will be accomplished through web-based technologies.  We are fortunate that Notre Dame provides a suite of very capable and easy to use tools.  The tools we will be using are
+
+1. [[https://github.com/wmfschneider/CHE30324][github]] for distributing course files
+2. [[https://colab.research.google.com/notebooks/intro.ipynb][colaboratory]] for access to python modeling tools
+3. [[https://notredame.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=0cc6b4f0-2e6e-4edc-8d74-ab7400ec2d4f][Panopto]] for distribution of asynchronous video content
+4. [[https://www.gradescope.com/][Gradescope]] for turning in and grading homework
+5. [[https://notredame.zoom.us/meeting][Zoom]] for synchronous video conferencing
+6. [[https://che30324-nd.slack.com][Slack]] for group chatting. Check your email for your invitation to our Slack workspace.
+
+\noindent
+*Please verify ASAP that you have access to these technologies.* If you have any concerns about being able to access any of the technologies above, or other concerns regarding your ability to complete course  requirements for any other reason, please alert me via email ([[mailto:wschneider@nd.edu][wschneider@nd.edu]]) or phone/text (+1-574-303-8667) as soon a possible. I will make every attempt to accommodate your needs and assure successful completion of the course.
+
+** Lectures
+Lessons will be delivered asynchronously through [[https://notredame.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=0cc6b4f0-2e6e-4edc-8d74-ab7400ec2d4f][Panopto]].  Lectures will be available on the normal schedule (MWF 9:25-10:15), but I will strive to have the lectures uploaded at least a day or two ahead of time. You can observe them at your convenience, as often (or not!) as you like.
+
+** Course outline
+As an adjunct to the Lectures, an extended course outline is available at the course [[https://github.com/wmfschneider/CHE30324][github]] site.  I will continue to update and improve that outline to reflect changes to the course material demanded by the change to all on-line and loss of a week.
+
+** Homework
+Homework will be distributed through the course website as collaboratory notebooks.  Once completed, you will create a pdf of your solution and upload through [[https://www.gradescope.com/][Gradescope]] into the appropriate assignment.  When you upload, you will be prompted to identify the page(s) associated with each question.  The TA's will grade in Gradescope, and you will receive your scores there.  Answers will be posted on the course website. Anticipated homework schedule is below:
+
+|-------+----------------------------+-----------------|
+|       |                            | Due date (5 pm) |
+|-------+----------------------------+-----------------|
+| HW 7  | Atomic Structure           | March 27        |
+| HW 8  | Molecular Structure        | April 3         |
+| HW 9  | Basic Stat Mech            | April 10        |
+| HW 10 | Statistical Thermodynamics | April 24        |
+| HW 11 | Chemical Kinetics          | May 1           |
+|-------+----------------------------+-----------------|
+
+** Homework defenses
+To be completed using [[https://notredame.zoom.us/meeting][Zoom]].  If you haven't completed one that you were assigned to do, contact me to arrange a time.  Future ones may be done as groups.
+
+** Office hours
+TA and instructor office hours will be held at regular times using Zoom.  We will be on-line in our zoom rooms at the designated times, and you can pop in or out at any time. If these times are not convenient, let us know and we will adjust. You all have institutional access to zoom and can arrange group meetings at any time through Zoom.
+
+| Bill Schneider | T, Th 3:30 - 4:30 pm | https://notredame.zoom.us/j/5743038667 |
+| Amanda Brown   | W, 10:30- 11:30 am   | [[https://notredame.zoom.us/j/9886722301]] |
+| Wei Ge         | Th, 3:30 - 4:30 pm   | [[https://notredame.zoom.us/j/2176073704]] |
+| Xuyao Gao      | M, 3 - 4 pm          | https://notredame.zoom.us/j/4773820350 |
+
+** Chat room
+We will use [[https://che30324-nd.slack.com][Slack]] as a tool for you to communicate questions during Office Hours or any time. Slack allows you to instant message with individuals (including the instructor and TAs and tutor), create smaller groups, or share your questions with the whole class. I *strongly* encourage you to use  [[https://che30324-nd.slack.com][Slack]] when asking questions, as likely many others will be interested in the answer!
+
+
+** Exams
+We will have one exam on April 14 and a final on May 5.  Each will be distributed electronically at a set time, and you will have some amount of time (greater than an hour) to complete and upload to [[https://www.gradescope.com/][Gradescope]], just like a homework.  
+
+** Final words
+We truly are in uncharted water here.  But as they say, [[https://en.wikipedia.org/wiki/Necessity_is_the_mother_of_invention][necessity is the mother of invention]], and we may well learn new and better ways to learn and communicate through the experience. I assure you I am here to help you get through the course. Again, contact me with any concerns at any time. - Prof.\nbsp{}Bill Schneider
