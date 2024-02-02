@@ -3,7 +3,7 @@ Homework assignments are available in different formats below. Once completed, c
 
 
 |    |             | Homework                                                                                  | Solution    |
-|  1 | 29 Jan 2024 | [[https://colab.research.google.com/github/wmfschneider/CHE30324/blob/master/Homework/HW1.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] [[http://nbviewer.jupyter.org/github/wmfschneider/CHE30324/blob/master/Homework/HW1.ipynb][./Resources/nbviewer.svg]]     [[./Homework/HW1.pdf][pdf]] | [[./Homework/HW1-soln.pdf][pdf]]  [[./Homework/HW1-soln.ipynb][ipynb]]  |
+|  1 | 29 Jan 2024 | [[https://colab.research.google.com/github/wmfschneider/CHE30324/blob/master/Homework/HW1.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] [[http://nbviewer.jupyter.org/github/wmfschneider/CHE30324/blob/master/Homework/HW1.ipynb][./Resources/nbviewer.svg]]     [[./Homework/HW1.pdf][pdf]] | [[./Homework/HW1-Sol.pdf][pdf]]  [[./Homework/HW1_Sol.ipynb][ipynb]]  |
 |    |             |                                                                                           |             |
 |  2 | 5 Feb 2024  | [[https://colab.research.google.com/github/wmfschneider/CHE30324/blob/master/Homework/HW2.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] [[http://nbviewer.jupyter.org/github/wmfschneider/CHE30324/blob/master/Homework/HW2.ipynb][./Resources/nbviewer.svg]]     [[./Homework/HW2.pdf][pdf]] | [[./Homework/HW2-soln.pdf][pdf]]  [[./Homework/HW2-soln.ipynb][ipynb]]  |
 |    |             |                                                                                           |             |
