@@ -120,7 +120,7 @@ The TA and instructor are happy to answer questions during regular office hours 
 | Dr. Bill Schneider | \email{wschneider@nd.edu} | F 10:30-11:30 | 370 NSH |
 | Marvin Diaz Segura | \email{mdiazseg@nd.edu}   | Su 3:00-4:00  | 366 NSH |
 | Brendan Nieukirk   | \email{bnieukir@nd.edu}   | Th 4:00-4:45  | 356 Fitz |
-| Steven Yeo         | \email{syeo@nd.edu}       | W 1:30-2:00   | 366 NSH |
+| Steven Yeo         | \email{syeo@nd.edu}       | W 1:30-2:00   | 133 Debartolo Hall |
 
 * Communications
 We will use [[https://che30324-nd.slack.com][Slack]] as a tool for you to communicate questions during Office Hours or any time. Slack allows you to instant message with individuals (including the instructor and TAs), create smaller groups, or share your questions with the whole class. Join our Slack group [[https://join.slack.com/t/che30324-sp24/shared_invite/zt-2apiqg49t-_dJ_jm9AkZ83oHNaEh5cbw][here]]. 
