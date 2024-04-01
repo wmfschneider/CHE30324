@@ -21,7 +21,7 @@
 #+LATEX_HEADER:\renewcommand{\headrulewidth}{0.5pt}
 #+LATEX_HEADER:\renewcommand{\footrulewidth}{0.5pt}
 #+LATEX_HEADER:\lfoot{\today}
-#+LATEX_HEADER:\cfoot{\copyright\ 2019 W.\ F.\ Schneider}
+#+LATEX_HEADER:\cfoot{\copyright\ 2024 W.\ F.\ Schneider}
 #+LATEX_HEADER:\rfoot{\thepage}
 #+LATEX_HEADER:\lhead{\em{Physical Chemistry for Chemical Engineers}}
 #+LATEX_HEADER:\rhead{ND CHE 30324}
@@ -1691,7 +1691,7 @@ $\displaystyle \Delta l = \pm 1, \qquad  \Delta m_l = 0, \pm 1\qquad \Delta m_s=
 *** DFT calculations on atoms
 1. See [[../Resources/fda/00README.txt][README]] at [[../Resources/fda]]
 
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :results output
 import matplotlib.pyplot as plt
 import numpy as np
 from sympy.physics.hydrogen import E_nl
@@ -1724,7 +1724,9 @@ plt.savefig('./Images/Ionization.png')
 
 #+END_SRC
 
-#+BEGIN_SRC python :exports results
+#+RESULTS:
+
+#+BEGIN_SRC python :exports results :results output
 import matplotlib.pyplot as plt
 import numpy as np
 import os
@@ -1824,7 +1826,7 @@ virial ratio =    -1.9996
 [[./Images/H-wave-functions.png]]
 
 
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :results output
 import matplotlib.pyplot as plt
 import numpy as np
 import os
@@ -1922,7 +1924,7 @@ virial ratio =    -1.9399
 [[./Images/He-wave-functions.png]]
 
 
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :results output
 import matplotlib.pyplot as plt
 import numpy as np
 import os
@@ -2026,7 +2028,7 @@ virial ratio =    -1.9024
 [[./Images/Li-wave-functions.png]]
 
 
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :results output
 import matplotlib.pyplot as plt
 import numpy as np
 import os
@@ -2139,7 +2141,7 @@ virial ratio =    -1.9581
 [[./Images/Na-wave-functions.png]]
 
 
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :results output
 import matplotlib.pyplot as plt
 import numpy as np
 import os
@@ -2248,7 +2250,7 @@ virial ratio =    -1.9361
 
 
 
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :results output
 import matplotlib.pyplot as plt
 import numpy as np
 import os
@@ -2356,7 +2358,7 @@ virial ratio =    -1.9428
 [[./Images/C-wave-functions.png]]
 
 
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :results output
 import matplotlib.pyplot as plt
 import numpy as np
 import os
@@ -2464,7 +2466,7 @@ virial ratio =    -1.9475
 [[./Images/N-wave-functions.png]]
 
 
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :results output
 import matplotlib.pyplot as plt
 import numpy as np
 import os
@@ -2572,7 +2574,7 @@ virial ratio =    -1.9510
 [[./Images/O-wave-functions.png]]
 
 
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :results output
 import matplotlib.pyplot as plt
 import numpy as np
 import os
@@ -2939,13 +2941,119 @@ Eigenvector(s) of state 0 : [Matrix([
 5. Find second derivative of energy at minimum point on PES: harmonic vibrational frequency
 6. Find energy at minimum relative to atoms (or other molecules): reaction energy
 *** H$_2$ example
+1. Choose "B3LYP" model for Coulomb, exchange, and correlation potentials
+2. Compute total energy vs distance
+
      \begin{center}
        \includegraphics[scale=0.6]{Images/H2-PES}
      \end{center}
+
+#+BEGIN_COMMENT
+|---------+-------------------|
+| R (Ang) | B3LYP Energy (eV) |
+|---------+-------------------|
+|    0.60 |    -31.2805083454 |
+|    0.65 |    -31.6084683599 |
+|    0.70 |    -31.7670982175 |
+|    0.75 |    -31.8034421873 |
+|    0.80 |    -31.7513617995 |
+|    0.85 |    -31.6355793258 |
+|    0.90 |    -31.4743364948 |
+|---------+-------------------|
+#+END_COMMENT
+
+#+BEGIN_SRC python :exports results :results output
+import matplotlib.pyplot as plt
+import numpy as np
+from numpy.polynomial import polynomial as P
+
+HeV = 27.212 # eV/Hartree
+a0 = 0.529177 # Angstrom/bohr
+h = 4.12566e-15 # eV s
+c = 2.998e8 # m/s
+massH = 9.389458e8 # eV / c^2
+
+def quad(x,c):
+    return c[0]+x*(c[1]+x*c[2])
+
+R = [0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9]
+E = HeV * np.array( [-1.149512, -1.16156358812, -1.16739299638, -1.16872858251,  -1.16681470673, -1.16255987527, -1.15663444417])
+
+plt.figure()
+plt.plot(R, E, 'o')
+plt.xlabel('Interatomic distance (Angstrom)')
+plt.ylabel('Potential energy (eV)')
+plt.title('Quantitative H2 PES (B3LYP)')
+
+# Create quadratic fit of points nearest minimum
+xfit = R[1:5]
+yfit = E[1:5]
+coef, stats = P.polyfit(xfit,yfit,2,full=True)
+print(coef)
+# print(stats)
+
+x = np.linspace(R[0],R[6],100)
+y = quad(x,coef)
+
+rmin = -coef[1]/(2.*coef[2])
+rmin_expt=0.742       # Ang
+emin=quad(rmin,coef)     # eV
+
+
+# harmonic frequency
+k = 2*coef[2]            # eV/Ang^2
+muH2 = massH/np.sqrt(2.) # eV / c^2
+nu = (1/(2*np.pi))*np.sqrt(k/muH2)  # c/Ang
+nu = nu * c / 1e-10   # /s
+nutilde = nu/c /100  # /cm
+
+EHB3LYP = -0.4969*HeV
+Edissoc = 2*EHB3LYP-emin
+
+print('------------------------------')
+print('              B3LYP       EXPT  ')
+print('------------------------------')
+print('H-H (Ang) :   {0:5.3f}       {1:5.3f}'.format(rmin,rmin_expt))
+print('E H2 (eV) :  {0:5.2f}                '.format(emin))
+print('2*E H (eV):  {0:5.2f}                '.format(2*EHB3LYP))
+print('              -----                  ')
+print('E Dissoc (eV):{0:5.2f}                '.format(Edissoc))
+print()
+print('nutilde {}'.format(nutilde))
+
+#print('B3LYP H-H: {0:5.3f}'.format(min))
+
+plt.plot(x,y,'-')
+
+plt.savefig('./Images/H2-B3LYP.png')
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+[-20.04869711 -31.48303415  21.07102453]
+------------------------------
+              B3LYP       EXPT  
+------------------------------
+H-H (Ang) :   0.747       0.742
+E H2 (eV) :  -31.81                
+2*E H (eV):  -27.04                
+              -----                  
+E Dissoc (eV): 4.77                
+
+nutilde 4009.7305821124487
+#+end_example
+
+#+ATTR_ORG: :width 600
+#+ATTR_LATEX: :width 0.7\textwidth
+[[./Images/H2-B3LYP.png]]
+
 *** Polyatomic molecules
 1. Gradient-driven optimizations, $3n-6$ degrees of freedom
 2. Hessian matrix for frequencies
-
+3. [[https://cccbdb.nist.gov/][Computational Chemistry Comparison and Benchmark Database]]
+*** Solids
+1. [[https://next-gen.materialsproject.org/][Materials project]]
+2. [[https://oqmd.org/][OQMD]]
 ** COMMENT Lecture 15: Electronic spectroscopy
 *** Electronic spectroscopy probes electron jumps between energy states, or "orbitals"
 1. The electronic structure of each substance is unique, so no general energy expression for electronic transitions
