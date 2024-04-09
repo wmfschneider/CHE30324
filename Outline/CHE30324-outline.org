@@ -2943,12 +2943,13 @@ Eigenvector(s) of state 0 : [Matrix([
 6. Find energy at minimum relative to atoms (or other molecules): reaction energy
 *** H$_2$ example
 1. Choose "B3LYP" model for Coulomb, exchange, and correlation potentials
-2. Compute total energy vs distance
-3. Fit energies to quadratic near minimum
-4. Predict minimum from fit
-5. Extract harmonic force constant \(k\) from second derivative of fit
-6. Compute harmonic frequency from force constant
-7. Compute zero point vibrational energy from frequency, ZPE \(=0.5 h\nu\).
+2. Choose "6-31G(d)" basis set
+3. Compute total energy vs distance
+4. Fit energies to quadratic near minimum
+5. Predict minimum from fit
+6. Extract harmonic force constant \(k\) from second derivative of fit
+7. Compute harmonic frequency from force constant
+8. Compute zero point vibrational energy from frequency, ZPE \(=0.5 h\nu\).
 
 #+BEGIN_COMMENT
 
@@ -3049,13 +3050,13 @@ print('     -----------------------------------')
                        B3LYP       EXPT
      -----------------------------------
      H-H     (Ang):    0.747       0.742
-     nu~    (cm-1):    4010        4401
+     nu~    (cm-1):    4768        4401
 
      E H2     (eV):   -31.81                
-     ZPE H2   (eV):     0.25
+     ZPE H2   (eV):     0.29
      2*E H    (eV):   -27.04                
                        -----                  
-     E Dissoc (eV):     4.52        4.48
+     E Dissoc (eV):     4.47        4.48
      -----------------------------------
 #+end_example
 
