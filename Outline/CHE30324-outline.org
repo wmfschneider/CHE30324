@@ -6,6 +6,7 @@
 #+LATEX_HEADER:\usepackage{geometry}
 #+LATEX_HEADER:\geometry{margin=1.0in}
 #+LATEX_HEADER:\usepackage{outline}
+#+LATEX_HEADER:\usepackage{float}
 #+LATEX_HEADER:\usepackage{amsmath}
 #+LATEX_HEADER:\usepackage{tabu}
 #+LATEX_HEADER:\usepackage{graphicx}
@@ -613,7 +614,7 @@ de Broglie equation & \[\lambda=\dfrac{h}{p}\] \\
     Hermitian operator $\hat{M}$.  {\bf The only observable values of $M$ are the
       eignevalues of $\hat{M}$.}
     \begin{center}
-    \begin{tabular}[h]{ccc}
+    \begin{tabular}[H]{ccc}
       \hline
 {\bf Physical quantity} & {\bf Operator} & {\bf Expression} \\
 \hline
@@ -684,7 +685,7 @@ Total energy $E$ & $\hat{H}$ & $\displaystyle -\frac{\hbar^2}{2m}\nabla^2+V({\bf
    \begin{center}
    \caption{Particle-in-a-box model}
     \label{Particle-in-a-box}
-\begin{tabular}[h]{|c|}
+\begin{tabular}[H]{|c|}
 \hline
  \\
 $\displaystyle       V(x) = \left \{
@@ -846,7 +847,7 @@ for plan in plans:
    \begin{center}
    \caption{Harmonic oscillator model}
     \label{Harmonic-oscillator}
-\begin{tabular}[h]{|c|}
+\begin{tabular}[H]{|c|}
 \hline
  \\
 $\displaystyle       V(x) = \frac{1}{2} k x^2, -\infty < x < \infty $ \\
@@ -1138,11 +1139,11 @@ plt.savefig('./Images/2Drotor.png')
 #+RESULTS:
 
 #+BEGIN_EXPORT latex
-\begin{table}[h]
+\begin{table}[H]
    \begin{center}
    \caption{2-D rigid rotor model}
     \label{Rigid rotor}
-\begin{tabular}[h]{|c|}
+\begin{tabular}[H]{|c|}
 \hline
  \\
 $\displaystyle       V(\phi) = 0, 0 \leq \phi \leq 2\pi $ \\
@@ -1177,11 +1178,11 @@ $\displaystyle \Delta m_l = \pm 1$
 7. Wavefunctions look like atomic orbitals, $l$ nodes
 
 #+BEGIN_EXPORT latex
-\begin{table}[h]
+\begin{table}[H]
    \begin{center}
    \caption{3-D rigid rotor model}
     \label{3-D Rigid rotor}
-\begin{tabular}[h]{|c|}
+\begin{tabular}[H]{|c|}
 \hline
  \\
 $\displaystyle       V(\theta,\phi) = 0, 0 \leq \phi \leq 2\pi, 0 \leq \theta <
@@ -1206,7 +1207,7 @@ $\displaystyle |L| = \hbar \sqrt{l(l+1)}, L_z = m_l \hbar $ \\
 $\displaystyle \Delta l = \pm 1\qquad \Delta m_l = 0, \pm 1 $
 \\
 \end{tabular}
-\begin{tabular}[h]{|ccc|}
+\begin{tabular}[H]{|ccc|}
 \includegraphics[scale=0.4]{./Images/s.png} &
 \includegraphics[scale=0.4]{./Images/p.png} &
 \includegraphics[scale=0.4]{./Images/d.png} \\
@@ -1536,7 +1537,7 @@ fig.show()
 
 
 #+BEGIN_EXPORT latex
-\begin{table}[h]
+\begin{table}[H]
    \begin{center}
    \caption{Hydrogen atom}
     \label{Hydrogen atom}
@@ -1576,7 +1577,7 @@ fig.show()
 
 #+BEGIN_COMMENT
 #+BEGIN_EXPORT latex
-\begin{table}[h]
+\begin{table}[H]
    \begin{center}
    \caption{Hydrogen atom}
     \label{Hydrogen atom}
@@ -3113,6 +3114,7 @@ print('     -----------------------------------')
 ** Lecture 17: Statistical mechanics
 *** Need machinary to average QM information over macroscopic systems
 *** Equal /a priori/ probabilities
+1. Any way to distribute energy amongst elements of a system are as likely as any other
 *** Two-state model
 1. Box of particles, each of which can have energy 0 or $\epsilon$
 2. Thermodynamic state defined by number of elements $N$, and number of quanta $q$, $U=q\epsilon$
@@ -3136,7 +3138,7 @@ Die Energie der Welt ist constant.  Die Entropie der Welt strebt einem Maximum z
 2. Composite system
      \[\Omega(N,q) = \sum_{i\le q} \Omega(N_1,i)\cdot \Omega(N_2,q-i) \]
 3. For large $N$, one term /overwhelmingly/ dominates sum
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :results output
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -3161,6 +3163,7 @@ plt.plot(q1,lomega2,label="System 2")
 composite=lomega1+lomega2
 plt.plot(q1,composite,label="Composite")
 plt.ylabel("Log Omega")
+plt.xlabel("U1")
 plt.legend()
 
 plt.subplot(1,2,2)
@@ -3168,6 +3171,7 @@ lomegamax=np.max(composite)
 plt.plot(q1,np.exp((lomega1+lomega2)-lomegamax),color='green',label="Composite")
 plt.ylim([0,1])
 plt.ylabel("Relative contribution")
+plt.xlabel("U1")
 plt.legend()
 plt.title("N1 = N2 = 100, q = 50")
 
@@ -3188,6 +3192,7 @@ plt.plot(q1,lomega1,label="System 1")
 plt.plot(q1,lomega2,label="System 2")
 composite=lomega1+lomega2
 plt.plot(q1,composite,label="Composite")
+plt.xlabel("U1")
 plt.ylabel("Log Omega")
 plt.legend()
 
@@ -3195,6 +3200,7 @@ plt.subplot(1,2,2)
 lomegamax=np.max(composite)
 plt.plot(q1,np.exp((lomega1+lomega2)-lomegamax),color='green',label="Composite")
 plt.ylim([0,1])
+plt.xlabel("U1")
 plt.ylabel("Relative contribution")
 plt.legend()
 plt.title("N1 = N2 = 100000, q = 50000")
@@ -3205,14 +3211,19 @@ plt.savefig("./Images/2state-100000.png")
 
 #+RESULTS:
 
-#+BEGIN_EXPORT latex
-\begin{table}
-   \caption{Left: Energy distribution in two small, interacting two-state systems.  Right: Energy distribution in two large interacting two-state systems}
-\begin{tabular}{cc}
-\includegraphics[scale=0.5]{Images/2state-100.png} & \includegraphics[scale=0.5]{Images/2state-100000.png}
-\end{tabular}
-\end{table}
-#+END_EXPORT
+#+CAPTION: Energy distibutions in two interacting collections of two-state systems.
+[[./Images/2state-100.png]]
+[[./Images/2state-100000.png]]
+#+RESULTS:
+
+# #+BEGIN_EXPORT latex
+# \begin{table}
+#    \caption{Left: Energy distribution in two small, interacting two-state systems.  Right: Energy distribution in two large interacting two-state systems}
+# \begin{tabular}{cc}
+# \includegraphics[scale=0.5]{Images/2state-100.png} & \includegraphics[scale=0.5]{Images/2state-100000.png}
+# \end{tabular}
+# \end{table}
+# #+END_EXPORT
 
 *** Consequences of energy flow between two large systems
 1. Each subsystem has energy $U_i$ and degeneracy $\Omega_i(U_i)$
@@ -3419,7 +3430,7 @@ plt.savefig('./Images/2state-entropy.png')
   \begin{center}
     \caption{Equations of the Canoncial ($NVT$) Ensemble}
     \label{Canonical}
-    \begin{tabular}[h]{lccc}
+    \begin{tabular}[H]{lccc}
       \hline
 $\beta=1/k_BT$ & {\bf Full Ensemble} & {\bf Distinguishable particles} & {\bf Indistinguishable
 particles} \\
