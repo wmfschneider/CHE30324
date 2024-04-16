@@ -249,7 +249,7 @@ plt.savefig('./Images/MB.png')
    1. Velocity flux $j(v_x) dv_x= v_x \frac{N}{V}P(v_x)dv_x$, molecules /area /time /$v_x$
    2. Wall collisions, $J_w = \int j(v_x) dv_x$, total collisions /area /time
    3. Momentum change with wall collisions ($\Delta$ momentum/area/time):
-      \[ P = \int_0^\infty 2 m v_x j_x(v_x) dv_x = m (N/V) \lange v_x^2 \rangle = N k_B T/V \]
+      \[ P = \int_0^\infty 2 m v_x j_x(v_x) dv_x = m (N/V) \langle v_x^2 \rangle = N k_B T/V \]
 4. Collisions and mean free path
    1. Collision cross section $\sigma=\pi d^2$, area swept by molecule
    2. Molecular collisions per molecule = volume swept * density of targets = $z = \sigma \langle v \rangle (N/V) \sqrt{2}$
@@ -257,16 +257,16 @@ plt.savefig('./Images/MB.png')
    4. Mean free path, $\lambda = \langle v \rangle/z$ , mean distance between collisions
 
 #+CAPTION: \ce{N2} at \SI{298}{K} and \SI{25}{\liter\per\mole}
-|---------------------+---------------------------------------------------------|
-| $\langle v \rangle$ | \SI{475}{\meter\per\second} = \SI{1060}{\mile\per\hour} |
-| $J_W$               | \SI{0.48}{\mole\per\centi\meter\squared\per\second}     |
-| $P$                 | \SI{1}{bar}                                             |
-| $\sigma$            | \SI{0.43}{nm^2}                                         |
-| $z$                 | \SI{7e9}{\per\second}                                   |
-| $Z_{\rm AA}$        | \SI{8e28}{\per\second\per\centi\meter\cubed}            |
-| \lambda             | $\SI{68}{nm} = 183 \sigma$                              |
-| $D_{11}$            | \SI{1.1e-5}{\meter\squared\per\second}                  |
-|---------------------+---------------------------------------------------------|
+|---------------------+----------------------------------------------------------|
+| $\langle v \rangle$ | \SI{475}{\meter\per\second} = \SI{1060}{mph}             |
+| $J_W$               | \SI{0.48}{\mole\per\centi\meter\squared\per\second}      |
+| $P$                 | \SI{1}{bar}                                              |
+| $\sigma$            | \SI{0.43}{nm^2}                                          |
+| $z$                 | \SI{7e9}{\per\second}                                    |
+| $Z_{\rm AA}$        | \SI{8e28}{\per\second\per\centi\meter\cubed}             |
+| \lambda             | $\SI{68}{nm} = 183 \sigma$                               |
+| $D_{11}$            | \SI{1.1e-5}{\meter\squared\per\second}                   |
+|---------------------+----------------------------------------------------------|
 
 #+BEGIN_EXPORT latex
 \begin{table} 
@@ -461,7 +461,7 @@ Standing wave & \(\Psi(x,t) = A \sin(kx)\cos(\omega t), \quad k =n\pi/a\) \\
    2. Photon energy related to frequency: \(\epsilon = h \nu\ = hc/\lambda\)
    3. Light intensity related to number of photons
 *** Special theory of relative (Einstein, 1905)
-1. speed of light /c/ in a vacuum is a constant for all observes, independent of \(\vu\)
+1. speed of light /c/ in a vacuum is a constant for all observes, independent of \(\nu\)
 2. photons carry momentum  $p=h/\lambda$
 3. demonstrated by Compton effect, light scattering off electrons changes $\lambda$
 *** Rutherford, planetary model of atom
@@ -565,7 +565,7 @@ $\displaystyle n=1,2, \ldots $ & $\displaystyle r_n = n^2 \left ( \frac{4 \pi
  & $\displaystyle p_n =\frac{e^2}{4\pi\epsilon_0}\frac{m_e}{\hbar}\frac{1}{n} =
 p_0 \frac{1}{n} $ \\
 & \\
-de Broglie equation & \[\lambda=\dfrac{h}{p}\] \\
+de Broglie equation & $ \displaystyle \lambda=\dfrac{h}{p}$ \\
 \hline
 \end{tabular}
 \end{center}
@@ -1093,7 +1093,7 @@ plt.show()
 4. Angular momentum eignefunctions, $l_z = m_l \hbar$
 5. Energy superpositions and localization 
 
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :output results
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -1219,7 +1219,7 @@ $s\ (l=0) $ & $d\ (l=1)$ & $p\ (l=2)$ \\
 #+END_EXPORT
 
 
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :output results
 import matplotlib.pyplot as plt
 from matplotlib import cm, colors
 from mpl_toolkits.mplot3d import Axes3D
@@ -1390,7 +1390,7 @@ replace. Tab to end.
 10. Integrate out angular components to get radial probability function $P_{nl}(r)=r^2 R_{nl}^2(r)$
     1. $\langle r\rangle = \int r P_{nl}(r) dr = \left(\frac{3}{2}n^2-l(l+1)\right)a_0$
 
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :output results
 import matplotlib.pyplot as plt
 import numpy as np
 from sympy.physics.hydrogen import E_nl
@@ -3249,19 +3249,23 @@ plt.savefig("./Images/2state-100000.png")
 1. Large $N$ and Stirling's approximation
 2. Fundamental thermodynamic equation of two-state system:
         \begin{displaymath}
-          S(U)=-k_B \left ( x \ln x + (1-x) \ln (1-x) \right ), \mathrm{where}\
+          S(U)=k_B\ln \Omega(N,q) = \ldots = -k_B \left ( x \ln x + (1-x) \ln (1-x) \right ), \mathrm{where}\
           x = q/N = U/N\epsilon
         \end{displaymath}
 3. Temperature is derivative of entropy wrt energy, yields
           \begin{displaymath}
-            U(T) = \frac{N\epsilon}{1+e^{\epsilon/k_BT}}
+            \left( \frac{\partial S}{\partial U} \right )_N = T \rightarrow U(T) = \frac{N\epsilon e^{-\epsilon/k_BT}}{1+e^{-\epsilon/k_BT}}
           \end{displaymath}
-4. $T \rightarrow 0, U \rightarrow 0, S \rightarrow 0$, minimum disorder
-5. $T \rightarrow \infty, U \rightarrow N\epsilon/2, S \rightarrow k_B \ln 2$, maximum disorder
+4. $T \rightarrow 0, U \rightarrow 0, S \rightarrow 0$, minimum degeneracy, only 1 possible state
+5. $T \rightarrow \infty, U \rightarrow N\epsilon/2, S \rightarrow k_B \ln 2$, maximum degeneracy, $_N C_{N/2} = 2^N$ possible states
 6. Differentiate again to get heat capacity
+          \begin{displaymath}
+            C_N = \left ( \frac{\partial U}{\partial T} \right )_N = \frac{(\epsilon/k_B T)^2 e^{-\epsilon/k_BT}}{(1+e^{-\epsilon/k_B T})^2}
+          \end{displaymath}
+
 *** Example of microcanonical ("$NVE$") ensemble
 1. Direct evaluation of $S(U)$ is generally intractable, so seek simpler approach
-#+BEGIN_SRC python :exports results 
+#+BEGIN_SRC python :exports results :results output
 import numpy as np
 import matplotlib.pyplot as plt
 
