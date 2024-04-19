@@ -1,4 +1,4 @@
-#+BEGIN_OPTIONS
+#+BEGIN_HEADER
 #+AUTHOR: William F. Schneider
 #+TITLE: CHE 30324 Outline
 #+EMAIL: wschneider@nd.edu
@@ -30,7 +30,7 @@
 #+OPTIONS: toc:2
 #+OPTIONS: H:3 num:3
 #+OPTIONS: ':t
-#+END_OPTIONS
+#+END_HEADER
 
 
 * The Classical Foundations
@@ -3631,7 +3631,7 @@ $q_\mathrm{elec} = \text{spin multiplicity}$
 | electronic    | $\approx 10,000$                   | $\approx 10,000$ | 1           | non-classical   |
 |---------------+------------------------------------+------------------+-------------+-----------------|
 
-#+BEGIN_SRC python :exports results 
+#+BEGIN_SRC python :exports results :results output
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import fsolve
@@ -3819,7 +3819,7 @@ plt.savefig('./Images/ethane-entropy.png')
        \[ \Delta H^\circ(T) = \sum_i \nu_i \Delta H^\circ_{f,i}(T) \]
        \[ \Delta H^\circ(T^\prime) = \Delta H^\circ(T) + \int_T^{T^\prime} \Delta C^\circ_p(T) dT\]
 10. Example: ethane dehydrogenation, \ce{C2H6 -> C2H4 + H2}, 1 bar standard state
-#+BEGIN_SRC python :exports results 
+#+BEGIN_SRC python :exports results :results output
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import fsolve
@@ -4078,7 +4078,7 @@ plt.savefig('./Images/equilibrium.png')
 \end{table}
 #+END_EXPORT
 
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :results output
 # snippet to solve VA to AC equilibrium
 
 import numpy as np
