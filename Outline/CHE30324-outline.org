@@ -3673,7 +3673,7 @@ class Molecule(object):
             return T/self.rot[0]
 
     def qvib(self,T):
-        qvib = 1
+        Qvib = 1
         for mode in self.vib:
             qvib = qvib*(1.-np.exp(-mode/T))**-1
         return qvib
@@ -3794,31 +3794,76 @@ plt.savefig('./Images/ethane-entropy.png')
     \[ \text{A/B} (N_{A},N_{B},V,T) \rightarrow \text{A}(N_{A},x_{A}V,T) + \text{B}(N_{B},x_{B},V,T) \]
 1. Apply ideal gas expressions to all parts and compute a difference!
 2. Internal energy, $\Delta U(T) = 0$ 
-3. Entropy, $\Delta S(T)/(N_A+N_B) = k_B(x_A\ln(\x_A) + x_B \ln(x_B))$
+3. Entropy, $\Delta S(T)/(N_A+N_B) = k_B(x_A\ln(x_A) + x_B \ln(x_B))$
 4. Minimum work of separation, $\Delta A(T) = \Delta U - T\Delta S > 0$
-*** Chemical reaction
-1. General chemical reaction \(\sum_i \nu_i A_i = 0\), \(\nu_i\) stoichiometric coefficients
-2. Thermodynamic change \(\Delta W^\circ(T) = \sum_i \nu_i W^\circ_i(T)\), where \(W = A, U, S, G, \ldots \)
-3. Example: vinyl alcohol to acetaldehyde, \ce{H2C=CH(OH) -> CH3CH(O)}
+5. Entropy favors mixing
+*** Chemical reaction thermodynamics
+1. Transformation that conserves atoms
+2. Example: vinyl alcohol to acetaldehyde, \ce{H2C=CH(OH) -> CH3CH(O)}
+3. Differences between *well defined* initial and final states
+  \[ \ce{H2C=CH(OH)} (\SI{1}{mol},\SI{1}{bar},\SI{298}{K}) \ce{-> CH3CH(O)} (\SI{1}{mol},\SI{1}{bar},\SI{298}{K})  \]
 4. Reaction entropy captures contributions of all degrees of freedom
      \[\Delta S^\circ(T) = \Delta S^\circ_\text{trans}(T)+ \Delta S_\text{rot}(T) +\Delta S_\text{vib}(T)\]
 5. Reaction energy (internal, Helmholtz, ...) must /also/ capture difference
    in \SI{0}{K} electronic energy
     \[\Delta U^\circ(T) = \Delta U^\circ_\text{trans}(T)+ \Delta U_\text{rot}(T) +\Delta U_\text{vib}(T) + \Delta E_\text{elec}(0) + \Delta ZPE\]
-6. "Standard state" derives from concentration dependence of entropy
-7. "Standard state" corresponds to some standard choice, $(N/V)^\circ = c^\circ$, e.g. \SI{1}{mol/l} (T-independent), or $(N/V)^\circ = P^\circ/RT$, e.g. \SI{1}{bar} (T-dependent)
-8. Permits functions to be easily computed at other concentrations, e.g.
+6. "Standard state"
+   1. derives from concentration dependence of entropy
+   2. corresponds to some standard choice, $(N/V)^\circ = c^\circ$, e.g. \SI{1}{mol/l} (T-independent), or $(N/V)^\circ = P^\circ/RT$, e.g. \SI{1}{bar} (T-dependent)
+7. Permits functions to be easily computed at other concentrations, e.g.
      \begin{displaymath}
      A(T,N/V)  = A^\circ(T) + k T \ln\left ( (N/V)/(N/V)^\circ \right ) =A^\circ(T) + k T \ln \left ( c/c^\circ \right )
      \end{displaymath}
-9. Tabulations a common source of standard state /H/ and /S/, eg [[http://webbook.nist.gov]]
-   1. \(S^\circ(T)\) referenced to \SI{0}{K}, because \(S(0) = 0\) (Third law)
-     \[ S^\circ(T^\prime) = S^\circ(T) + \int_T^{T^\prime} \frac{C^\circ_p(T)}{T} dT\]
-   2. Enthalpies of elements in their most stable form at \(T=\SI{298}{K}\), \(P=\SI{1}{bar}\) defined to be zero
-   3. Enthalpies of substances tabulated as /formation enthalpies/ relative to constiuent elements
-       \[ \Delta H^\circ(T) = \sum_i \nu_i \Delta H^\circ_{f,i}(T) \]
-       \[ \Delta H^\circ(T^\prime) = \Delta H^\circ(T) + \int_T^{T^\prime} \Delta C^\circ_p(T) dT\]
-10. Example: ethane dehydrogenation, \ce{C2H6 -> C2H4 + H2}, 1 bar standard state
+*** Chemical equilibrium
+1. Reaction advancement \(\xi\) describes progress from reactants to products
+2. Free energy of a /mixture/ of reactants and products
+    \[G(T,\xi) = \xi  (\Delta G^\circ + k T \sum_i \nu_i \ln P_i/P^\circ) \]
+3. Equilibrium condition---minimize \(G\) with respect to \(\xi\)
+4. Equilibrium condition---equate chemical potentials
+     \begin{eqnarray*}
+    \mu_A(N,V,T) & = & \mu_B(N,V,T) \\
+    E_A(0) - k T \ln (q_A/N_A) & = & E_B(0) - k T \ln (q_B/N_B) \\
+   \frac{N_B}{N_A} =  \frac{N_B/V}{N_A/V} & = &\frac{q_B(T,V)/V}{q_A(T,V)/V} e^{-\Delta U(0)/kT}
+     \end{eqnarray*}
+5. \(q/V = 1/\Lambda^3\) has units of number/volume, or concentration
+6. Equilibrium constant---convert units to some standard concentration \(c^\circ\) or pressure \(P^\circ\)
+    \begin{eqnarray*}
+     q_A^\circ(T) & = & (q_A(T,V)/V) (1/c^\circ) \\
+     q_A^\circ(T) & = & (q_A(T,V)/V)(k_B T/P^\circ) \\ 
+   K_{eq}(T) & = &\frac{q_B^\circ(T)}{q_A^\circ(T)} e^{-\Delta U(0)/kT} = e^{-\Delta G^\circ(T)/kT} 
+    \end{eqnarray*}
+7. ICE/equilibrium calculation for \ce{H2C=CH(OH) -> CH3CH(O)}
+8. Free energy convolutes energy and entropy effects
+   1. \(\Delta H\), \(\Delta S\) weakly \(T\)-dependent
+   2. \(\Delta G = \Delta H - T\Delta S\) can be strongly \(T\)-dependent
+9. Gibbs-Helmholtz relation
+ \[ \left ( \frac{\partial G/T}{\partial T}\right )= -\frac{H}{T^2}\]
+ \[ \left ( \frac{\partial \Delta G^\circ/T}{\partial T}\right )= -\frac{\Delta H^\circ}{T^2}\]
+ \[ \left ( \frac{\partial \ln K(T)}{\partial 1/T}\right )= -\frac{\Delta H^\circ}{R}\]
+10. van't Hoff relationship, when $T$ dependence of \(\Delta H\) is small
+  \[  \ln\left ( \frac{K(T_2)}{K(T_1)}\right )= -\frac{\Delta H^\circ}{R}\left ( \frac{1}{T_2}-\frac{1}{T_1}\right ) \]
+11. Ethane dehydrogenation, \ce{C2H6 -> C2H4 + H2}, 1 bar standard state
+
+#+BEGIN_SRC python :exports results :results output
+# snippet to solve VA to AC equilibrium
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import fsolve
+
+def equil1(y):      # 1 bar
+    return y - K*(1-y)
+
+K = 120
+y0 = 0.99999
+
+xeq = fsolve(equil1,y0)
+
+# print(xeq)
+#+END_SRC
+
+#+RESULTS:
+
 #+BEGIN_SRC python :exports results :results output
 import numpy as np
 import matplotlib.pyplot as plt
@@ -4078,49 +4123,24 @@ plt.savefig('./Images/equilibrium.png')
 \end{table}
 #+END_EXPORT
 
-#+BEGIN_SRC python :exports results :results output
-# snippet to solve VA to AC equilibrium
-
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.optimize import fsolve
-
-def equil1(y):      # 1 bar
-    return y - K*(1-y)
-
-K = 120
-y0 = 0.99999
-
-xeq = fsolve(equil1,y0)
-
-# print(xeq)
-#+END_SRC
-
-#+RESULTS:
-
-*** Chemical equilibrium
-1. At chemical equilbrium, total free energy minimized with respect to reaction advancement \(\xi\)
-    \[G(T,\xi) = \xi  (\Delta G^\circ + k T \sum_i \nu_i \ln P_i/P^\circ) \]
-2. Convolution of energy and entropy effects
-3. Equilibrium condition---equate chemical potentials
-     \begin{eqnarray*}
-    \mu_A(N,V,T) & = & \mu_B(N,V,T) \\
-    E_A(0) - k T \ln (q_A/N_A) & = & E_B(0) - k T \ln (q_B/N_B) \\
-   \frac{N_B}{N_A} =  \frac{N_B/V}{N_A/V} & = &\frac{q_B(T,V)/V}{q_A(T,V)/V} e^{-\Delta E(0)/kT}
-     \end{eqnarray*}
-4. \(q/V = 1/\Lambda^3\) has units of number/volume, or concentration
-5. Equilibrium constant---convert units to some standard concentration \(c^\circ\) or pressure \(P^\circ\)
-    \begin{eqnarray*}
-     q_A^\circ(T) & = & (q_A(T,V)/V) (1/c^\circ) \\
-     q_A^\circ(T) & = & (q_A(T,V)/V)(RT/P^\circ) \\ 
-   K_{eq}(T) & = &\frac{q_B^\circ(T)}{q_A^\circ(T)} e^{-\Delta E(0)/kT} = e^{-\Delta G^\circ(T)/kT} 
-    \end{eqnarray*}
 *** Le'Chatlier's principle
-1. Example: ethane dehydrogenation, \ce{C2H6 -> C2H4 + H2}, endothermic, positive entropy
-2. Equilibrium composition starting from \ce{C2H6}, at constant pressure
+1. Example: \ce{H2C=CH(OH) -> CH3CH(O)}, endothermic
+2. Response to temperature: Boltzmann distribution favors higher energy things as $T$ increases
+3. Example: ethane dehydrogenation, \ce{C2H6 -> C2H4 + H2}, positive entropy
+4. Equilibrium composition starting from \ce{C2H6}, at constant pressure
     \[ K_p(T) = \frac{q_{\ce{C2H4}}^\circ(T) q_{\ce{H2}}^\circ(T)}{q_{\ce{C2H6}}^\circ(T)} e^{-\Delta E(0)/k_BT} =  \frac{P_{\ce{C2H4}}P_{\ce{H2}}}{P_{\ce{C2H6}}}\frac{1}{P^\circ} = \frac{P}{P^\circ}\frac{x^2}{(1-x)(1+x)} \]
-3. Response to temperature: Boltzmann distribution favors higher energy things as $T$ increases
-4. Response to pressure change: translational DOFs increasingly favor side with more molecules as volume increases/pressure decreases
+5. Response to pressure change: translational DOFs increasingly favor side with fewer molecules as volume decreases/pressure increases
+
+*** Thermodynamic tables
+1. General chemical reaction \(\sum_i \nu_i A_i = 0\), \(\nu_i\) stoichiometric coefficients
+2. Thermodynamic change \(\Delta W^\circ(T) = \sum_i \nu_i W^\circ_i(T)\), where \(W = A, U, S, G, \ldots \)
+3. Tabulations a common source of standard state /H/ and /S/, eg [[http://webbook.nist.gov]]
+   1. \(S^\circ(T)\) referenced to \SI{0}{K}, because \(S(0) = 0\) (Third law)
+     \[ S^\circ(T^\prime) = S^\circ(T) + \int_T^{T^\prime} \frac{C^\circ_p(T)}{T} dT\]
+   2. Enthalpies of elements in their most stable form at \(T=\SI{298}{K}\), \(P=\SI{1}{bar}\) defined to be zero
+   3. Enthalpies of substances tabulated as /formation enthalpies/ relative to constiuent elements
+       \[ \Delta H^\circ(T) = \sum_i \nu_i \Delta H^\circ_{f,i}(T) \]
+       \[ \Delta H^\circ(T^\prime) = \Delta H^\circ(T) + \int_T^{T^\prime} \Delta C^\circ_p(T) dT\]
 ** Lecture 21: Chemical kinetics
 *** Kinetics and reaction rates
 1. Rate: number per unit time per unit something
