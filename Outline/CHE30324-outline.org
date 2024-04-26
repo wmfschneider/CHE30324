@@ -481,7 +481,7 @@ Standing wave & \(\Psi(x,t) = A \sin(kx)\cos(\omega t), \quad k =n\pi/a\) \\
 4. Basis of modern electron diffraction to observe structure of materials
 *** Wave-particle duality
 
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :results output
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -708,7 +708,7 @@ $\displaystyle \Delta n = $ odd
 \end{table}
 #+END_EXPORT
 
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :results output
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -745,7 +745,7 @@ plt.savefig('./Images/PIAB.png')
 
 #+RESULTS:
 
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :results output
 import plotly.graph_objects as go
 import numpy as np
 
@@ -876,7 +876,7 @@ $\displaystyle \Delta v = \pm 1$
 \end{table}
 #+END_EXPORT
 
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :results output
 # Stub to solve Schrodinger eq numerically
 import numpy as np
 import matplotlib.pyplot as plt
@@ -916,8 +916,8 @@ def Hmat(mass,V):
     return A
 
 X = np.linspace(-0.01,0.01,100)
-print(X)
-print(np.size(X))
+#print(X)
+#print(np.size(X))
 V = harmonic(k,X)
 #print(V)
 #print(np.size(V))
@@ -1093,7 +1093,7 @@ plt.show()
 4. Angular momentum eignefunctions, $l_z = m_l \hbar$
 5. Energy superpositions and localization 
 
-#+BEGIN_SRC python :exports results :output results
+#+BEGIN_SRC python :exports results :results output
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -1219,7 +1219,7 @@ $s\ (l=0) $ & $d\ (l=1)$ & $p\ (l=2)$ \\
 #+END_EXPORT
 
 
-#+BEGIN_SRC python :exports results :output results
+#+BEGIN_SRC python :exports results :results output
 import matplotlib.pyplot as plt
 from matplotlib import cm, colors
 from mpl_toolkits.mplot3d import Axes3D
@@ -1390,7 +1390,7 @@ replace. Tab to end.
 10. Integrate out angular components to get radial probability function $P_{nl}(r)=r^2 R_{nl}^2(r)$
     1. $\langle r\rangle = \int r P_{nl}(r) dr = \left(\frac{3}{2}n^2-l(l+1)\right)a_0$
 
-#+BEGIN_SRC python :exports results :output results
+#+BEGIN_SRC python :exports results :results output
 import matplotlib.pyplot as plt
 import numpy as np
 from sympy.physics.hydrogen import E_nl
@@ -1451,7 +1451,7 @@ plt.savefig('./Images/H-P.png')
 #+ATTR_LATEX: :width 0.5\textwidth
 [[./Images/H-P.png]] 
 
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :results output
 # 3D images of Hydrogen orbitals
 import plotly.graph_objects as go
 import numpy as np
@@ -2723,7 +2723,7 @@ for line in lines:
 10. Bond order = $\frac{1}{2}(n-n^*)$
 11. Electron-driven bonding in competetition with $1/R$ repulsion between nuclei.
 
-#+BEGIN_SRC python :exports results
+#+BEGIN_SRC python :exports results :results output
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -3812,10 +3812,12 @@ plt.savefig('./Images/ethane-entropy.png')
    2. corresponds to some standard choice, $(N/V)^\circ = c^\circ$, e.g. \SI{1}{mol/l} (T-independent), or $(N/V)^\circ = P^\circ/RT$, e.g. \SI{1}{bar} (T-dependent)
 7. Permits functions to be easily computed at other concentrations, e.g.
      \begin{displaymath}
-     A(T,N/V)  = A^\circ(T) + k T \ln\left ( (N/V)/(N/V)^\circ \right ) =A^\circ(T) + k T \ln \left ( c/c^\circ \right )
+     A(T,N/V)  = A^\circ(T) + k T \ln\left ( (N/V)/(N/V)^\circ \right ) =A^\circ(T) + k T \ln \left ( c/c^\circ \right ) \
+     G(T,P)  = G^\circ(T) + k T \ln\left ( P/P^\circ \right )
      \end{displaymath}
 *** Chemical equilibrium
 1. Reaction advancement \(\xi\) describes progress from reactants to products
+   1. "ICE": \(n_i = n_{i0} -\nu_i \xi \)
 2. Free energy of a /mixture/ of reactants and products
     \[G(T,\xi) = \xi  (\Delta G^\circ + k T \sum_i \nu_i \ln P_i/P^\circ) \]
 3. Equilibrium condition---minimize \(G\) with respect to \(\xi\)
@@ -3842,7 +3844,7 @@ plt.savefig('./Images/ethane-entropy.png')
  \[ \left ( \frac{\partial \ln K(T)}{\partial 1/T}\right )= -\frac{\Delta H^\circ}{R}\]
 10. van't Hoff relationship, when $T$ dependence of \(\Delta H\) is small
   \[  \ln\left ( \frac{K(T_2)}{K(T_1)}\right )= -\frac{\Delta H^\circ}{R}\left ( \frac{1}{T_2}-\frac{1}{T_1}\right ) \]
-11. Ethane dehydrogenation, \ce{C2H6 -> C2H4 + H2}, 1 bar standard state
+11. ICE/equilibrium calculation for ethane dehydrogenation, \ce{C2H6 -> C2H4 + H2}, 1 bar standard state
 
 #+BEGIN_SRC python :exports results :results output
 # snippet to solve VA to AC equilibrium
@@ -4201,7 +4203,7 @@ plt.savefig('./Images/equilibrium.png')
 2. Compare to Arrhenius expression 
    \[E_a = \Delta H^{\circ \ddagger}(T) + kT, A = \frac{k_B T}{h}e^1e^{\Delta S^{\circ \ddagger}(T)/k_B}\]
 
-#+BEGIN_SRC python :exports results 
+#+BEGIN_SRC python :exports results :results output 
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import fsolve
