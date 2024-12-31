@@ -4,7 +4,6 @@
 #+EMAIL: wschneider@nd.edu
 #+LATEX_CLASS_OPTIONS: [11pt]
 #+LATEX_HEADER:\usepackage[left=1in, right=1in, top=1in, bottom=1in, nohead]{geometry}
-#+LATEX_HEADER:\geometry{margin=1.0in}
 #+LATEX_HEADER:\usepackage{amsmath}
 #+LATEX_HEADER:\usepackage{graphicx}
 #+LATEX_HEADER:\usepackage{epstopdf}
@@ -40,11 +39,11 @@
 
 #+BEGIN_EXPORT latex
 \begin{center}
-\textsc{\Large Physical Chemistry for Chemical Engineers (CHE 30324)}\\University of Notre Dame, Spring 2024
+\textsc{\Large Physical Chemistry for Chemical Engineers (CHE 30324)}\\University of Notre Dame, Spring 2025
 \end{center}
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l r}
 \hline
-Prof.\ Bill Schneider & Classroom: 215 DBRT\\
+Prof.\ Bill Schneider & Classroom: 207 DBRT\\
 Office: 370 Nieuwland & Lecture MW 9:00-10:15\\
 \email{wschneider@nd.edu}, phone 574-631-8754 & \http{https://github.com/wmfschneider/CHE30324} \\
 \hline
@@ -52,7 +51,7 @@ Office: 370 Nieuwland & Lecture MW 9:00-10:15\\
 #+END_EXPORT
 
 * Physical Chemistry
-Chemical Engineers describe the macroscopic, material world around us in terms of classical models like Newton’s Laws of motion or the three Laws of Thermodynamics. Yet we know that the world is made up of femtoscopic objects, like atoms and electrons, that obey the very different rules of quantum mechanics. In this course we will learn how to use quantum mechanics to describe atoms, molecules, and their interactions with light, and how to use statistical mechanics to create a bridge between the bizarre quantum mechanical world and the familiar macroscopic one. We will learn how these two can be used to describe the physical properties of gases, liquids, and solids, and how they form the basis for understanding the mechanisms and rates of chemical reactions.
+Chemical Engineers describe the macroscopic, material world around us in terms of classical models like Newtons Laws of motion or the three Laws of Thermodynamics. Yet we know that the world is made up of femtoscopic objects, like atoms and electrons, that obey the very different rules of quantum mechanics. In this course we will learn how to use quantum mechanics to describe atoms, molecules, and their interactions with light, and how to use statistical mechanics to create a bridge between the bizarre quantum mechanical world and the familiar macroscopic one. We will learn how these two can be used to describe the physical properties of gases, liquids, and solids, and how they form the basis for understanding the mechanisms and rates of chemical reactions.
 
 Physical chemistry is the fundamental physical basis of all Chemical Engineering. It is an exciting and lively topic, and much of the material will be new to you. I strongly encourage you to keep up with the reading and homework and to ask questions in class. Don't be bashful: if you don't understand something, chances are some of your classmates (and perhaps even your instructor!) don't either.
 * (Suggested) Text
@@ -72,19 +71,20 @@ The topics will be presented in a series of self-contained lectures. Attendance 
 | Chemical Kinetics                          | Chapters 33-36 |
 |--------------------------------------------+----------------|
 
-* Web
+* Online Resources
 This syllabus, reading assignment, the homework assignments and solutions, a summary of the lecture schedule, and a [[https://github.com/wmfschneider/CHE30324/tree/master/Outline/CHE30324-outline.pdf][detailed course outline]] are available on the web at [[https://github.com/wmfschneider/CHE30324]].  If you want to get your own copy of all this material and understand a bit about how git works, see [[http://rogerdudler.github.io/git-guide/]].  Or just download files directly from the git site. The source files are written using Org Mode ([[https://orgmode.org/]]), but you can read them using a regular text editor if you want to see under the hood.
 
 A course calendar is available on Google at [[https://calendar.google.com/calendar/b/1?cid=NWJwN2pmMjI5bTdoYmFvM2R0cXM2NjYzOThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ][WFS Courses]].
 
 * Homework
-Eleven graded problem sets will be distributed through the course website during the semester and will be due at the beginning of class on dates to be announced.  *Assignments turned in late will automatically lose 20%, and those turned in after the solutions are posted will not be accepted.*  Your two lowest scores on homework will be dropped.  You may discuss the homework with your classmates, but *what you turn in must be your own work.* Homework will in general require some computations. complete your Homework within Python notebooks and will turn in your homework as a hardcopy of that notebook.
+Eleven graded problem sets will be distributed through the course website during the semester at *noon on due dates*.  *Assignments turned in late will automatically lose 20%, and those turned in after the solutions are posted will not be accepted.*  Your two lowest scores on homework will be dropped.  You may discuss the homework with your classmates, but *what you turn in must be your own work.* You will turn in your homework on [[https://www.gradescope.com/courses/933965][Gradescope]].
 
 ** Jupyter/Python
 Homework will be distributed as [[https://jupyter.org/][Jupyter notebooks]] (https://jupyter.org), an open source computing notebook environment that works within a web browser. Jupyter allows one to do among other things, create and execute [[https://www.python.org/][Python]] (https:/www.python.org) programs, which are similar in syntax to Matlab. The easiest way to work within a notebook is through Google's [[https://colab.research.google.com/notebooks/welcome.ipynb][Colaboratory]] (https://colab.research.google.com/notebooks/welcome.ipynb), a web-based platform, integrated with your Google drive, that allows you to create and execute notebooks without installing anything on your computer. Alternatively, you can download Jupyter and Python as one distribution, at [[http://anaconda.com/download]]. 
 
+You are not required to write solutions within a notebook. Clear, hand-written solutions are acceptable and may even teach you the material more effectively.
 ** Good practices
-*Always* start solutions on a piece of paper. If the solution requires some python code, first write down pseudocode before creating in a notebook.
+*Always* start solutions on a piece of paper. If the solution requires some python code, first write down pseudocode before creating in a notebook. 
 
 * Homework Defense
 To help me get to know you and how you are doing with the course, after each homework assignment seven of you will be chosen at random to meet with me to discuss your homework. Defenses will be in my office during office hours.
@@ -93,9 +93,9 @@ To help me get to know you and how you are doing with the course, after each hom
 Grades will be based on homework (25%), three in-class exams (45%), and a cumulative final (30%).
 
 * Academic honesty
-Should go without saying. This class follows the binding Code of Honor
-at Notre Dame.  Any cheating or misrepresenting of work as your own
-will be dealt with according to the policies of the University.  See https://honorcode.nd.edu/.
+Should go without saying. This class follows the binding Code of Honor at Notre Dame.  Any cheating or misrepresenting of work as your own will be dealt with according to the policies of the University.  See https://honorcode.nd.edu/.
+
+Within that policy, you are welcome and even encouraged to take advantage of modern online resources, including artificial intelligence resources like [[https://chatgpt.comm][ChatGPT]] or [[https://gemini.google.com/app][Gemini]], to find information or generate code. Document your usage of these or any resources in whatever you turn in, be aware that they are fallable, and be prepared to take responsibility for and defend whatever you turn in as your work.
 
 * Mental Health
 Care and Wellness Consultants provide
@@ -117,41 +117,42 @@ yourself from class.
 * Office hours
 The TA and instructor are happy to answer questions during regular office hours or by appointment if you need extra help. 
 
-| Dr. Bill Schneider | \email{wschneider@nd.edu} | F 10:30-11:30 | 370 NSH |
-| Marvin Diaz Segura | \email{mdiazseg@nd.edu}   | Su 3:00-4:00  | 366 NSH |
-| Brendan Nieukirk   | \email{bnieukir@nd.edu}   | Th 4:00-4:45  | 356 Fitz |
-| Steven Yeo         | \email{syeo@nd.edu}       | W 1:30-2:00   | 133 Debartolo Hall |
+| Dr. Bill Schneider | \email{wschneider@nd.edu} | F 12:00-1:00 | 370 NSH            |
+| Benjamin Harless   | \email{bharless@nd.edu}   | Th 4:00-4:45 | 356 Fitz           |
+| Steven Yeo         | \email{syeo@nd.edu}       | W 1:30-2:00  | 133 Debartolo Hall |
 
 * Communications
-We will use [[https://che30324-nd.slack.com][Slack]] as a tool for you to communicate questions during Office Hours or any time. Slack allows you to instant message with individuals (including the instructor and TAs), create smaller groups, or share your questions with the whole class. Join our Slack group [[https://join.slack.com/t/che30324-sp24/shared_invite/zt-2apiqg49t-_dJ_jm9AkZ83oHNaEh5cbw][here]]. 
+We will use [[https://che30324-nd.slack.com][Slack]] as a tool for you to communicate questions during Office Hours or any time. Slack allows you to instant message with individuals (including the instructor and TAs), create smaller groups, or share your questions with the whole class. Join our Slack group [[https://join.slack.com/t/che30324-sp25/shared_invite/zt-2wtquo2k3-yejcnDz2gD25RGLteuXuQg][here]]. 
 
 
 #+CAPTION: Tentative Course Calendar
-|---------+----------+---------+-------+----------+--------------+---------------|
-|         | 1/17     | 1/19    |       | 3/18     | 3/20         | 3/22          |
-|         | Welcome! |         | XXXXX | *HW 6*   |              |               |
-|---------+----------+---------+-------+----------+--------------+---------------|
-| 1/22    | 1/24     | 1/26    |       | 3/25     | 3/27         | 3/29          |
-|         |          |         |       | *HW 7*   | *Exam 2*     | *Good Friday* |
-|---------+----------+---------+-------+----------+--------------+---------------|
-| 1/29    | 1/31     | 2/2     |       | 4/1      | 4/3          | 4/5           |
-| *HW 1*  |          |         |       | *Easter* |              |               |
-|---------+----------+---------+-------+----------+--------------+---------------|
-| 2/5     | 2/7      | 2/9     |       | 4/8      | 4/10         | 4/12          |
-| *HW 2*  |          |         |       | *HW 8*   |              |               |
-|---------+----------+---------+-------+----------+--------------+---------------|
-| 2/12    | 2/14     | 2/16    |       | 4/15     | 4/17         | 4/19          |
-| *HW 3*  | *Exam 1* | *JPW*   |       | *HW 9*   | *Exam 3*     |               |
-|---------+----------+---------+-------+----------+--------------+---------------|
-| 2/19    | 2/21     | 2/23    |       | 4/22     | 4/24         | 4/26          |
-|         |          |         |       | *HW 10*  |              |               |
-|---------+----------+---------+-------+----------+--------------+---------------|
-| 2/26    | 2/28     | 3/1     |       | 4/29     | 5/1          | 5/3           |
-| *HW 4*  |          |         |       |          | *Last class* | *HW 11*       |
-|---------+----------+---------+-------+----------+--------------+---------------|
-| 3/4     | 3/6      | 3/8     |       | 5/6      | 5/8          |               |
-| *HW 5*  |          |         |       |          | *Final Exam* |               |
-|---------+----------+---------+-------+----------+--------------+---------------|
-| 3/11    | 3/13     | 3/15    |       |          |              |               |
-| *BREAK* | *BREAK*  | *BREAK* |       |          |              |               |
-|---------+----------+---------+-------+----------+--------------+---------------|
+|----------+---------+---------+-------+-----------------+--------------+---------------|
+| M        | W       | F       |       | M               | W            | F             |
+|----------+---------+---------+-------+-----------------+--------------+---------------|
+| 1/13     | 1/15    | 1/17    |       | 3/17            | 3/19         | 3/21          |
+| Welcome! |         | ---     | XXXXX |                 | *Exam 2*     | ---           |
+|----------+---------+---------+-------+-----------------+--------------+---------------|
+| 1/20     | 1/22    | 1/24    |       | 3/24            | 3/26         | 3/28          |
+| MLK Day  |         | *HW 1*  |       |                 |              | *HW 7*        |
+|----------+---------+---------+-------+-----------------+--------------+---------------|
+| 1/27     | 1/29    | 1/31    |       | 3/31            | 4/2          | 4/4           |
+|          |         | *HW 2*  |       |                 |              | *HW 8*        |
+|----------+---------+---------+-------+-----------------+--------------+---------------|
+| 2/3      | 2/5     | 2/7     |       | 4/7             | 4/9          | 4/11          |
+|          |         | *HW 3*  |       |                 |              | *HW 9*        |
+|----------+---------+---------+-------+-----------------+--------------+---------------|
+| 2/10     | 2/12    | 2/14    |       | 4/14            | 4/16         | 4/18          |
+| *Exam 1* |         | *JPW*   |       | *Exam 3*        |              | *Good Friday* |
+|----------+---------+---------+-------+-----------------+--------------+---------------|
+| 2/17     | 2/19    | 2/21    |       | 4/21            | 4/23         | 4/25          |
+|          |         | *HW 4*  |       | *Easter Monday* |              | *HW 10*       |
+|----------+---------+---------+-------+-----------------+--------------+---------------|
+| 2/24     | 2/26    | 2/28    |       | 4/28            | 4/30         | 5/2           |
+|          |         | *HW 5*  |       |                 | *Last class* | *HW 11*       |
+|----------+---------+---------+-------+-----------------+--------------+---------------|
+| 3/3      | 3/5     | 3/7     |       | 5/5             | 5/7          |               |
+|          |         | *HW 6*  |       |                 | *Final Exam* |               |
+|----------+---------+---------+-------+-----------------+--------------+---------------|
+| 3/10     | 3/12    | 3/14    |       |                 |              |               |
+| *BREAK*  | *BREAK* | *BREAK* |       |                 |              |               |
+|----------+---------+---------+-------+-----------------+--------------+---------------|
