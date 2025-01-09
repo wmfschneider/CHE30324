@@ -1,4 +1,4 @@
-#+BEGIN_OPTIONS
+#+BEGIN_OPTIONS :noexport:
 #+AUTHOR: William F. Schneider
 #+TITLE: CHE 30324 Syllabus
 #+EMAIL: wschneider@nd.edu
@@ -19,7 +19,7 @@
 #+LATEX_HEADER:\renewcommand{\headrulewidth}{0.5pt}
 #+LATEX_HEADER:\renewcommand{\footrulewidth}{0.5pt}
 #+LATEX_HEADER:\lfoot{\today}
-#+LATEX_HEADER:\cfoot{\copyright\ 2024 W.\ F.\ Schneider}
+#+LATEX_HEADER:\cfoot{\copyright\ 2025 W.\ F.\ Schneider}
 #+LATEX_HEADER:\rfoot{\thepage}
 #+LATEX_HEADER:\title{University of Notre Dame\\Physical Chemistry for Chemical Engineers\\(CHE 30324)}
 #+LATEX_HEADER:\author{Prof. William F.\ Schneider}
@@ -77,7 +77,7 @@ This syllabus, reading assignment, the homework assignments and solutions, a sum
 A course calendar is available on Google at [[https://calendar.google.com/calendar/b/1?cid=NWJwN2pmMjI5bTdoYmFvM2R0cXM2NjYzOThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ][WFS Courses]].
 
 * Homework
-Eleven graded problem sets will be distributed through the course website during the semester at *noon on due dates*.  *Assignments turned in late will automatically lose 20%, and those turned in after the solutions are posted will not be accepted.*  Your two lowest scores on homework will be dropped.  You may discuss the homework with your classmates, but *what you turn in must be your own work.* You will turn in your homework on [[https://www.gradescope.com/courses/933965][Gradescope]].
+Eleven graded problem sets will be distributed through the course website during the semester at *noon (12 pm) on due dates*.  *Assignments turned in late will automatically lose 20%, and those turned in after the solutions are posted will not be accepted.*  Your two lowest scores on homework will be dropped.  You may discuss the homework with your classmates, but *what you turn in must be your own work.* You will turn in your homework on [[https://www.gradescope.com/courses/933965][Gradescope]].
 
 ** Jupyter/Python
 Homework will be distributed as [[https://jupyter.org/][Jupyter notebooks]] (https://jupyter.org), an open source computing notebook environment that works within a web browser. Jupyter allows one to do among other things, create and execute [[https://www.python.org/][Python]] (https:/www.python.org) programs, which are similar in syntax to Matlab. The easiest way to work within a notebook is through Google's [[https://colab.research.google.com/notebooks/welcome.ipynb][Colaboratory]] (https://colab.research.google.com/notebooks/welcome.ipynb), a web-based platform, integrated with your Google drive, that allows you to create and execute notebooks without installing anything on your computer. Alternatively, you can download Jupyter and Python as one distribution, at [[http://anaconda.com/download]]. 
@@ -95,7 +95,7 @@ Grades will be based on homework (25%), three in-class exams (45%), and a cumula
 * Academic honesty
 Should go without saying. This class follows the binding Code of Honor at Notre Dame.  Any cheating or misrepresenting of work as your own will be dealt with according to the policies of the University.  See https://honorcode.nd.edu/.
 
-Within that policy, you are welcome and even encouraged to take advantage of modern online resources, including artificial intelligence resources like [[https://chatgpt.comm][ChatGPT]] or [[https://gemini.google.com/app][Gemini]], to find information or generate code. Document your usage of these or any resources in whatever you turn in, be aware that they are fallable, and be prepared to take responsibility for and defend whatever you turn in as your work.
+Within that policy, you are welcome and even encouraged to take advantage of modern online resources, including artificial intelligence resources like [[https://chatgpt.comm][ChatGPT]] or [[https://gemini.google.com/app][Gemini]], to find information or generate code. Document your usage of these or any resources in whatever you turn in, be aware that they are fallible, and be prepared to take responsibility for and defend whatever you turn in as your work.
 
 * Mental Health
 Care and Wellness Consultants provide
@@ -117,11 +117,10 @@ yourself from class.
 * Office hours
 The TA and instructor are happy to answer questions during regular office hours or by appointment if you need extra help. 
 
-| Dr. Bill Schneider | \email{wschneider@nd.edu} | F 12:00-1:00 | 370 NSH            |
-| Benjamin Harless   | \email{bharless@nd.edu}   | Th 4:00-4:45 | 356 Fitz           |
-| Steven Yeo         | \email{syeo@nd.edu}       | W 1:30-2:00  | 133 Debartolo Hall |
-
-* Communications
+| Dr. Bill Schneider | \email{wschneider@nd.edu} | F 12:00-1:00 | 370 NSH |
+| Henry Lee          | \email{slee75@nd.edu}     | W  4:00-5:00 | 366 NSH |
+| Steven Yeo         | \email{syeo@nd.edu}       | Th 4:00-5:00 | 366 NSH |
+| Benjamin Harless   | \email{bharless@nd.edu}   | Tu 4:00-5:00 | 366 NSH |
 We will use [[https://che30324-nd.slack.com][Slack]] as a tool for you to communicate questions during Office Hours or any time. Slack allows you to instant message with individuals (including the instructor and TAs), create smaller groups, or share your questions with the whole class. Join our Slack group [[https://join.slack.com/t/che30324-sp25/shared_invite/zt-2wtquo2k3-yejcnDz2gD25RGLteuXuQg][here]]. 
 
 

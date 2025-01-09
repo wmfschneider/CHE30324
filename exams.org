@@ -1,8 +1,7 @@
-|        |             | Exam                                                                                        | Submission |
-|--------+-------------+---------------------------------------------------------------------------------------------+------------|
-| Exam 1 | 7 Feb 2020  | Solution: [[./Exams/Exam1-Sp20-soln.pdf][pdf]]                                                                               |            |
-| Exam 2 | 4 Mar 2020  | Solution: [[./Exams/Exam2-Sp20-soln.pdf][pdf]]                                                                               |            |
-| Exam 3 | 14 Apr 2020 | [[https://colab.research.google.com/github/wmfschneider/CHE30324/blob/master/Exams/Exam3-Sp20.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] [[http://nbviewer.jupyter.org/github/wmfschneider/CHE30324/blob/master/Exams/Exam3-Sp20.ipynb][./Resources/nbviewer.svg]]     [[./Exams/Exam3-Sp20.pdf][pdf]]   | [[https://www.gradescope.com/courses/88893][Gradescope]] |
-|        | 9 am - 9 pm | Solution:    [[http://nbviewer.jupyter.org/github/wmfschneider/CHE30324/blob/master/Exams/Exam3-Sp20-soln.ipynb][./Resources/nbviewer.svg]]                                                       |            |
-| Final  | 5 May 2020  | [[https://colab.research.google.com/github/wmfschneider/CHE30324/blob/master/Exams/Final-Sp20.ipynb][https://colab.research.google.com/assets/colab-badge.svg]]   [[http://nbviewer.jupyter.org/github/wmfschneider/CHE30324/blob/master/Exams/Final-Sp20.ipynb][./Resources/nbviewer.svg]]     [[./Exams/Final-Sp20.pdf][pdf]] | [[https://www.gradescope.com/courses/88893][Gradescope]] |
-|--------+-------------+---------------------------------------------------------------------------------------------+------------|
+|        |             | Exam |
+|--------+-------------+------|
+| Exam 1 | 10 Feb 2025 |      |
+| Exam 2 | 19 Mar 2025 |      |
+| Exam 3 | 14 Apr 2025 |      |
+| Final  | 7 May 2025  |      |
+|--------+-------------+------|
