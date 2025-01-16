@@ -14,7 +14,7 @@ Course calendar available [here](https://calendar.google.com/calendar/b/1?cid=NW
 
 Exams [here](./exams.org)
 
-Join our [Slack group](https://join.slack.com/t/che30324-sp24/shared_invite/zt-2apiqg49t-_dJ_jm9AkZ83oHNaEh5cbw)
+Join our [Slack group](https://join.slack.com/t/che30324-sp25/shared_invite/zt-2wtquo2k3-yejcnDz2gD25RGLteuXuQg)
 
 How to succeed in Physical Chemistry [here](./how_to_succeed.org)
 
