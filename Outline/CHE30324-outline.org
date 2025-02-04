@@ -403,11 +403,27 @@ plt.savefig('./Images/diffusion.png')
 
 * Quantum Mechanics: Blurred Lines Between Particles and Waves
 ** Lecture 4: Duality and demise of classical physics
+*** Heat capacities of solids
+1. Heat energy stored in vibrations of atoms
+   1. Hooke's Law in one dimension \(F=-kx\), \(V(x)=kx^2/2\), \(k =\) force constant
+   2. Behave like harmonic oscillators
+      1. Characteristic frequency \(\omega = \sqrt{\frac{k}{m}}\),  \(\nu =\omega/2\pi\)
+      2. Position and speed:
+\[ x(t) = A \sin \omega t,\ \dot{x}(t)= A \omega \cos \omega t \]
+      3. Average energy in one dimension at temperature $T$:
+\[ \langle E \rangle = \langle \frac{1}{2} m \dot{x}^2 \rangle + \langle \frac{1}{2}kx^2 \rangle = \frac{1}{2}RT+\frac{1}{2}RT =RT \]
+   1. Law of DuLong and Pettite, $C_v = 3R$, fails at low $T$
+   2. Einstein model
+      1. Energy of atomic vibrations $\nu$ are /quantized/, $\epsilon_\nu=nh\nu$, $n = 0,1,2, \ldots$
+      2. Expected energy of vibration
+         \[\langle E \rangle_\nu = \sum_{n=0}^\infty nh\nu e^{-nh\nu/k_BT} = h\nu/\left (
+          e^{h\nu/k_BT}-1 \right )\]
+      4. Heat capacity = derivative of energy wrt temperature goes to zero at low $T$
 *** Properties of waves
-1. Characterized by frequency, wavelength, amplitude, \ldots
-2. Traveling waves, standing waves
-3. Interference, diffraction
-4. Characteristic of light, among other thing
+1. Characteristic of light, among other thing
+2. Characterized by frequency, wavelength, amplitude, \ldots
+3. Traveling waves, standing waves
+4. Interference, diffraction
 5. Expected energy of a classical wave, $\langle \epsilon \rangle _\nu = k_B T$ for all $\nu$
 
 #+BEGIN_EXPORT latex
@@ -419,9 +435,11 @@ plt.savefig('./Images/diffusion.png')
 The free wave equation & $\displaystyle \frac{ \partial^2 \Psi(x,t)}{\partial x^2} = \frac{1}{v^2}\frac{\partial^2 \Psi(x,t)}{\partial t^2}$ \\
 \\
 General solution & \(\Psi(x,t) = A \sin(kx -\omega t)\) \\
+Wavenumber (1/distance) & \(k\) \\
+Angular frequency (1/time) & \(\omega\) \\
 Wavelength (distance) & \( \lambda = 2\pi/k \) \\
 Frequency (/time) & \( \nu =\omega/2\pi \) \\
-Speed & \( v= \lambda \nu \) \\
+Speed (distance/time) & \( v= \lambda \nu \) \\
 Amplitude (distance) & \(A\) \\
 Energy & \( E \propto A^2 \) \\
 Standing wave & \(\Psi(x,t) = A \sin(kx)\cos(\omega t), \quad k =n\pi/a\) \\
@@ -432,11 +450,11 @@ Standing wave & \(\Psi(x,t) = A \sin(kx)\cos(\omega t), \quad k =n\pi/a\) \\
 #+END_EXPORT
 
 *** Blackbody radiation - light emitted by all bodies due to their temperature
-1. Blackbody/Hohlraum spectrum (like the sun)
+1. Blackbody/Hohlraum spectrum (like the sun), box filled with light energy
    1. Stefan-Boltzmann law, total irradiance \(I(\lambda,T)\)
    2. Wien's displacement law, $\lambda_\mathrm{text}T = \mathrm{constant}$
-2. Rayleigh-Jeans predicts spectrum using classical physics
-   1. standing waves + classical wave energy \(\rightarrow\) ultraviolet catastrophe
+2. Rayleigh-Jeans predicts \(I(\lambda,T)\) using classical physics
+   1. standing waves + classical wave energy \(\rightarrow\) "ultraviolet catastrophe"
    2.   \(I(\lambda, T) = (8\pi/\lambda^4) \cdot k_B T \cdot c \)
 3. Planck model, 1900
    1. Energy spectrum of waves are /quantized/, $\epsilon_\nu=nh\nu$, $n = 0,1,2, \ldots$
@@ -446,12 +464,6 @@ Standing wave & \(\Psi(x,t) = A \sin(kx)\cos(\omega t), \quad k =n\pi/a\) \\
    3. Intensity:
       \[I(\lambda, T) = \frac{8\pi}{\lambda^4} \cdot \langle\epsilon \rangle_\nu \cdot c \]
    4. Correctly reproduces Stefan-Boltzmann and Wien Laws!
-*** Heat capacities of solids
-1. Law of DuLong and Pettite, $C_v = 3R$, fails at low $T$
-2. Einstein model
-   1. Energy of atomic vibrations $\nu$ are /quantized/, $\epsilon_\nu=nh\nu$, $n = 0,1,2, \ldots$
-   2. Expected energy of vibration exactly same as Planck's quantized waves
-   3. Heat capacity = derivative of energy wrt temperature goes to zero at low $T$
 *** Photoelectric effect - electrons emitted when light shined on a metal
 1. Energy of most weakly bound electrons to a material defined as work function, $W$
 2. Shine light on metal, observe kinetic energy of electrons $E_\text{kinetic}=h\nu -W$
