@@ -24,5 +24,7 @@ Introduction to Jupyter notebooks [here](https://jupyter.org)
 
 Tutorial on Python at [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/wmfschneider/CHE30324/blob/master/Resources/Python_Tutorial.ipynb) and [![Open in Viewer](./Resources/nbviewer.svg)](https://nbviewer.jupyter.org/github/wmfschneider/CHE30324/blob/master/Resources/Python_Tutorial.ipynb)
 
+Excellent [math review](https://www3.nd.edu/~dtl/transportmath/transportmath.html)
+
 Git cheat sheet [here](https://training.github.com/downloads/github-git-cheat-sheet.pdf)
 
