@@ -538,12 +538,16 @@ plt.savefig('./Images/Planck.png')
 
 #+RESULTS:
 
-#+CAPTION: Blackbody irradiance
-#+ATTR_LATEX: :width 0.5\textwidth
-[[./Images/BlackBody.png]]
-#+CAPTION: Average energy of a Planck quantized oscillator
-#+ATTR_LATEX: :width 0.5\textwidth
-[[./Images/Planck.png]]
+#+BEGIN_EXPORT LaTeX
+\begin{table}
+\caption{(left) Blackbody irradiance. (right) Average energy of a Planck quantized oscillator}
+\begin{tabular}{cc}
+\includegraphics[scale=0.52]{./Images/BlackBody.png} &
+\includegraphics[scale=0.52]{./Images/Planck.png} 
+\end{tabular}
+\end{table}
+#+END_EXPORT
+
 
 #+BEGIN_EXPORT latex
 \begin{table} 
@@ -670,7 +674,7 @@ Total energy $E$ & $\hat{H}$ & $\displaystyle -\frac{\hbar^2}{2m}\nabla^2+V({\bf
 *** Particle between infinite walls, electron confined in a wire
 1. Classical solution, either stationary or uniform bouncing back and forth
 *** One-dimesional QM solutions
-1. Schr\ouml{}dinder equation and boundary conditions
+1. Schr\ouml{}dinder equation and boundary conditions (Table 9)
 2. discrete, quantized solutions
 3. standing waves, $\lambda=2 L/n$, $n-1$ nodes, non-uniform probability
 4. [[http://dx.doi.org/10.1021/jp053496l][Ho paper]], STM of Pd wire
@@ -707,10 +711,11 @@ $\displaystyle       V(x) = \left \{
         \end{array} \right . $ \\
  \\
 $\displaystyle     \psi_n(x) =\sqrt{\frac{2}{L}} \sin \left ( \frac{n\pi x}{L} \right )$
-\\ 
- \\
+\\ \\
+$\displaystyle \lambda_n = \frac{2 L}{n}$
+ \\ \\
 $\displaystyle     E_n =\frac{n^2\pi^2\hbar^2}{2mL^2}, n = 1, 2, ...$ \\
-\\ \underline{Absorption Selection Rule} \\
+\\ \underline{Dipole Selection Rule} \\
 $\displaystyle \Delta n = $ odd 
 \\
      \includegraphics[scale=.5]{Images/PIAB.png} \\       
