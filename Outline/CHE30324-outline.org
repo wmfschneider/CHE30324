@@ -1257,7 +1257,8 @@ m, l = 0, 0
 # Calculate the spherical harmonic Y(l,m) and normalize to [0,1]
 fcolors = sph_harm(m, l, theta, phi).real
 fmax, fmin = fcolors.max(), fcolors.min()
-fcolors = (fcolors - fmin)/(fmax - fmin)
+#print(fmin,fmax)
+#kfcolors = (fcolors - fmin)/(fmax - fmin)
 
 # Set the aspect ratio to 1 so our sphere looks spherical
 sfig = plt.figure(figsize=plt.figaspect(1.))
@@ -1303,8 +1304,6 @@ plt.savefig('./Images/d.png')
 #+END_SRC
 
 #+RESULTS:
-:RESULTS:
-:END:
 
 #+BEGIN_COMMENT
 #+BEGIN_EXPORT LaTeX
