@@ -1644,7 +1644,7 @@ $\displaystyle \Delta l = \pm 1, \qquad  \Delta m_l = 0, \pm 1\qquad \Delta m_s=
 #+END_COMMENT
 
 ** Lecture 12: Many-electron atoms
-*** Many-electron problem, Schr\ouml{}dinger equation not exactly solvable (Sad!)
+*** Many-electron problem, Schr\ouml{}dinger equation not solvable in closed form (Sad!)
 1. $e^- -e^-$ interaction terms prevent separation of variables
 2. /Independent electron/ model basis of all solutions, describes each electron (pair) by its own wavefunction, or "orbital," $\psi_i$
 \[ \left \{ -\frac{\hbar^2}{2m_e}\nabla^2 - \frac{Z}{r} + v_\text{ee} \right \}\psi_i = \epsilon_i \psi_i \]
@@ -1672,41 +1672,58 @@ $\displaystyle \Delta l = \pm 1, \qquad  \Delta m_l = 0, \pm 1\qquad \Delta m_s=
 #+ATTR_LATEX: :width 0.7\textwidth
 [[./Images/PeriodicTableMuted.png]]
 *** Quantitative solutions
-1. Schr\ouml{}dinger equation
-     \[\hat H \Psi({\bf r}_1, {\bf r}_2,...)=E \Psi({\bf r}_1, {\bf r}_2,...)\]
-     \[\hat H = \sum_i \hat h_i + \frac{e^2}{4 \pi
-          \epsilon_0}\sum_i\sum_{j>i}\frac{1}{|{\bf r}_i-{\bf r}_j|}\]
-     \[\hat h_i = -\frac{\hbar^2}{2m_e}\nabla^2_i-\frac{Z
-          e^2}{4\pi\epsilon_0}\frac{1}{|{\bf r}_i|}\]
-2. Construct candidate many-electron wavefunction $\Psi$ from one
-      electron wavefunctions (mathematical details vary with exact approach)
-     \[\Psi({\bf r}_1, {\bf r}_2,...)\approx \psi_1({\bf
-            r}_1)\psi_2({\bf r}_2)...\psi_n({\bf r}_n)\]
-3. Calculate expectation value of $E$ of approximate model and apply
-       /variational principle/ to find equations that describe "best" (lowest
-	total energy) set of $\psi_i$
-	\[\frac{\partial E}{\partial \psi_i}=0 \ \ \ \forall i\]
-	\[\hat f\psi=\left\{\hat h + \hat v_\mathrm{Coul}[\psi_i] + \hat
-            v_\mathrm{ex}[\psi_i]+\hat v_\mathrm{corr}[\psi_i] \right\}\psi=\epsilon\psi\]
-	\[E=\sum_i \epsilon_i-\frac{1}{2}\langle \Psi |\hat v_\mathrm{Coul}[\psi_i] + \hat
-            v_\mathrm{ex}[\psi_i]+\hat v_\mathrm{corr}[\psi_i]|\Psi \rangle\]
-4. Motivate as equation for an electron moving in a "field" of
-          other electrons, adding an electron to a known set of $\psi_i$
-*** Electron-electron interactions
-   1. Coulomb ($\hat v_\mathrm{Coul}$): classical repulsion between distinguishable electron "clouds"
-   2. Exchange ($\hat v_\mathrm{ex}$): accounts for electron indistinguishability (Pauli principle for fermions).  Decreases Coulomb repulsion because electrons of like spin intrinsically avoid one another
-   3. Correlation ($\hat v_\mathrm{corr}$): decrease in Coulomb repulsion due to dynamic ability of electrons to avoid one another; "fixes" orbital approximation
+1. Schr\ouml{}dinger equation for atom with nuclear charge $Z$:
+      \[\hat H \Psi({\bf r}_1, {\bf r}_2,...)=E \Psi({\bf r}_1, {\bf r}_2,...)\]
+      \[\hat H = \sum_i \hat h_i + \frac{e^2}{4 \pi
+           \epsilon_0}\sum_i\sum_{j>i}\frac{1}{|{\bf r}_i-{\bf r}_j|}\]
+      \[\hat h_i = -\frac{\hbar^2}{2m_e}\nabla^2_i-\frac{Z
+           e^2}{4\pi\epsilon_0}\frac{1}{|{\bf r}_i|}\]
+2. Electron-electron repulsion terms $1/| {\bf r_i} - {\bf r_j} |$ are problematic
+3. Many approaches, most popular and powerful based on electron density $\rho$
+   \[\rho({\bf r})_1 = \int \cdot \int |\Psi({\bf r}_1, {\bf r}_2,\ldots)|^2 d{\bf r}_2 \cdots d{\bf r}_n\]
+4. Kohn (1960's) shows that one-electron wavefunctions \(\psi_i \) can be rigorously reintroduced
+    \[ \rho({\bf r}) = \sum_i n_i \psi_i^2({\bf r})\]
+5. Expression for \(\psi_i \) becomes:
+   \[ \left \{ -\frac{\hbar^2}{2m_e}\nabla^2 - \frac{Z}{r} + v_\text{ee}(\rho({\bf r})) \right \}\psi_i = \epsilon_i \psi_i \]
+6. Basis of /density functional theory/
+   1. Name derives from fact that \(v_\text{ee}\) is a function of the /function/ \(\rho\)
+   2. Solutions include one-electron \(psi_i\) and \(\epsilon_i\), total energy \(E\), and of course \(\rho\)! 
+# 2. Construct candidate many-electron wavefunction $\Psi$ from one
+#       electron wavefunctions (mathematical details vary with exact approach)
+#      \[\Psi({\bf r}_1, {\bf r}_2,...)\approx \psi_1({\bf
+#             r}_1)\psi_2({\bf r}_2)...\psi_n({\bf r}_n)\]
+# 3. Calculate expectation value of $E$ of approximate model and apply
+#        /variational principle/ to find equations that describe "best" (lowest
+# 	total energy) set of $\psi_i$
+# 	\[\frac{\partial E}{\partial \psi_i}=0 \ \ \ \forall i\]
+# 	\[\hat f\psi=\left\{\hat h + \hat v_\mathrm{Coul}[\psi_i] + \hat
+#             v_\mathrm{ex}[\psi_i]+\hat v_\mathrm{corr}[\psi_i] \right\}\psi=\epsilon\psi\]
+# 	\[E=\sum_i \epsilon_i-\frac{1}{2}\langle \Psi |\hat v_\mathrm{Coul}[\psi_i] + \hat
+#             v_\mathrm{ex}[\psi_i]+\hat v_\mathrm{corr}[\psi_i]|\Psi \rangle\]
+# 4. Motivate as equation for an electron moving in a "field" of
+#           other electrons, adding an electron to a known set of $\psi_i$
+*** Electron-electron interaction potential \(v_\text{ee}\) contributions
+   1. Coulomb ($\hat v_\mathrm{Coul}(\rho)$): classical repulsion between distinguishable electron "clouds"
+   2. Exchange ($\hat v_\mathrm{ex}(\rho)$): accounts for electron indistinguishability (Pauli principle for fermions).  Decreases Coulomb repulsion because electrons of like spin intrinsically avoid one another
+   3. Correlation ($\hat v_\mathrm{corr}(\rho)$): decrease in Coulomb repulsion due to dynamic ability of electrons to avoid one another; "fixes" orbital approximation
    4. General form of exchange potential is expensive to calculate; general form of correlation potential is unknown
 *** Popular models
 1. /Hartree model/: Include only classical Coulomb repulsion $\hat v_\mathrm{Coul}$
 2. /Hartree-Fock model/: Include Coulomb and exchange
-3. /Density-functional theory/ (DFT): Include Coulomb and
-	approximate expressions for exchange and correlation         
-*** Numerical solution 
-1. All potential terms $\hat v$ depend on the solutions, so  equations must be solved /iteratively/ to /self-consistency/
-2. Solved numerically on a grid or by expanding solutions in a basis set
+3. Modern (DFT): Include Coulomb and approximations to exchange and correlation         
+*** Self-consistent field
+1. All potential terms $\hat v$ depend on \(\rho\), which is unknown /a priori/, so  equations must be solved /iteratively/ to /self-consistency/
+   1. Guess \(\rho\)
+   2. Construct \(v_\text{ee}\)
+   3. Set up and solve DFT equation for \(\psi_i\)
+   4. Get new \(\rho\) from \(\psi_i\)
+   5. Compute \(|\rho_\text{new} - \rho_\text{old}| \)
+      1. If less than tolerance, done!
+      2. If not, return to step 2
+2. Solved on a grid or by expanding \(\psi_i\) in a basis
 *** DFT calculations on atoms
-1. See [[../Resources/fda/00README.txt][README]] at [[../Resources/fda]]
+1. Original [[https://doi.org/10.1017/S0305004100011919][Hartree paper]]
+2. See [[../Resources/fda/00README.txt][README]] at [[../Resources/fda]]
 
 #+BEGIN_SRC python :exports results :results output
 import matplotlib.pyplot as plt
