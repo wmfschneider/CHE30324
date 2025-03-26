@@ -22,7 +22,7 @@
 #+LATEX_HEADER:\renewcommand{\headrulewidth}{0.5pt}
 #+LATEX_HEADER:\renewcommand{\footrulewidth}{0.5pt}
 #+LATEX_HEADER:\lfoot{\today}
-#+LATEX_HEADER:\cfoot{\copyright\ 2024 W.\ F.\ Schneider}
+#+LATEX_HEADER:\cfoot{\copyright\ 2025 W.\ F.\ Schneider}
 #+LATEX_HEADER:\rfoot{\thepage}
 #+LATEX_HEADER:\lhead{\em{Physical Chemistry for Chemical Engineers}}
 #+LATEX_HEADER:\rhead{ND CHE 30324}
@@ -2858,8 +2858,7 @@ plt.savefig('./Images/Morse.png')
 	\end{displaymath}
    3. (Often) set differential overlap $S_{ij}=0$
 
-*** The H\uuml{}ckel/#+title: 
-ght binding model: [[http://resolver.caltech.edu/CaltechBOOK:1961.001][Roberts, Notes on Molecular Orbital Theory]]
+*** The H\uuml{}ckel/tight binding model: [[http://resolver.caltech.edu/CaltechBOOK:1961.001][Roberts, Notes on Molecular Orbital Theory]]
 1. $F_{ii}=\alpha, S_{ij}=\delta_{ij}, F_{ij}=\beta$ iff $i$ adjacent to $j$
 2. Ethylene example
 3. Butadiene example
