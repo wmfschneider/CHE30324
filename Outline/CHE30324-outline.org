@@ -2785,30 +2785,12 @@ plt.savefig('./Images/Morse.png')
 #+ATTR_LATEX: :width 0.5\textwidth
 [[./Images/Morse.png]]
 
-*** Heteronuclear diatomic: LiH, HF, BH example
-1. Only AOs of appropriate symmetry, overlap, and energy match can combine to form MOs
-      \begin{eqnarray*}
-	\epsilon_+\approx \alpha_1- \beta S  - \beta^2/|\alpha_1-\alpha_2| \\
-	\epsilon_-\approx \alpha_2 - \beta S + \beta^2/|\alpha_1-\alpha_2|
-      \end{eqnarray*}
-2. LiH: H 1s + Li 2s, bond polarized towards H
-3. HF: H 1s + F 2p, bond polarized towards F, lots of non-bonding orbitals
-4. BH: H 1s, B 2s and 2p$_z \rightarrow$ bonding, non-bonding, anti-bonding orbitals
-*** Homonuclear diatomic: O$_2$
-1. Assign aos, 1s, 2s, 2p for each atom (10 total)
-2. In principle, solve $10\times 10$ secular matrix
-3. In practice, matrix elements rules mean only a few off-diagonal elements survive
-   1. 1s + 1s do nothing
-   2. 2s + 2s form $\sigma$ bond and anti-bond
-   3. 2p$_z$ + 2p$_z$ form second bond and anti-bond
-   4. 2p$_{x,y}$ + 2p$_{x,y}$ form degenerate $\pi$ bonds and anti-bonds
-   5. O$_2$ is a triplet, consistent with experiment!
-*** COMMENT Secular equations
-1. Expand wavefunctions ("molecular orbitals") in "basis" of atomic-like orbitals
+*** Math to construct molecular orbitals
+1. Express wavefunctions ("molecular orbitals") as linear combination of atomic-like orbitals
 	\begin{equation}
           \psi_\mathrm{MO}=\sum_a c_a\phi_a({\bf r})
 	\end{equation}
-2. Problem reduces to finding set of $c_a$ that give best wavefunctions (MOs)
+2. Find set of $c_a$ that give best wavefunctions (MOs)
 3. Substituting into Schr\ouml{}dinger equation and integrating yields set of linear equations for the $c_a$ for each MO
 	\begin{displaymath}
           \left ( \begin{array}{ccc}
@@ -2825,7 +2807,6 @@ plt.savefig('./Images/Morse.png')
    1. $F_{ij} = F_{ji} = \langle \phi_i | \hat f | \phi_j \rangle$ are
 	``matrix elements''
    2. $S_{ij} = S_{ji} = \langle \phi_i | \phi_j \rangle$ are overlaps
-   3. Typically basis functions normalized such that $S_{ii} = 1$
    4. $\epsilon$ are molecular orbital energies (to be solved for, as many as there are equations)
 4. From linear algebra, only possible solutions are those that make the determinant vanish
 	\begin{displaymath}
@@ -2836,7 +2817,7 @@ plt.savefig('./Images/Morse.png')
           \end{array} \right | = 0
       \end{displaymath}
 5. Solve for \(\epsilon\)s and back-substitute to find correspond \(c_i\)s
-*** COMMENT H$_2$ example, again
+*** H$_2$ example, again
 1. Set-up and solve secular matrix
       \begin{displaymath}
        \left | \begin{array}{cc}
@@ -2848,7 +2829,7 @@ plt.savefig('./Images/Morse.png')
 	\epsilon_+=\frac{\alpha+\beta}{1+S},\ \ c_1=c_2=\frac{1}{\sqrt{2(1+S)}} \\
 	\epsilon_-=\frac{\alpha-\beta}{1-S},\ \ c_1=-c_2=\frac{1}{\sqrt{2(1-S)}} \\
       \end{eqnarray*}
-*** COMMENT Qualitative solutions of secular equations
+*** Qualitative solutions of secular equations
 1. Lot's of insight into chemical bonding can be obtained from approximate solutions to secular equations, basis of "molecular orbital theory"
 2. Two general assumptions
    1. Diagonal matrix elements are approximately equal to energies of corresponding atomic orbitals: $F_{ii} \approx \epsilon_{i,\mathrm{ao}}$
@@ -2856,9 +2837,29 @@ plt.savefig('./Images/Morse.png')
 	\begin{displaymath}
           F_{ij} \propto \frac{S_{ij}}{\epsilon_{i,\mathrm{ao}}-\epsilon_{j,\mathrm{ao}}}
 	\end{displaymath}
-   3. (Often) set differential overlap $S_{ij}=0$
 
-*** The H\uuml{}ckel/tight binding model: [[http://resolver.caltech.edu/CaltechBOOK:1961.001][Roberts, Notes on Molecular Orbital Theory]]
+*** Heteronuclear diatomic: LiH, HF, BH example
+1. Only AOs of appropriate symmetry, overlap, and energy match can combine to form MOs
+      \begin{eqnarray*}
+	\epsilon_+\approx \alpha_1- \beta S  - \beta^2/|\alpha_1-\alpha_2| \\
+	\epsilon_-\approx \alpha_2 - \beta S + \beta^2/|\alpha_1-\alpha_2|
+      \end{eqnarray*}
+2. LiH: H 1s + Li 2s, $\sigma$ bond polarized towards H
+   1. So much so, that LiH forms an ionic solid
+3. BH: H 1s and Li 2p$_z, $\sigma$ bond polarized towards H
+   1. "hybridize" Li 2s and Li 2p to get /three/ H 1s + Li sp$^2$ bonds, yields trigonal \ce{BH3}
+4. CH: same ideas lead to tetrahedral \ce{CH4}, gas
+5. HF: H 1s + F 2p, bond polarized towards F, lots of non-bonding orbitals
+*** Homonuclear diatomic: O$_2$
+1. Assign aos, 1s, 2s, 2p for each atom (10 total)
+2. In principle, solve $10\times 10$ secular matrix
+3. In practice, matrix elements rules mean only a few off-diagonal elements survive
+   1. 1s + 1s do nothing
+   2. 2s + 2s form $\sigma$ bond and anti-bond
+   3. 2p$_z$ + 2p$_z$ form second bond and anti-bond
+   4. 2p$_{x,y}$ + 2p$_{x,y}$ form degenerate $\pi$ bonds and anti-bonds
+   5. O$_2$ is a triplet, consistent with experiment!
+*** COMMENT The H\uuml{}ckel/tight binding model: [[http://resolver.caltech.edu/CaltechBOOK:1961.001][Roberts, Notes on Molecular Orbital Theory]]
 1. $F_{ii}=\alpha, S_{ij}=\delta_{ij}, F_{ij}=\beta$ iff $i$ adjacent to $j$
 2. Ethylene example
 3. Butadiene example
@@ -2938,6 +2939,12 @@ Eigenvector(s) of state 0 : [Matrix([
 #+ATTR_LATEX: :width 0.8\textwidth
 [[./Images/CyclicH.pdf]]
 
+*** Non-bonding interactions
+1. Chemical covalent bonds have energies on the order of several eV
+2. Even things that are not "bonded" still attract one another
+   1. permanent dipoles (~0.1 eV)
+   2. induced dipoles (dispersion)---scales with number of electrons
+3. Results in physical properties, eg trends in boiling point (He < Ne < Kr < Xe; \ce{CH4} < \ce{C2H6} < \ce{C3H8} )
 *** Band structure of solids  
 1. Discrete molecular orbitals transform into continuous bands
 2. Results in rich range of physical and chemical properties
@@ -2945,12 +2952,6 @@ Eigenvector(s) of state 0 : [Matrix([
 #+ATTR_LATEX: :width 0.9\textwidth
 [[./Images/band.pdf]]
 
-*** Non-bonding interactions
-1. Chemical covalent bonds have energies on the order of several eV
-2. Even things that are not "bonded" still attract one another
-   1. permanent dipoles (~0.1 eV)
-   2. induced dipoles (dispersion)---scales with number of electrons
-3. Results in physical properties, eg trends in boiling point (He < Ne < Kr < Xe; \ce{CH4} < \ce{C2H6} < \ce{C3H8} )
 ** Lecture 14: Quantitative Models of Bonding
 *** Numerical Schr\ouml{}dinger equation solvers for discrete (molecule) and periodic (solids/liquids/interfaces) readily available today
 *** Have to specify:
